@@ -18,7 +18,11 @@ export default {
             }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            {
+                rel: 'icon',
+                type: 'image/x-icon',
+                href: '~/assets/brand/favicon.ico'
+            },
             {
                 rel: 'stylesheet',
                 href:
@@ -33,7 +37,7 @@ export default {
     /*
      ** Global CSS
      */
-    css: [{ src: '@/assets/scss/main.scss', lang: 'scss' }],
+    css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     /*
      ** Plugins to load before mounting the App
      */
