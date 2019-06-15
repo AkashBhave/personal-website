@@ -17,7 +17,14 @@ export default {
                 content: process.env.npm_package_description || ''
             }
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+        link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            {
+                rel: 'stylesheet',
+                href:
+                    'https://fonts.googleapis.com/css?family=Overpass:400,700,900&display=swap'
+            }
+        ]
     },
     /*
      ** Customize the progress-bar color
@@ -26,7 +33,7 @@ export default {
     /*
      ** Global CSS
      */
-    css: [],
+    css: [{ src: '@/assets/scss/main.scss', lang: 'scss' }],
     /*
      ** Plugins to load before mounting the App
      */
@@ -35,8 +42,11 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
-        // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-        '@nuxtjs/bulma'
+        /* 
+            Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
+            Importing the Nuxt.js Bulma plugin overrides custom styles
+            '@nuxtjs/bulma'
+        */
     ],
     /*
      ** Build configuration
