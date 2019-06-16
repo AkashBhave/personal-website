@@ -51,18 +51,13 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: [
-        /* 
-            Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-            Importing the Nuxt.js Bulma plugin overrides custom styles
-            '@nuxtjs/bulma'
-        */
-    ],
+    modules: [],
     /*
      ** Build configuration
      */
     build: {
         postcss: {
+            plugins: [require('tailwindcss'), require('autoprefixer')],
             preset: {
                 features: {
                     customProperties: false
