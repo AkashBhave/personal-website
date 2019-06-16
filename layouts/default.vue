@@ -1,7 +1,11 @@
 <template>
-    <div>
-        <the-header></the-header>
-        <nuxt/>
+    <div id="page" class="font-sans flex flex-col">
+        <div class="flex-1 flex-grow-0">
+            <the-header></the-header>
+        </div>
+        <div class="flex-1 flex-grow">
+            <nuxt/>
+        </div>
     </div>
 </template>
 
@@ -14,3 +18,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+#page {
+    min-height: 100vh;
+}
+</style>
+

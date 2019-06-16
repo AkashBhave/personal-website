@@ -1,7 +1,7 @@
 <template>
     <header
         id="header"
-        class="md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-4 font-sans w-screen border-b-4 border-blue-primary"
+        class="md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-4 font-sans w-full border-b-4 border-blue-secondary"
     >
         <label for="menu-toggle" class="md:hidden block cursor-pointer">
             <svg
@@ -30,7 +30,7 @@
                     </li>
                     <li class="md:block hidden">
                         <a href="#">
-                            <img class="h-10 px-6 py-1" src="@/assets/brand/logo.svg" alt srcset>
+                            <img class="h-10 px-6 py-1" src="~/assets/brand/logo.svg" alt srcset>
                         </a>
                     </li>
                     <li class="hover:text-blue-secondary">
@@ -53,7 +53,7 @@ export default {}
 @import '~/assets/scss/_colors.scss';
 
 #header {
-    transition: 1s all;
+    transition: 0.3s all;
 
     #menu-toggle:checked + #menu {
         display: block;
