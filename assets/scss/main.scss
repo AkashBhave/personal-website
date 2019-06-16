@@ -3,8 +3,8 @@
 @import '~bulma/sass/utilities/functions';
 
 // IMPORTS - Color scheme
-@import '@/assets/scss/_colors.scss';
-@import '@/assets/scss/_typography.scss';
+@import '~/assets/scss/_colors.scss';
+@import '~/assets/scss/_typography.scss';
 
 // VARIABLES - Colors
 $red: $color-primary;
@@ -13,7 +13,7 @@ $blue: $color-secondary;
 $primary: $red;
 $light: $color-light;
 $dark: $color-dark;
-$info: $color-tertiary;
+$info: $blue;
 
 $warning: $red;
 

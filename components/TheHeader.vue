@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar" role="navigation" aria-label="navigation">
+    <nav id="header" class="navbar" role="navigation" aria-label="navigation">
         <a
             role="button"
             class="navbar-burger burger"
@@ -59,11 +59,17 @@ export default {
 </script>
 
 <style lang="scss">
-#logo {
-    height: 60px;
-    padding: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
+@import '~/assets/scss/_colors.scss';
+
+#header {
+    border-bottom: 2px solid $color-secondary;
+
+    #logo {
+        height: 60px;
+        padding: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 </style>
 
