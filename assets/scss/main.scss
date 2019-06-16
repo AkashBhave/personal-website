@@ -8,4 +8,14 @@ body {
     height: 100%;
 
     overflow-x: hidden;
+
+    ::-moz-selection,
+    ::selection {
+        background-color: $color-primary;
+        background-image: linear-gradient(
+            to right,
+            lighten($color-primary, 10%) 0%,
+            $color-primary 100%
+        );
+    }
 }

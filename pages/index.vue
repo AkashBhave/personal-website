@@ -55,8 +55,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scopred>
 @import '~/assets/scss/_colors.scss';
+
+.vue-typer .custom.char.selected {
+    background-color: $color-primary;
+}
+.vue-typer .custom.caret {
+    width: 3px;
+    margin-left: 3px;
+}
 
 #home-picture {
     background-image: url('~assets/pages/home/me.png');
