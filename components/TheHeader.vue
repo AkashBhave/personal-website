@@ -1,74 +1,62 @@
 <template>
-    <nav id="header" class="navbar" role="navigation" aria-label="navigation">
-        <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbar-content"
-        >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <div id="navbar-content" class="navbar-menu">
-            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-                <a class="navbar-item">Projects</a>
-                <a class="navbar-item">Blog</a>
-                <a href>
-                    <img
-                        id="logo"
-                        src="~/assets/brand/logo.svg"
-                        alt
-                        class="navbar-item is-hidden-touch"
-                    >
-                </a>
-                <a class="navbar-item">About</a>
-                <a class="navbar-item">Contact</a>
-            </div>
+    <header
+        id="header"
+        class="md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-4 font-sans w-screen border-b-4 border-blue-primary"
+    >
+        <label for="menu-toggle" class="md:hidden block cursor-pointer">
+            <svg
+                class="fill-current text-gray-900"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+            >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+        </label>
+        <input class="hidden" type="checkbox" id="menu-toggle">
+
+        <div class="hidden md:flex md:items-center md:w-auto w-full mx-auto uppercase" id="menu">
+            <nav>
+                <ul
+                    class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0"
+                >
+                    <li class="hover:text-blue-secondary">
+                        <a class="md:p-4 py-3 px-0 block" href="#">Projects</a>
+                    </li>
+                    <li class="hover:text-blue-secondary">
+                        <a class="md:p-4 py-3 px-0 block" href="#">Blog</a>
+                    </li>
+                    <li class="md:block hidden">
+                        <a href="#">
+                            <img class="h-10 px-6 py-1" src="@/assets/brand/logo.svg" alt srcset>
+                        </a>
+                    </li>
+                    <li class="hover:text-blue-secondary">
+                        <a class="md:p-4 py-3 px-0 block" href="#">About</a>
+                    </li>
+                    <li class="hover:text-blue-secondary">
+                        <a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 </template>
 
 <script>
-export default {
-    mounted() {
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(
-            document.querySelectorAll('.navbar-burger'),
-            0
-        )
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-            // Add a click event on each of them
-            $navbarBurgers.forEach(el => {
-                el.addEventListener('click', () => {
-                    // Get the target from the "data-target" attribute
-                    const target = el.dataset.target
-                    const $target = document.getElementById(target)
-
-                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                    el.classList.toggle('is-active')
-                    $target.classList.toggle('is-active')
-                })
-            })
-        }
-    }
-}
+export default {}
 </script>
 
 <style lang="scss">
 @import '~/assets/scss/_colors.scss';
 
 #header {
-    border-bottom: 2px solid $color-secondary;
+    transition: 1s all;
 
-    #logo {
-        height: 60px;
-        padding: 12px;
-        padding-left: 20px;
-        padding-right: 20px;
+    #menu-toggle:checked + #menu {
+        display: block;
     }
 }
 </style>

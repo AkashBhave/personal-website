@@ -2,7 +2,7 @@ module.exports = {
     theme: {
         colors: {
             black: 'rgba(35, 35, 42, 1)',
-            white: 'rgba(241, 250, 238, 1)',
+            white: 'rgba(252, 255, 250, 1)',
             red: 'rgba(230, 57, 70, 1)',
             'blue-primary': 'rgba(168, 218, 220, 1)',
             'blue-secondary': 'rgba(69, 123, 157, 1)',
