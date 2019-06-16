@@ -7,7 +7,21 @@
                     My name is
                     <span class="font-bold">Akash</span>, and I'm a
                 </p>
-                <p class="text-4xl">web developer.</p>
+                <p class="text-4xl italic">
+                    <vue-typer
+                        :text="meKeywords"
+                        :repeat="Infinity"
+                        :shuffle="true"
+                        initial-action="typing"
+                        :pre-type-delay="70"
+                        :type-delay="60"
+                        :pre-erase-delay="1500"
+                        :erase-delay="250"
+                        erase-style="select-all"
+                        :erase-on-complete="false"
+                        caret-animation="smooth"
+                    ></vue-typer>.
+                </p>
             </div>
             <div
                 id="home-picture"
@@ -19,7 +33,26 @@
 </template>
 
 <script>
-export default {}
+if (process.browser) {
+    var VueTyper = require('vue-typer').VueTyper
+}
+
+export default {
+    components: {
+        VueTyper
+    },
+    data() {
+        return {
+            meKeywords: [
+                'high-school student',
+                'UI/UX designer',
+                'web developer',
+                'machine learning enthusiast',
+                'amateur cyclist'
+            ]
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
