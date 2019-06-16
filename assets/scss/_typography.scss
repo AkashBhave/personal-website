@@ -1,2 +1,27 @@
-$font-sans-serif: 'Overpass', sans-serif;
-$font-monospace: 'Overpass Mono', monospace;
+@font-face {
+    font-family: 'HK Grotesk';
+    font-weight: normal;
+    src: url('~assets/font/hk-grotesk/HKGrotesk-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HK Grotesk';
+    font-weight: bold;
+    src: url('~assets/font/hk-grotesk/HKGrotesk-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HK Grotesk';
+    font-weight: normal;
+    font-style: italic;
+    src: url('~assets/font/hk-grotesk/HKGrotesk-Italic.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HK Grotesk';
+    font-weight: bold;
+    font-style: italic;
+    src: url('~assets/font/hk-grotesk/HKGrotesk-BoldItalic.otf')
+        format('opentype');
+}
+
+$font-sans-serif: 'HK Grotesk', 'Helvetica', 'Arial', sans-serif;
+$font-serif: 'Libre Baskerville', serif;
+$font-monospace: 'Hack', monospace;

@@ -23,10 +23,16 @@ export default {
                 type: 'image/x-icon',
                 href: '~/assets/brand/favicon.ico'
             },
+            // Heading font - Libre Baskerville
             {
                 rel: 'stylesheet',
                 href:
-                    'https://fonts.googleapis.com/css?family=Overpass:400,700,900&display=swap'
+                    'https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap'
+            },
+            // Monospaced font - Hack
+            {
+                rel: 'stylesheet',
+                href: '//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css'
             }
         ]
     },
