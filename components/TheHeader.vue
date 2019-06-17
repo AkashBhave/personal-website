@@ -23,21 +23,21 @@
                     class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0"
                 >
                     <li class="hover:text-blue-secondary">
-                        <a class="md:p-4 py-3 px-0 block" href="#">Projects</a>
+                        <nuxt-link class="md:p-4 py-3 px-0 block" to="/projects">Projects</nuxt-link>
                     </li>
                     <li class="hover:text-blue-secondary">
-                        <a class="md:p-4 py-3 px-0 block" href="#">Blog</a>
+                        <nuxt-link class="md:p-4 py-3 px-0 block" to="/blog">Blog</nuxt-link>
                     </li>
                     <li class="md:block hidden">
-                        <a href="#">
+                        <nuxt-link to="/">
                             <img class="h-10 px-6 py-1" src="~/assets/brand/logo.svg" alt srcset>
-                        </a>
+                        </nuxt-link>
                     </li>
                     <li class="hover:text-blue-secondary">
-                        <a class="md:p-4 py-3 px-0 block" href="#">About</a>
+                        <nuxt-link class="md:p-4 py-3 px-0 block" to="/about">About</nuxt-link>
                     </li>
                     <li class="hover:text-blue-secondary">
-                        <a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#">Contact</a>
+                        <nuxt-link class="md:p-4 py-3 px-0 block md:mb-0 mb-2" to="/contact">Contact</nuxt-link>
                     </li>
                 </ul>
             </nav>
