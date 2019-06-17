@@ -1,5 +1,3 @@
-import sanityClient from './plugins/sanityClient'
-
 export default {
     mode: 'universal',
     /*

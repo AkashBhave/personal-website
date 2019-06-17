@@ -10,22 +10,24 @@
                         My name is
                         <span class="font-bold">Akash</span>, and I'm a
                     </p>
-                    <p class="md:text-3xl text-2xl italic">
-                        <vue-typer
-                            class="break-normal whitespace-normal"
-                            :text="meKeywords"
-                            :repeat="Infinity"
-                            :shuffle="true"
-                            initial-action="typing"
-                            :pre-type-delay="70"
-                            :type-delay="60"
-                            :pre-erase-delay="1500"
-                            :erase-delay="250"
-                            erase-style="select-all"
-                            :erase-on-complete="false"
-                            caret-animation="smooth"
-                        ></vue-typer>.
-                    </p>
+                    <div class="md:text-3xl text-2xl italic">
+                        <no-ssr>
+                            <vue-typer
+                                class="inline break-normal whitespace-normal"
+                                :text="mePhrases"
+                                :repeat="Infinity"
+                                :shuffle="true"
+                                initial-action="typing"
+                                :pre-type-delay="70"
+                                :type-delay="60"
+                                :pre-erase-delay="1500"
+                                :erase-delay="250"
+                                erase-style="select-all"
+                                :erase-on-complete="false"
+                                caret-animation="smooth"
+                            ></vue-typer>
+                        </no-ssr>
+                    </div>
                 </div>
                 <div
                     id="hero-picture"
@@ -59,13 +61,25 @@ export default {
     },
     data() {
         return {
-            meKeywords: [
+            mePhrasesNoPeriod: [
                 'high-school student',
                 'UI/UX designer',
                 'web developer',
                 'machine learning enthusiast',
                 'amateur cyclist'
             ]
+        }
+    },
+    computed: {
+        mePhrases() {
+            let mePhrases = this.mePhrasesNoPeriod
+            // Iterate over each value in array to mutate
+            mePhrases.forEach(function(part, index) {
+                // Add a period to each phrase
+                this[index] = this[index] + '.'
+            }, mePhrases)
+
+            return mePhrases
         }
     }
 }
