@@ -4,7 +4,7 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'Akash Bhave',
         meta: [
             { charset: 'utf-8' },
             {
@@ -21,7 +21,7 @@ export default {
             {
                 rel: 'icon',
                 type: 'image/x-icon',
-                href: '~assets/brand/favicon.ico'
+                href: 'favicon.ico'
             },
             // Heading font - Libre Baskerville
             {

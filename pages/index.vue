@@ -5,12 +5,12 @@
                 <div
                     class="flex flex-col md:justify-center justify-start md:w-1/2 w-full bg-white p-8"
                 >
-                    <p class="font-bold font-serif text-5xl">Hello.</p>
-                    <p class="text-4xl">
+                    <p class="font-bold font-serif md:text-5xl text-4xl">Hello.</p>
+                    <p class="md:text-4xl text-3xl">
                         My name is
                         <span class="font-bold">Akash</span>, and I'm a
                     </p>
-                    <p class="text-3xl italic">
+                    <p class="md:text-3xl text-2xl italic">
                         <vue-typer
                             class="break-normal whitespace-normal"
                             :text="meKeywords"
@@ -49,6 +49,11 @@ if (process.browser) {
 require('@fortawesome/fontawesome-free/css/all.css')
 
 export default {
+    head() {
+        return {
+            title: 'Home | Akash Bhave'
+        }
+    },
     components: {
         VueTyper
     },
@@ -72,7 +77,7 @@ export default {
     background-blend-mode: overlay;
 }
 #hero-scroll {
-    bottom: 100px;
+    bottom: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
