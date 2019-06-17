@@ -1,5 +1,5 @@
 <template>
-    <div id="page" class="font-sans flex flex-col">
+    <div id="page" class="font-sans flex flex-col h-screen">
         <div class="flex-1 flex-grow-0">
             <the-header></the-header>
         </div>

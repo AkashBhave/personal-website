@@ -21,7 +21,7 @@ export default {
             {
                 rel: 'icon',
                 type: 'image/x-icon',
-                href: '~/assets/brand/favicon.ico'
+                href: '~assets/brand/favicon.ico'
             },
             // Heading font - Libre Baskerville
             {
