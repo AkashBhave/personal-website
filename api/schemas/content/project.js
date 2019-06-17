@@ -9,8 +9,17 @@ export default {
             type: 'string'
         },
         {
-            name: 'image',
-            title: 'Image',
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+                source: 'title',
+                maxLength: 96
+            }
+        },
+        {
+            name: 'mainImage',
+            title: 'Main Image',
             type: 'image',
             options: {
                 hotspot: true
