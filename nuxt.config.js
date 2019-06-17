@@ -1,3 +1,5 @@
+import sanityClient from './plugins/sanityClient'
+
 export default {
     mode: 'universal',
     /*
@@ -52,6 +54,11 @@ export default {
      ** Nuxt.js modules
      */
     modules: ['@nuxtjs/dotenv'],
+    generate: {
+        routes() {
+            return ['/blog/working-with-groq-queries']
+        }
+    },
     /*
      ** Build configuration
      */
