@@ -60,6 +60,13 @@ export default {
         {
             type: 'image',
             options: { hotspot: true }
+        },
+        {
+            type: 'code',
+            options: { theme: 'tomorrow' }
+        },
+        {
+            type: 'latex'
         }
     ]
 }
