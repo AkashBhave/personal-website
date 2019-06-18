@@ -1,7 +1,7 @@
 <template>
     <header
         id="header"
-        class="md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-4 font-sans w-full border-b-4 border-blue-secondary"
+        class="md:h-20 h-auto md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-4 font-sans w-full border-b-2 border-blue-secondary shadow"
     >
         <label for="menu-toggle" class="md:hidden block cursor-pointer">
             <svg
