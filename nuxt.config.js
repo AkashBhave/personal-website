@@ -10,6 +10,7 @@ const sanityClient = sanityLib({
 
 export default {
     mode: 'universal',
+    transition: 'slide-fade',
     /*
      ** Headers of the page
      */
