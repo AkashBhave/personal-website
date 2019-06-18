@@ -40,7 +40,7 @@ export default {
                     fields: [
                         {
                             name: 'iconName',
-                            title: 'Icon Name (Font Awesome 5)',
+                            title: 'Icon Classes (Font Awesome 5)',
                             type: 'string'
                         },
                         {

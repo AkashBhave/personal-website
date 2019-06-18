@@ -6,7 +6,8 @@ export default {
         {
             name: 'title',
             title: 'Title',
-            type: 'string'
+            type: 'string',
+            validation: Rule => Rule.required()
         },
         {
             name: 'slug',
@@ -32,10 +33,31 @@ export default {
             of: [{ type: 'string' }]
         },
         {
-            name: 'project',
-            title: 'Project',
-            type: 'reference',
-            to: { type: 'project' }
+            title: 'Post Type',
+            name: 'postType',
+            type: 'object',
+            validation: Rule => Rule.required(),
+            fields: [
+                {
+                    title: 'Type',
+                    name: 'type',
+                    type: 'string',
+                    options: {
+                        list: [
+                            { title: 'Project', value: 'project' },
+                            { title: 'Thought', value: 'thought' },
+                            { title: 'Tutorial', value: 'tutorial' }
+                        ],
+                        layout: 'radio'
+                    }
+                },
+                {
+                    title: 'Project',
+                    name: 'project',
+                    type: 'reference',
+                    to: [{ type: 'project' }]
+                }
+            ]
         },
         {
             name: 'publishedAt',
@@ -52,14 +74,21 @@ export default {
     preview: {
         select: {
             title: 'title',
-            project: 'project.title',
+            project: 'postType.project.title',
+            type: 'postType.type',
             media: 'mainImage'
         },
         prepare(selection) {
-            const { title, project, media } = selection
+            const { title, project, type, media } = selection
             return {
                 title: title,
-                subtitle: project,
+                // Show the post type and the project name if there is one
+                subtitle:
+                    (type
+                        ? type.replace(/[a-z]/i, function(letter) {
+                              return letter.toUpperCase()
+                          })
+                        : '') + (project ? ' / ' + project : ''),
                 media: media
             }
         }
