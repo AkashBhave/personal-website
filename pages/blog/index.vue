@@ -18,18 +18,10 @@
 import sanityClient from '~/plugins/sanityClient'
 
 export default {
-    asyncData() {
-        let postsArray = []
+    async asyncData() {
+        let posts = await sanityClient.fetch('*[_type == "post"]')
 
-        sanityClient.fetch('*[_type == "post"]').then(posts =>
-            posts.forEach(post => {
-                postsArray.push(post)
-            })
-        )
-
-        return {
-            posts: postsArray
-        }
+        return { posts: posts }
     }
 }
 </script>
