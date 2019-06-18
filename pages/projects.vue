@@ -1,6 +1,12 @@
 <template></template>
 
 <script>
-export default {}
+export default {
+    head() {
+        return {
+            title: 'Projects | ' + process.env.SITE_TITLE
+        }
+    }
+}
 </script>
 

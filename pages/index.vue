@@ -53,7 +53,7 @@ require('@fortawesome/fontawesome-free/css/all.css')
 export default {
     head() {
         return {
-            title: 'Home | Akash Bhave'
+            title: 'Home | ' + process.env.SITE_TITLE
         }
     },
     components: {
