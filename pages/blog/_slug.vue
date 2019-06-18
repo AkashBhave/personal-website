@@ -1,13 +1,15 @@
 <template>
     <main class="container mx-auto p-8">
         <h1 class="font-bold text-4xl font-serif text-center">{{title}}</h1>
-        <block-content :blocks="body"/>
+        <block-content :blocks="body" :serializers="serializers"/>
     </main>
 </template>
 
 <script>
 import sanityClient from '~/plugins/sanityClient'
+
 import BlockContent from 'sanity-blocks-vue-component'
+import BlockContentCode from '~/components/BlockContentCode'
 
 export default {
     async validate({ params }) {
@@ -20,7 +22,8 @@ export default {
         }
     },
     components: {
-        BlockContent
+        BlockContent,
+        BlockContentCode
     },
     async asyncData({ params, error }) {
         const postQuery = `*[_type == "post" && slug.current == "${params.slug}"][0]`
@@ -28,7 +31,13 @@ export default {
         return postData
     },
     data() {
-        return {}
+        return {
+            serializers: {
+                types: {
+                    code: BlockContentCode
+                }
+            }
+        }
     }
 }
 </script>
