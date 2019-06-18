@@ -1,3 +1,13 @@
+require('dotenv').config()
+const sanityLib = require('@sanity/client')
+// Importing the sanityClient from ./plugins/sanityClient.js didn't work
+const sanityClient = sanityLib({
+    projectId: process.env.SANITY_ID,
+    dataset: process.env.SANITY_DATASET,
+    token: process.env.SANITY_TOKEN,
+    useCdn: false
+})
+
 export default {
     mode: 'universal',
     /*
@@ -53,8 +63,14 @@ export default {
      */
     modules: ['@nuxtjs/dotenv'],
     generate: {
-        routes() {
-            return ['/blog/working-with-groq-queries']
+        async routes() {
+            // Blog posts
+            let postRoutes = await sanityClient.fetch('*[_type == "post"]')
+            postRoutes.forEach(function(part, index) {
+                this[index] = '/blog/' + this[index].slug.current
+            }, postRoutes)
+
+            return postRoutes
         }
     },
     /*
