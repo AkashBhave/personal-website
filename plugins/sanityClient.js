@@ -9,4 +9,8 @@ const sanityConfig = {
 
 const sanityClient = sanityClientLib(sanityConfig)
 
-export default sanityClient
+// Inject into context
+export default ({ app }, inject) => {
+    // Set the function directly on the context.app object
+    app.sanityClient = sanityClient
+}

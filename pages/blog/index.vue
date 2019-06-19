@@ -15,16 +15,14 @@
 </template>
 
 <script>
-import sanityClient from '~/plugins/sanityClient'
-
 export default {
     head() {
         return {
             title: 'Blog | ' + process.env.SITE_TITLE
         }
     },
-    async asyncData() {
-        let posts = await sanityClient.fetch('*[_type == "post"]')
+    async asyncData(context) {
+        let posts = await context.app.sanityClient.fetch('*[_type == "post"]')
 
         return { posts: posts }
     }

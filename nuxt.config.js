@@ -1,5 +1,14 @@
 require('dotenv').config()
 
+// Manually create the Sanity client as `context` is not available
+const sanityClientLib = require('@sanity/client')
+const sanityClient = sanityClientLib({
+    projectId: process.env.SANITY_ID,
+    dataset: process.env.SANITY_DATASET,
+    token: process.env.SANITY_TOKEN,
+    useCdn: false
+})
+
 export default {
     mode: 'universal',
     pageTransition: 'slide-fade',
@@ -53,7 +62,7 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: ['~/plugins/highlightjs'],
+    plugins: ['~/plugins/sanityClient', '~/plugins/highlightjs'],
     /*
      ** Nuxt.js modules
      */

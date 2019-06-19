@@ -6,15 +6,13 @@
 </template>
 
 <script>
-import sanityClient from '~/plugins/sanityClient'
-
 import BlockContent from 'sanity-blocks-vue-component'
 import BlockContentCode from '~/components/BlockContentCode'
 
 export default {
-    async validate({ params }) {
-        const postQuery = `*[_type == "post" && slug.current == "${params.slug}"][0]`
-        let postData = await sanityClient.fetch(postQuery)
+    async validate(context) {
+        const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
+        let postData = await context.app.sanityClient.fetch(postQuery)
         if (postData === null || postData._id === null) {
             return false
         } else {
@@ -25,9 +23,9 @@ export default {
         BlockContent,
         BlockContentCode
     },
-    async asyncData({ params, error }) {
-        const postQuery = `*[_type == "post" && slug.current == "${params.slug}"][0]`
-        let postData = await sanityClient.fetch(postQuery)
+    async asyncData(context) {
+        const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
+        let postData = await context.app.sanityClient.fetch(postQuery)
         return postData
     },
     data() {
