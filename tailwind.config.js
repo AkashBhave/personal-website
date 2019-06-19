@@ -34,7 +34,7 @@ module.exports = {
                 'serif'
             ],
             mono: [
-                'Hack',
+                'Iosevka Type Web',
                 'Menlo',
                 'Monaco',
                 'Consolas',
