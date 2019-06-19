@@ -1,16 +1,16 @@
 require('dotenv').config()
-const sanityLib = require('@sanity/client')
-// Importing the sanityClient from ./plugins/sanityClient.js didn't work
-const sanityClient = sanityLib({
-    projectId: process.env.SANITY_ID,
-    dataset: process.env.SANITY_DATASET,
-    token: process.env.SANITY_TOKEN,
-    useCdn: false
-})
 
 export default {
     mode: 'universal',
-    transition: 'slide-fade',
+    pageTransition: 'slide-fade',
+    env: {
+        // Sanity.io
+        SANITY_TOKEN: process.env.SANITY_TOKEN,
+        SANITY_DATASET: process.env.SANITY_DATASET,
+        SANITY_ID: process.env.SANITY_ID,
+        // Site default title
+        SITE_TITLE: process.env.SITE_TITLE
+    },
     /*
      ** Headers of the page
      */
@@ -57,7 +57,7 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: ['@nuxtjs/dotenv'],
+    modules: [],
     generate: {
         async routes() {
             // Blog posts
