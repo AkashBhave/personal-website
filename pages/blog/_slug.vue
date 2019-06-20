@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="page-content">
-            <div class="page-header flex flex-wrap items-center mb-8">
+            <div class="page-header flex flex-wrap items-center mb-8 md:shadow-none shadow">
                 <div class="flex flex-col lg:w-2/5 w-full text-center p-8">
                     <h3 class="mx-auto w-32 text-xl font-light p-2 mb-2 bg-blue-primary rounded">
                         <span>Project</span>

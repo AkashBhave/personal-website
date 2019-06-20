@@ -1,12 +1,14 @@
 module.exports = {
     theme: {
-        colors: {
-            dark: 'rgba(35, 35, 42, 1)',
-            light: 'rgba(252, 255, 250, 1)',
-            highlight: 'rgba(230, 57, 70, 1)',
-            'blue-primary': 'rgba(168, 218, 220, 1)',
-            'blue-secondary': 'rgba(69, 123, 157, 1)',
-            'blue-tertiary': 'rgba(29, 53, 87, 1)'
+        extend: {
+            colors: {
+                dark: 'rgba(35, 35, 42, 1)',
+                light: 'rgba(252, 255, 250, 1)',
+                highlight: 'rgba(230, 57, 70, 1)',
+                'blue-primary': 'rgba(168, 218, 220, 1)',
+                'blue-secondary': 'rgba(69, 123, 157, 1)',
+                'blue-tertiary': 'rgba(29, 53, 87, 1)'
+            }
         },
 
         fontFamily: {
