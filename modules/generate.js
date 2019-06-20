@@ -3,7 +3,24 @@
  */
 const fs = require('fs-extra')
 
-const generateData = require('./generateData.js')
+const generateData = require('./generate-data')
+
+// Get value of JSON from dot notation
+function getNested(theObject, path, separator) {
+    try {
+        separator = separator || '.'
+
+        return path
+            .replace('[', separator)
+            .replace(']', '')
+            .split(separator)
+            .reduce(function(obj, property) {
+                return obj[property]
+            }, theObject)
+    } catch (err) {
+        return undefined
+    }
+}
 
 /*
  **  Module exports
@@ -37,6 +54,8 @@ module.exports = function generate() {
         Object.entries(generateData).forEach(async function([key, pathArray]) {
             pathArray.forEach(async function(path) {
                 let pathData = await path.getData()
+
+                // Generate the root path
                 scraper.push(
                     writeData(
                         `static/_data/${path.relativePath}/_.json`,
@@ -44,11 +63,14 @@ module.exports = function generate() {
                     )
                 )
 
-                if (path.generateNested) {
+                // Generate nested/dynamic paths if set
+                if (path.nested) {
                     pathData.forEach(function(subPathData) {
+                        let nestedKey = getNested(subPathData, path.nestedKey)
+
                         scraper.push(
                             writeData(
-                                `static/_data/${path.relativePath}/${subPathData.slug.current}.json`,
+                                `static/_data/${path.relativePath}/${nestedKey}.json`,
                                 subPathData
                             )
                         )
