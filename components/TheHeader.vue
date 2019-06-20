@@ -58,6 +58,10 @@ export default {}
     #menu-toggle:checked + #menu {
         display: block;
     }
+
+    .nuxt-link-active {
+        @apply text-highlight;
+    }
 }
 </style>
 
