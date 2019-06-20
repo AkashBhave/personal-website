@@ -70,12 +70,13 @@ export default {
     generate: {
         async routes() {
             // Blog posts
-            let postRoutes = await sanityClient.fetch('*[_type == "post"]')
-            postRoutes.forEach(function(part, index) {
-                this[index] = '/blog/' + this[index].slug.current
-            }, postRoutes)
-
-            return postRoutes
+            let posts = await sanityClient.fetch('*[_type == "post"]')
+            return posts.map(post => {
+                return {
+                    route: '/blog/' + post.slug.current,
+                    payload: post
+                }
+            })
         }
     },
     /*

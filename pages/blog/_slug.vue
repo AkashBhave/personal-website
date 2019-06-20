@@ -11,12 +11,16 @@ import BlockContentCode from '~/components/BlockContentCode'
 
 export default {
     async validate(context) {
-        const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
-        let postData = await context.app.sanityClient.fetch(postQuery)
-        if (postData === null || postData._id === null) {
-            return false
+        if (context.payload) {
+            return context.payload != null && context.payload._id != null
         } else {
-            return true
+            const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
+            let postData = await context.app.sanityClient.fetch(postQuery)
+            if (postData == null || postData._id == null) {
+                return false
+            } else {
+                return true
+            }
         }
     },
     components: {
@@ -24,9 +28,13 @@ export default {
         BlockContentCode
     },
     async asyncData(context) {
-        const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
-        let postData = await context.app.sanityClient.fetch(postQuery)
-        return postData
+        if (context.payload) {
+            return context.payload
+        } else {
+            const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
+            let postData = await context.app.sanityClient.fetch(postQuery)
+            return postData
+        }
     },
     data() {
         return {
