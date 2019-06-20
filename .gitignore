@@ -80,9 +80,13 @@ dist
 # IDE / Editor
 .idea
 .editorconfig
+.vscode/
 
 # Service worker
 sw.*
 
-# Mac OSX
+# macOS
 .DS_Store
+
+# JSON generated from `nuxt generate`
+static/_data/

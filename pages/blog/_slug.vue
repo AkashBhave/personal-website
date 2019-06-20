@@ -10,31 +10,20 @@ import BlockContent from 'sanity-blocks-vue-component'
 import BlockContentCode from '~/components/BlockContentCode'
 
 export default {
-    async validate(context) {
-        if (context.payload) {
-            return context.payload != null && context.payload._id != null
-        } else {
-            const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
-            let postData = await context.app.sanityClient.fetch(postQuery)
-            if (postData == null || postData._id == null) {
-                return false
-            } else {
-                return true
-            }
+    validate(context) {
+        try {
+            let data = require(`~/static/_data/blog/${context.params.slug}`)
+            return data != null && data._id != null
+        } catch (e) {
+            return false
         }
     },
     components: {
         BlockContent,
         BlockContentCode
     },
-    async asyncData(context) {
-        if (context.payload) {
-            return context.payload
-        } else {
-            const postQuery = `*[_type == "post" && slug.current == "${context.params.slug}"][0]`
-            let postData = await context.app.sanityClient.fetch(postQuery)
-            return postData
-        }
+    asyncData(context) {
+        return require(`~/static/_data/blog/${context.params.slug}`)
     },
     data() {
         return {

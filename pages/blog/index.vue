@@ -22,9 +22,7 @@ export default {
         }
     },
     async asyncData(context) {
-        let posts = await context.app.sanityClient.fetch('*[_type == "post"]')
-
-        return { posts: posts }
+        return { posts: require('~/static/_data/blog/_.json') }
     }
 }
 </script>

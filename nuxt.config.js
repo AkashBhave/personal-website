@@ -66,7 +66,7 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: [],
+    modules: ['~/modules/generate'],
     generate: {
         async routes() {
             // Blog posts
