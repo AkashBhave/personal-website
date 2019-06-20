@@ -11,6 +11,7 @@
         h5,
         h6,
         ul,
+        ol,
         table {
             @apply text-lg;
             line-height: 1.6em;
@@ -28,9 +29,15 @@
         h4 {
             @apply text-xl;
         }
+        ul,
+        ol {
+            @apply my-4 ml-4 list-inside;
+        }
         ul {
-            @apply list-disc list-inside;
-            @apply my-4 ml-4;
+            @apply list-disc;
+        }
+        ol {
+            @apply list-decimal;
         }
         img,
         code.hljs {
