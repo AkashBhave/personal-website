@@ -22,6 +22,20 @@
     src: url('~assets/font/hk-grotesk/HKGrotesk-BoldItalic.otf')
         format('opentype');
 }
+@font-face {
+    font-family: 'HK Grotesk';
+    font-weight: 300;
+    font-style: normal;
+    src: url('~assets/font/hk-grotesk/HKGrotesk-Light.otf') format('opentype');
+}
+@font-face {
+    font-family: 'HK Grotesk';
+    font-weight: 300;
+    font-style: italic;
+    src: url('~assets/font/hk-grotesk/HKGrotesk-LightItalic.otf')
+        format('opentype');
+}
+
 // Iosevka Type Web
 @font-face {
     font-family: 'Iosevka Type Web';

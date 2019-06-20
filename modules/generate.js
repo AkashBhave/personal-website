@@ -83,7 +83,7 @@ module.exports = function generate() {
                 if (path.nested) {
                     pathData.forEach(function(subPathData) {
                         let nestedKey = getNested(subPathData, path.nestedKey)
-                        s
+
                         if (path.nestedEnv) setEnv(subPathData)
 
                         scraper.push(
