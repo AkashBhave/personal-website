@@ -6,7 +6,9 @@ export default {
     mode: 'universal',
     pageTransition: 'slide-fade',
     env: {
-        SITE_TITLE: process.env.SITE_TITLE
+        SITE_TITLE: process.env.SITE_TITLE,
+        SANITY_ID: process.env.SANITY_ID,
+        SANITTY_DATASET: process.env.SANITTY_DATASET
     },
     /*
      ** Headers of the page

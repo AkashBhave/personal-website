@@ -22,6 +22,20 @@ function getNested(theObject, path, separator) {
     }
 }
 
+function setEnv(theObject) {
+    theObject.env = {
+        sanity: {
+            id: process.env.SANITY_ID,
+            dataset: process.env.SANITY_DATASET
+        },
+        site: {
+            title: process.env.SITE_TITLE
+        }
+    }
+
+    return theObject
+}
+
 /*
  **  Module exports
  */
@@ -55,6 +69,8 @@ module.exports = function generate() {
             pathArray.forEach(async function(path) {
                 let pathData = await path.getData()
 
+                if (path.env) setEnv(path)
+
                 // Generate the root path
                 scraper.push(
                     writeData(
@@ -67,6 +83,8 @@ module.exports = function generate() {
                 if (path.nested) {
                     pathData.forEach(function(subPathData) {
                         let nestedKey = getNested(subPathData, path.nestedKey)
+                        s
+                        if (path.nestedEnv) setEnv(subPathData)
 
                         scraper.push(
                             writeData(

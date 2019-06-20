@@ -1,7 +1,14 @@
 <template>
     <main class="container mx-auto p-8">
-        <h1 class="font-bold text-4xl font-serif text-center">{{title}}</h1>
-        <block-content :blocks="body" :serializers="serializers"/>
+        <div class="page-content">
+            <h1 class="page-title">{{title}}</h1>
+            <block-content
+                :blocks="body"
+                :serializers="serializers"
+                :projectId="env.sanity.id"
+                :dataset="env.sanity.dataset"
+            />
+        </div>
     </main>
 </template>
 
