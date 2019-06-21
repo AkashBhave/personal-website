@@ -49,6 +49,7 @@
 <script>
 import BlockContent from 'sanity-blocks-vue-component'
 import BlockContentCode from '~/components/BlockContentCode'
+import BlockContentImage from '~/components/BlockContentImage'
 
 require('@fortawesome/fontawesome-free/css/all.css')
 
@@ -72,7 +73,8 @@ export default {
         return {
             serializers: {
                 types: {
-                    code: BlockContentCode
+                    code: BlockContentCode,
+                    image: BlockContentImage
                 }
             }
         }

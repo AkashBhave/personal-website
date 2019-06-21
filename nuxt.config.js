@@ -8,7 +8,7 @@ export default {
     env: {
         SITE_TITLE: process.env.SITE_TITLE,
         SANITY_ID: process.env.SANITY_ID,
-        SANITTY_DATASET: process.env.SANITTY_DATASET
+        SANITY_DATASET: process.env.SANITY_DATASET
     },
     /*
      ** Headers of the page
@@ -84,6 +84,10 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {}
+        extend(config, ctx) {
+            config.node = {
+                fs: 'empty'
+            }
+        }
     }
 }

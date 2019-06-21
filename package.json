@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@sanity/client": "^0.140.32",
+        "@sanity/image-url": "^0.140.12",
         "dotenv": "^8.0.0",
         "fs-extra": "^8.0.1",
         "node-sass": "^4.12.0",
