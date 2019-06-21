@@ -28,8 +28,8 @@
                     <block-content
                         :blocks="mainImage"
                         :serializers="serializers"
-                        :projectId="env.sanity.id"
-                        :dataset="env.sanity.dataset"
+                        :projectId="sanity.id"
+                        :dataset="sanity.dataset"
                     />
                 </div>
             </div>
@@ -38,8 +38,8 @@
                 <block-content
                     :blocks="body"
                     :serializers="serializers"
-                    :projectId="env.sanity.id"
-                    :dataset="env.sanity.dataset"
+                    :projectId="sanity.id"
+                    :dataset="sanity.dataset"
                 />
             </div>
         </div>
@@ -83,6 +83,12 @@ export default {
         createdAt() {
             let createdAtDate = new Date(this.$data._createdAt)
             return createdAtDate.toLocaleString()
+        },
+        sanity() {
+            return {
+                id: process.env.SANITY_ID,
+                dataset: process.env.SANITY_DATASET
+            }
         }
     }
 }
