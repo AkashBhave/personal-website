@@ -10,6 +10,9 @@
 </template>
 
 <script>
+// Font awesome
+require('@fortawesome/fontawesome-free/css/all.css')
+
 import TheHeader from '~/components/TheHeader.vue'
 
 export default {

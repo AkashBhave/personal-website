@@ -3,11 +3,14 @@
         <div class="page-content">
             <div class="page-header flex flex-wrap items-center mb-8 md:shadow-none shadow">
                 <div class="flex flex-col lg:w-2/5 w-full text-center p-8">
-                    <h3 class="mx-auto w-32 text-xl font-light p-2 mb-2 bg-blue-primary rounded">
-                        <span>Project</span>
-                        <i class="fas fa-hammer ml-2"></i>
+                    <h3
+                        class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
+                        :class="type.color"
+                    >
+                        <span>{{ type.name }}</span>
+                        <i class="ml-2" :class="type.icon"></i>
                     </h3>
-                    <h1 class="page-title">{{ title }}</h1>
+                    <h1 class="page-title md:text-5xl text-4xl">{{ title }}</h1>
                     <h3 class="text-xl">
                         By
                         <span class="italic text-blue-tertiary">Akash Bhave</span>
@@ -51,8 +54,6 @@ import BlockContent from 'sanity-blocks-vue-component'
 import BlockContentCode from '~/components/BlockContentCode'
 import BlockContentImage from '~/components/BlockContentImage'
 
-require('@fortawesome/fontawesome-free/css/all.css')
-
 export default {
     validate(context) {
         try {
@@ -89,6 +90,30 @@ export default {
                 id: process.env.SANITY_ID,
                 dataset: process.env.SANITY_DATASET
             }
+        },
+        type() {
+            let postType = this.postType.type
+            let color, name, icon
+
+            switch (postType) {
+                case 'thought':
+                    color = 'bg-orange-700'
+                    name = 'Thought'
+                    icon = 'fas fa-brain'
+                    break
+                case 'project':
+                    color = 'bg-green-700'
+                    name = 'Project'
+                    icon = 'fas fa-hammer'
+                    break
+                case 'tutorial':
+                    color = 'bg-purple-700'
+                    name = 'Tutorial'
+                    icon = 'fas fa-book'
+                    break
+            }
+
+            return { color: color, name: name, icon: icon }
         }
     }
 }
