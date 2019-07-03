@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="page-content">
-            <div class="page-header flex flex-wrap mb-8 md:shadow-none shadow">
+            <div class="page-header flex flex-wrap mb-4 md:shadow-none shadow">
                 <div class="flex flex-col lg:w-2/5 w-full text-center">
                     <nuxt-link :to="'/blog'">
                         <div
@@ -19,12 +19,12 @@
                             <span>{{ type.name }}</span>
                             <i class="ml-2" :class="type.icon"></i>
                         </h3>
-                        <h1 class="page-title md:text-5xl text-4xl">{{ title }}</h1>
-                        <h3 class="text-xl">
+                        <h1 class="page-title md:text-5xl text-4xl -mb-2">{{ title }}</h1>
+                        <h3 class="text-xl mt-2">
                             By
                             <span class="italic text-blue-tertiary">Akash Bhave</span>
                         </h3>
-                        <h3>
+                        <h3 class="mt-2">
                             Published on
                             <span class="text-blue-tertiary">{{ createdAt }}</span>
                         </h3>

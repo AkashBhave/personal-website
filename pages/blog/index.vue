@@ -19,15 +19,15 @@
                                 />
                             </no-ssr>
                             <div class="p-8 flex flex-col content-start">
-                                <h3 class="font-serif font-bold text-3xl">{{post.title}}</h3>
-                                <h3 class="text-md font-light py-2">
+                                <h3 class="font-serif font-bold text-3xl -mb-2">{{post.title}}</h3>
+                                <h3 class="text-md font-light mt-4">
                                     Published on
                                     <span
                                         class="text-blue-tertiary"
                                     >{{ new Date(post._createdAt).toLocaleString() }}</span>
                                 </h3>
                                 <div
-                                    class="w-auto mr-auto text-md font-light text-light py-2 px-4 my-2 rounded"
+                                    class="w-auto mr-auto text-md font-light text-light py-2 px-4 mt-4 rounded"
                                     :class="getPostType(post.postType.type).color"
                                 >
                                     <span>{{ getPostType(post.postType.type).name }}</span>
