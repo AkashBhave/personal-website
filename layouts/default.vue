@@ -1,10 +1,13 @@
 <template>
-    <div id="page" class="font-sans flex flex-col h-screen text-dark">
-        <div class="flex-1 flex-grow-0">
-            <the-header></the-header>
+    <div id="page" class="font-sans flex flex-col h-full text-dark">
+        <div class="min-h-screen flex flex-col">
+            <the-header class="flex-shrink-0"></the-header>
+            <div class="flex-1 flex-grow">
+                <nuxt />
+            </div>
         </div>
-        <div class="flex-1 flex-grow">
-            <nuxt/>
+        <div class="pin-b">
+            <the-footer></the-footer>
         </div>
     </div>
 </template>
@@ -14,10 +17,12 @@
 require('@fortawesome/fontawesome-free/css/all.css')
 
 import TheHeader from '~/components/TheHeader.vue'
+import TheFooter from '~/components/TheFooter.vue'
 
 export default {
     components: {
-        TheHeader
+        TheHeader,
+        TheFooter
     }
 }
 </script>
