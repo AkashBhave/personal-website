@@ -60,7 +60,7 @@ export default {}
     }
 
     .nuxt-link-active {
-        @apply text-highlight;
+        @apply font-bold;
     }
 }
 </style>
