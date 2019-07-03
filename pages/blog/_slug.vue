@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="page-body container mx-auto p-8">
+            <div class="page-body container mx-auto p-8 md:w-2/3 w-full">
                 <block-content
                     :blocks="body"
                     :serializers="serializers"
