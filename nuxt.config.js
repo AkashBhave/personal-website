@@ -52,7 +52,10 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: ['~/plugins/highlightjs'],
+    plugins: [
+        '~/plugins/highlightjs',
+        { src: '~/plugins/lazyload', ssr: false }
+    ],
     /*
      ** Nuxt.js modules
      */

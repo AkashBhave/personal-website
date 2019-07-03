@@ -1,8 +1,10 @@
 <template>
     <div>
-        <img :src="imageBlocktoURL(asset)">
-        <div v-if="caption">
-            <figcaption class="text-center mt-2 opacity-75 font-light text-lg">{{ caption }}</figcaption>
+        <div v-lazy-container="{selector: 'img'}">
+            <img :data-src="imageBlocktoURL(asset)" />
+            <div v-if="caption">
+                <figcaption class="text-center mt-2 opacity-75 font-light text-lg">{{ caption }}</figcaption>
+            </div>
         </div>
     </div>
 </template>
