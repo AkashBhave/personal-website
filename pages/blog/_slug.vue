@@ -1,8 +1,8 @@
 <template>
     <main>
         <div class="page-content">
-            <div class="page-header flex flex-wrap items-center mb-8 md:shadow-none shadow">
-                <div class="flex flex-col lg:w-2/5 w-full text-center p-8">
+            <div class="page-header flex flex-wrap items-center mb-8 md:shadow-none shadow-md">
+                <div class="flex flex-col lg:w-2/5 w-full text-center py-12 px-8">
                     <h3
                         class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
                         :class="type.color"
@@ -27,13 +27,15 @@
                         >{{ keyword }}</span>
                     </div>
                 </div>
-                <div class="flex lg:w-3/5 w-full flex-grow">
-                    <block-content
-                        :blocks="mainImage"
-                        :serializers="serializers"
-                        :projectId="sanity.id"
-                        :dataset="sanity.dataset"
-                    />
+                <div class="flex lg:w-3/5 w-full flex-grow bg-gray-300">
+                    <div class="mx-auto">
+                        <block-content
+                            :blocks="mainImage"
+                            :serializers="serializers"
+                            :projectId="sanity.id"
+                            :dataset="sanity.dataset"
+                        />
+                    </div>
                 </div>
             </div>
 
