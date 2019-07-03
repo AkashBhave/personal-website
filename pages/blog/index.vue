@@ -1,25 +1,30 @@
 <template>
-    <main class="container mx-auto px-8 py-12">
-        <div class="flex flex-row flex-wrap justify-left -mx-4">
-            <div
-                v-for="post in posts"
-                :key="post._id"
-                class="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8"
-            >
-                <div class="flex flex-col justify-between cursor-pointer shadow-md border h-full">
-                    <nuxt-link :to="'/blog/' + post.slug.current">
-                        <no-ssr>
-                            <img
-                                class="w-full bg-gray-300"
-                                :src="imageBlocktoURL(post.mainImage)"
-                                alt
-                                srcset
-                            />
-                        </no-ssr>
-                        <div class="p-8">
-                            <h3 class="font-serif font-bold text-3xl">{{post.title}}</h3>
-                        </div>
-                    </nuxt-link>
+    <main>
+        <the-title :title="'Blog'" :subtitle="'Fresh off the CMS.'"></the-title>
+        <div class="container mx-auto px-8 py-12">
+            <div class="flex flex-row flex-wrap justify-left -mx-4">
+                <div
+                    v-for="post in posts"
+                    :key="post._id"
+                    class="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8"
+                >
+                    <div
+                        class="flex flex-col justify-between cursor-pointer shadow-md border h-full"
+                    >
+                        <nuxt-link :to="'/blog/' + post.slug.current">
+                            <no-ssr>
+                                <img
+                                    class="w-full bg-gray-300"
+                                    :src="imageBlocktoURL(post.mainImage)"
+                                    alt
+                                    srcset
+                                />
+                            </no-ssr>
+                            <div class="p-8">
+                                <h3 class="font-serif font-bold text-3xl">{{post.title}}</h3>
+                            </div>
+                        </nuxt-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,8 +34,9 @@
 <script>
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '~/plugins/sanity-client'
-
 let builder = imageUrlBuilder(sanityClient)
+
+import TheTitle from '~/components/TheTitle'
 
 export default {
     head() {
@@ -40,6 +46,9 @@ export default {
     },
     async asyncData(context) {
         return { posts: require('~/static/_data/blog/_.json') }
+    },
+    components: {
+        TheTitle
     },
     methods: {
         imageBlocktoURL(source) {
