@@ -1,30 +1,40 @@
 <template>
     <main>
         <div class="page-content">
-            <div class="page-header flex flex-wrap items-center mb-8 md:shadow-none shadow-md">
-                <div class="flex flex-col lg:w-2/5 w-full text-center py-12 px-8">
-                    <h3
-                        class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
-                        :class="type.color"
-                    >
-                        <span>{{ type.name }}</span>
-                        <i class="ml-2" :class="type.icon"></i>
-                    </h3>
-                    <h1 class="page-title md:text-5xl text-4xl">{{ title }}</h1>
-                    <h3 class="text-xl">
-                        By
-                        <span class="italic text-blue-tertiary">Akash Bhave</span>
-                    </h3>
-                    <h3>
-                        Published on
-                        <span class="text-blue-tertiary">{{ createdAt }}</span>
-                    </h3>
-                    <div class="mt-4">
-                        <span
-                            v-for="keyword in keywords"
-                            :key="keyword"
-                            class="inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded"
-                        >{{ keyword }}</span>
+            <div class="page-header flex flex-wrap mb-8 md:shadow-none shadow">
+                <div class="flex flex-col lg:w-2/5 w-full text-center">
+                    <nuxt-link :to="'/blog'">
+                        <div
+                            class="flex-1 w-full bg-blue-primary text-light font-bold text-uppercase py-4 text-xl shadow"
+                        >
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span>Blog</span>
+                        </div>
+                    </nuxt-link>
+                    <div class="flex flex-1 flex-col py-12 px-8 justify-center h-full">
+                        <h3
+                            class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
+                            :class="type.color"
+                        >
+                            <span>{{ type.name }}</span>
+                            <i class="ml-2" :class="type.icon"></i>
+                        </h3>
+                        <h1 class="page-title md:text-5xl text-4xl">{{ title }}</h1>
+                        <h3 class="text-xl">
+                            By
+                            <span class="italic text-blue-tertiary">Akash Bhave</span>
+                        </h3>
+                        <h3>
+                            Published on
+                            <span class="text-blue-tertiary">{{ createdAt }}</span>
+                        </h3>
+                        <div class="mt-4">
+                            <span
+                                v-for="keyword in keywords"
+                                :key="keyword"
+                                class="inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded"
+                            >{{ keyword }}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex lg:w-3/5 w-full flex-grow bg-gray-300">
@@ -55,6 +65,8 @@
 import BlockContent from 'sanity-blocks-vue-component'
 import BlockContentCode from '~/components/BlockContentCode'
 import BlockContentImage from '~/components/BlockContentImage'
+
+import getPostType from '~/plugins/post-type'
 
 export default {
     validate(context) {
@@ -94,28 +106,7 @@ export default {
             }
         },
         type() {
-            let postType = this.postType.type
-            let color, name, icon
-
-            switch (postType) {
-                case 'thought':
-                    color = 'bg-orange-700'
-                    name = 'Thought'
-                    icon = 'fas fa-brain'
-                    break
-                case 'project':
-                    color = 'bg-green-700'
-                    name = 'Project'
-                    icon = 'fas fa-hammer'
-                    break
-                case 'tutorial':
-                    color = 'bg-purple-700'
-                    name = 'Tutorial'
-                    icon = 'fas fa-book'
-                    break
-            }
-
-            return { color: color, name: name, icon: icon }
+            return getPostType(this.postType.type)
         }
     }
 }

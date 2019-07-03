@@ -36,7 +36,7 @@
             </div>
             <div
                 id="hero-scroll"
-                class="relative h-16 w-16 bg-blue-secondary opacity-100 shadow-md cursor-pointer flex justify-center items-center"
+                class="relative h-16 w-16 bg-blue-secondary opacity-100 shadow cursor-pointer flex justify-center items-center"
             >
                 <i class="fas fa-chevron-down text-3xl text-light"></i>
             </div>
