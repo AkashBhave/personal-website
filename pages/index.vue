@@ -56,6 +56,7 @@ export default {
             title: 'Home | ' + process.env.SITE_TITLE
         }
     },
+    layout: 'full-height',
     components: {
         VueTyper
     },

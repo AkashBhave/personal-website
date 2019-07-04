@@ -1,6 +1,6 @@
 <template>
     <div id="page" class="font-sans flex flex-col h-full text-dark">
-        <div class="flex-1 flex flex-col">
+        <div class="min-h-screen flex-1 flex flex-col">
             <the-header class="flex-shrink-0"></the-header>
             <nuxt />
         </div>
