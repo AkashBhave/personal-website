@@ -5,6 +5,8 @@ const fs = require('fs-extra')
 
 const generateData = require('./generate-data')
 
+import sanityClient from '../plugins/sanity-client'
+
 // Get value of JSON from dot notation
 function getNested(theObject, path, separator) {
     try {
@@ -44,6 +46,9 @@ module.exports = function generate() {
 
     // Add hook for build
     this.nuxt.hook('build:before', async builder => {
+        // Get new line after existing logs
+        console.log('')
+
         // Clean data directory
         fs.emptyDir('static/_data')
 
@@ -65,8 +70,20 @@ module.exports = function generate() {
 
                 // Generate nested/dynamic paths if set
                 if (path.nested) {
-                    pathData.forEach(function(subPathData) {
+                    pathData.forEach(async function(subPathData) {
                         let nestedKey = getNested(subPathData, path.nestedKey)
+
+                        if (
+                            key == 'blog' &&
+                            subPathData.postType.type == 'project'
+                        ) {
+                            let projectData = await sanityClient.fetch(
+                                `*[_id == "${subPathData.postType.project._ref}"][0]{slug, title}`
+                            )
+
+                            // Add project slug URL to sub-path data
+                            subPathData.projectData = projectData
+                        }
 
                         scraper.push(
                             writeData(

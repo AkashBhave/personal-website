@@ -24,7 +24,9 @@
                                 </div>
                             </no-ssr>
                             <div class="p-8 flex flex-col content-start">
-                                <h3 class="font-serif font-bold text-3xl -mb-2">{{post.title}}</h3>
+                                <h3
+                                    class="font-serif font-bold text-3xl -mb-2 break-words"
+                                >{{post.title}}</h3>
                                 <h3 class="text-md font-light mt-4">
                                     Published on
                                     <span
@@ -35,8 +37,8 @@
                                     class="w-auto mr-auto text-md font-light text-light py-2 px-4 mt-4 rounded"
                                     :class="getPostType(post.postType.type).color"
                                 >
+                                    <i class="mr-2" :class="getPostType(post.postType.type).icon"></i>
                                     <span>{{ getPostType(post.postType.type).name }}</span>
-                                    <i class="ml-2" :class="getPostType(post.postType.type).icon"></i>
                                 </div>
                             </div>
                         </nuxt-link>

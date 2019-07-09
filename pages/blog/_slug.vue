@@ -16,8 +16,24 @@
                             class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
                             :class="type.color"
                         >
-                            <span>{{ type.name }}</span>
-                            <i class="ml-2" :class="type.icon"></i>
+                            <div v-if="projectData">
+                                <nuxt-link
+                                    :to="`/projects/${projectData.slug.current}`"
+                                    :title="projectData.title"
+                                >
+                                    <i class="mr-2" :class="type.icon"></i>
+                                    <span>
+                                        {{ type.name }}:
+                                        <div
+                                            class="text-sm opacity-75 inline-block"
+                                        >{{ projectData.title }}</div>
+                                    </span>
+                                </nuxt-link>
+                            </div>
+                            <div v-else>
+                                <i class="mr-2" :class="type.icon"></i>
+                                <span>{{ type.name }}</span>
+                            </div>
                         </h3>
                         <h1 class="page-title md:text-5xl text-4xl -mb-2">{{ title }}</h1>
                         <h3 class="text-xl mt-2">
