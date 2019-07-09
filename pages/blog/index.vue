@@ -11,12 +11,17 @@
                     <div class="flex flex-col justify-between cursor-pointer shadow border h-full">
                         <nuxt-link :to="'/blog/' + post.slug.current">
                             <no-ssr>
-                                <img
-                                    class="w-full bg-gray-300"
-                                    :src="imageBlocktoURL(post.mainImage)"
-                                    alt
-                                    srcset
-                                />
+                                <div v-if="post.mainImage">
+                                    <img
+                                        class="w-full bg-gray-300"
+                                        :src="imageBlocktoURL(post.mainImage)"
+                                        alt
+                                        srcset
+                                    />
+                                </div>
+                                <div class="text-center bg-gray-200 text-blue-secondary p-8" v-else>
+                                    <i class="text-200px far fa-file"></i>
+                                </div>
                             </no-ssr>
                             <div class="p-8 flex flex-col content-start">
                                 <h3 class="font-serif font-bold text-3xl -mb-2">{{post.title}}</h3>

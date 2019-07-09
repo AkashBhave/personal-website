@@ -37,14 +37,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex lg:w-3/5 w-full flex-grow bg-gray-300">
+                <div class="flex lg:w-3/5 w-full flex-grow bg-gray-200">
                     <div class="mx-auto">
-                        <block-content
-                            :blocks="mainImage"
-                            :serializers="serializers"
-                            :projectId="sanity.id"
-                            :dataset="sanity.dataset"
-                        />
+                        <div v-if="mainImage">
+                            <block-content
+                                :blocks="mainImage"
+                                :serializers="serializers"
+                                :projectId="sanity.id"
+                                :dataset="sanity.dataset"
+                            />
+                        </div>
+                        <div class="h-full flex items-center text-blue-secondary p-8" v-else>
+                            <i class="text-250px far fa-file"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,7 +87,12 @@ export default {
         BlockContentCode
     },
     asyncData(context) {
-        return require(`~/static/_data/blog/${context.params.slug}`)
+        let data = require(`~/static/_data/blog/${context.params.slug}`)
+        if (!data.mainImage) {
+            data.mainImage = false
+        }
+
+        return data
     },
     data() {
         return {

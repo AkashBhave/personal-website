@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/**
+ *  Typography
+**/
+.text-100px {
+    font-size: 100px;
+}
+.text-150px {
+    font-size: 150px;
+}
+.text-200px {
+    font-size: 200px;
+}
+.text-250px {
+    font-size: 250px;
+}
+.text-300px {
+    font-size: 300px;
+}
+
+/**
+ *  Background color
+**/
+.bg-blue-primary {
+    ::-moz-selection,
+    ::selection {
+        background-color: $color-highlight;
+        background-image: linear-gradient(
+            to right,
+            lighten($color-highlight, 10%) 0%,
+            $color-highlight 100%
+        );
+    }
+}

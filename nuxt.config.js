@@ -5,6 +5,7 @@ import sanityClient from './plugins/sanity-client'
 export default {
     mode: 'universal',
     pageTransition: 'slide-fade',
+    layoutTransition: 'slide-fade',
     env: {
         SITE_TITLE: process.env.SITE_TITLE,
         SANITY_ID: process.env.SANITY_ID,
