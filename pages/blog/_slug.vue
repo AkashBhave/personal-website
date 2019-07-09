@@ -42,7 +42,7 @@
                         </h3>
                         <h3 class="mt-2">
                             Published on
-                            <span class="text-blue-tertiary">{{ createdAt }}</span>
+                            <span class="font-mono text-blue-tertiary">{{ createdAt }}</span>
                         </h3>
                         <div class="mt-4">
                             <span

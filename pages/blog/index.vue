@@ -30,7 +30,7 @@
                                 <h3 class="text-md font-light mt-4">
                                     Published on
                                     <span
-                                        class="text-blue-tertiary"
+                                        class="font-mono text-blue-tertiary"
                                     >{{ new Date(post._createdAt).toLocaleString() }}</span>
                                 </h3>
                                 <div
