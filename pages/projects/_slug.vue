@@ -25,10 +25,7 @@
                             </span>
                         </div>
                         <h1 class="page-title md:text-5xl text-4xl mb-4">{{ title }}</h1>
-                        <h3 class="text-xl mb-2">
-                            By
-                            <span class="italic text-blue-tertiary">Akash Bhave</span>
-                        </h3>
+
                         <h3 class="mb-4">
                             Updated on
                             <span class="font-mono text-blue-tertiary">{{ createdAt }}</span>
@@ -68,7 +65,7 @@
                 />
             </div>
 
-            <div class="container mx-auto p-8 w-full">
+            <div class="container mx-auto p-8 w-full" v-if="relatedPosts.length > 0">
                 <h1 class="text-5xl text-center border-t py-8">Related Posts</h1>
                 <div
                     class="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8"
