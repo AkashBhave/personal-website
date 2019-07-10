@@ -56,7 +56,6 @@ export default {
             title: 'Home | ' + process.env.SITE_TITLE
         }
     },
-    layout: 'full-height',
     components: {
         VueTyper
     },
@@ -87,6 +86,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+main {
+    // FIXME: Use a better method to fill height
+    height: calc(100vh - 5rem);
+}
 #hero-picture {
     background-image: url('~assets/pages/home/me.png');
     background-blend-mode: overlay;
