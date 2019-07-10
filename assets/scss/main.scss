@@ -11,6 +11,7 @@ body {
 
     overflow-x: hidden;
 
+    // Selection color
     ::-moz-selection,
     ::selection {
         background-color: $color-primary;
@@ -19,5 +20,14 @@ body {
             lighten($color-primary, 10%) 0%,
             $color-primary 100%
         );
+    }
+}
+
+// Font smoothing
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 2dppx) {
+    body {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
     }
 }
