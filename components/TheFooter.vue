@@ -91,7 +91,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="text-center">
+            <div class="text-center mb-2">
                 <p class="text-lg">
                     Made with
                     <i class="fab fa-vuejs text-green-300"></i>,
@@ -100,12 +100,48 @@
                     <i class="fas fa-heart text-red-400"></i>
                 </p>
             </div>
+            <div class="text-center text-sm opacity-75">
+                <a href="https://github.com/AkashBhave/personal-website">
+                    <i class="fas fa-code text-purple-300"></i>
+                    <span>Source</span>
+                </a>
+                <span>|</span>
+                <a :href="latestCommit.html_url">
+                    <span>Revision:</span>
+                    <span class="font-mono">{{ latestCommit.sha }}</span>
+                </a>
+                <span>|</span>
+                <a href="https://github.com/AkashBhave/personal-website/commits/master">Changelog</a>
+            </div>
         </div>
     </footer>
-</template>
+</template> 
 
 <script>
-export default {}
+export default {
+    data() {
+        return {
+            latestCommit: {
+                sha: 'Unknown'
+            }
+        }
+    },
+    mounted() {
+        let vm = this
+        this.$axios
+            .$get(
+                'https://api.github.com/repos/AkashBhave/personal-website/commits'
+            )
+            .then(
+                response => {
+                    vm.latestCommit = response[0]
+                },
+                error => {
+                    console.log(error)
+                }
+            )
+    }
+}
 </script>
 
 <style lang="scss">
