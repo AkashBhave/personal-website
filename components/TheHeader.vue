@@ -1,7 +1,7 @@
 <template>
     <header
         id="header"
-        class="md:h-20 h-auto md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-4 font-sans w-full border-b-2 border-blue-secondary shadow"
+        class="md:h-20 h-auto md:px-16 px-6 bg-white flex flex-wrap items-center md:py-0 py-6 font-sans w-full border-b-2 border-blue-secondary shadow"
     >
         <label for="menu-toggle" class="md:hidden block cursor-pointer">
             <svg
@@ -22,6 +22,9 @@
                 <ul
                     class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0"
                 >
+                    <li class="md:hidden block hover:text-blue-secondary">
+                        <nuxt-link class="md:p-4 py-3 px-0 block" to="/">Home</nuxt-link>
+                    </li>
                     <li class="hover:text-blue-secondary">
                         <nuxt-link class="md:p-4 py-3 px-0 block" to="/projects">Projects</nuxt-link>
                     </li>
@@ -60,7 +63,7 @@ export default {}
     }
 
     .nuxt-link-active {
-        @apply font-bold;
+        @apply text-blue-secondary;
     }
 }
 </style>

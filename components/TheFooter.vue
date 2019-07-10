@@ -1,5 +1,5 @@
 <template>
-    <footer id="footer" class="w-full bg-blue-secondary text-light">
+    <footer id="footer" class="w-full bg-blue-secondary text-light shadow">
         <div class="container p-8 md:w-2/3 w-full mx-auto">
             <div class="flex flex-col text-center mb-4">
                 <img
@@ -102,16 +102,20 @@
             </div>
             <div class="text-center text-sm opacity-75">
                 <a href="https://github.com/AkashBhave/personal-website">
-                    <i class="fas fa-code text-purple-300"></i>
+                    <i class="fas fa-code text-purple-200"></i>
                     <span>Source</span>
                 </a>
-                <span>|</span>
+                <span class="mx-1">|</span>
                 <a :href="latestCommit.html_url">
+                    <i class="fas fa-pen text-purple-200"></i>
                     <span>Revision:</span>
                     <span class="font-mono">{{ latestCommit.sha }}</span>
                 </a>
-                <span>|</span>
-                <a href="https://github.com/AkashBhave/personal-website/commits/master">Changelog</a>
+                <span class="mx-1">|</span>
+                <a href="https://github.com/AkashBhave/personal-website/commits/master">
+                    <i class="fas fa-file-alt text-purple-200"></i>
+                    <span>Changelog</span>
+                </a>
             </div>
         </div>
     </footer>
@@ -146,8 +150,12 @@ export default {
 
 <style lang="scss">
 #footer {
-    #footer-links i {
-        @apply mr-1;
+    #footer-links li {
+        @apply mb-1;
+
+        i {
+            @apply mr-1;
+        }
     }
 
     #footer-logo {
