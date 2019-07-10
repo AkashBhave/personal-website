@@ -43,25 +43,25 @@
                     <ul class="text-lg">
                         <li>
                             <a href="https://github.com/AkashBhave">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-github fa-fw"></i>
                                 <span>GitHub</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://gitlab.com/AkashBhave">
-                                <i class="fab fa-gitlab"></i>
+                                <i class="fab fa-gitlab fa-fw"></i>
                                 <span>GitLab</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://keybase.io/akashbhave">
-                                <i class="fab fa-keybase"></i>
+                                <i class="fab fa-keybase fa-fw"></i>
                                 <span>Keybase</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://stackoverflow.com/users/4552814/akashbhave">
-                                <i class="fab fa-stack-overflow"></i>
+                                <i class="fab fa-stack-overflow fa-fw"></i>
                                 <span>Stack Overflow</span>
                             </a>
                         </li>
@@ -72,19 +72,19 @@
                     <ul class="text-lg">
                         <li>
                             <a href="https://www.linkedin.com/in/akashbbhave/">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-linkedin fa-fw"></i>
                                 <span>LinkedIn</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://twitter.com/AkashBhave">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fab fa-twitter fa-fw"></i>
                                 <span>Twitter</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.strava.com/athletes/akashbhave">
-                                <i class="fab fa-strava"></i>
+                                <i class="fab fa-strava fa-fw"></i>
                                 <span>Strava</span>
                             </a>
                         </li>
@@ -95,7 +95,7 @@
                 <p class="text-lg">
                     Made with
                     <i class="fab fa-vuejs text-green-300"></i>,
-                    <i class="fas fa-code text-purple-300"></i>,
+                    <i class="fas fa-coffee text-orange-300"></i>,
                     and most importantly,
                     <i class="fas fa-heart text-red-400"></i>
                 </p>
