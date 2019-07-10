@@ -15,7 +15,7 @@
                         <div class="mb-2">
                             <span
                                 v-for="link in links"
-                                :key="link"
+                                :key="link.url"
                                 class="inline-block mb-2 mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded bg-highlight"
                             >
                                 <a :href="link.url">
@@ -67,6 +67,10 @@
                     :dataset="sanity.dataset"
                 />
             </div>
+
+            <div class="container mx-auto p-8 md:w-2/3 w-full">
+                <div v-for="post in relatedPosts" :key="post._id">{{ post.title }}</div>
+            </div>
         </div>
     </main>
 </template>
@@ -90,12 +94,25 @@ export default {
         BlockContentCode
     },
     asyncData(context) {
-        let data = require(`~/static/_data/projects/${context.params.slug}`)
-        if (!data.mainImage) {
-            data.mainImage = false
+        let projectData = require(`~/static/_data/projects/${context.params.slug}`)
+        if (!projectData.mainImage) {
+            projectData.mainImage = false
         }
 
-        return data
+        // Get posts that refer to this project
+        let postsArray = require('~/static/_data/blog/_.json')
+        let relatedPostsArray = []
+        postsArray.forEach(post => {
+            if (
+                post.postType.type == 'project' &&
+                post.postType.project._ref == projectData._id
+            ) {
+                relatedPostsArray.push(post)
+            }
+        })
+
+        projectData['relatedPosts'] = relatedPostsArray
+        return projectData
     },
     data() {
         return {
