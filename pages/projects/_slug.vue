@@ -12,11 +12,11 @@
                         </div>
                     </nuxt-link>
                     <div class="flex flex-1 flex-col py-12 px-8 justify-center h-full">
-                        <div class="mb-4">
+                        <div class="mb-2">
                             <span
                                 v-for="link in links"
                                 :key="link"
-                                class="mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded bg-highlight"
+                                class="inline-block mb-2 mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded bg-highlight"
                             >
                                 <a :href="link.url">
                                     <i class="mr-2" :class="link.iconName"></i>
@@ -33,13 +33,13 @@
                             Updated on
                             <span class="font-mono text-blue-tertiary">{{ createdAt }}</span>
                         </h3>
-                        <!-- <div class="mt-4">
+                        <div class>
                             <span
                                 v-for="keyword in keywords"
                                 :key="keyword"
-                                class="inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded"
+                                class="mb-2 inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded"
                             >{{ keyword }}</span>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
                 <div class="flex items-center lg:w-3/5 w-full bg-gray-200 border">
