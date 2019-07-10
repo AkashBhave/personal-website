@@ -68,8 +68,15 @@
                 />
             </div>
 
-            <div class="container mx-auto p-8 md:w-2/3 w-full">
-                <div v-for="post in relatedPosts" :key="post._id">{{ post.title }}</div>
+            <div class="container mx-auto p-8 w-full">
+                <h1 class="text-5xl text-center border-t py-8">Related Posts</h1>
+                <div
+                    class="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8"
+                    v-for="post in relatedPosts"
+                    :key="post._id"
+                >
+                    <card-blog :post="post" :hide-image="true"></card-blog>
+                </div>
             </div>
         </div>
     </main>
@@ -79,6 +86,7 @@
 import BlockContent from 'sanity-blocks-vue-component'
 import BlockContentCode from '~/components/BlockContentCode'
 import BlockContentImage from '~/components/BlockContentImage'
+import CardBlog from '~/components/CardBlog'
 
 export default {
     validate(context) {
@@ -91,7 +99,8 @@ export default {
     },
     components: {
         BlockContent,
-        BlockContentCode
+        BlockContentCode,
+        CardBlog
     },
     asyncData(context) {
         let projectData = require(`~/static/_data/projects/${context.params.slug}`)
@@ -99,17 +108,22 @@ export default {
             projectData.mainImage = false
         }
 
-        // Get posts that refer to this project
+        // Get up to 3 posts that refer to this project
         let postsArray = require('~/static/_data/blog/_.json')
         let relatedPostsArray = []
-        postsArray.forEach(post => {
-            if (
-                post.postType.type == 'project' &&
-                post.postType.project._ref == projectData._id
-            ) {
-                relatedPostsArray.push(post)
+        for (var p = 0; p < postsArray.length; p++) {
+            if (relatedPostsArray.length < 3) {
+                let post = postsArray[p]
+                if (
+                    post.postType.type == 'project' &&
+                    post.postType.project._ref == projectData._id
+                ) {
+                    relatedPostsArray.push(post)
+                }
+            } else {
+                break
             }
-        })
+        }
 
         projectData['relatedPosts'] = relatedPostsArray
         return projectData
@@ -138,3 +152,4 @@ export default {
     }
 }
 </script>
+
