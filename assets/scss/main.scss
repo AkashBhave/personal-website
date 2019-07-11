@@ -26,3 +26,43 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+
+.style-normal {
+    p,
+    span,
+    h5,
+    h6,
+    ul,
+    ol,
+    table {
+        @apply text-lg;
+    }
+    h1 {
+        @apply text-4xl mb-1;
+    }
+    h2 {
+        @apply text-3xl mb-1;
+    }
+    h3 {
+        @apply text-2xl mb-1;
+    }
+    h4 {
+        @apply text-xl mb-1;
+    }
+    ul,
+    ol {
+        @apply my-1 ml-4 list-inside;
+    }
+    ul {
+        @apply list-disc;
+    }
+    ol {
+        @apply list-decimal;
+    }
+    li p {
+        @apply inline;
+    }
+    blockquote {
+        @apply py-1 my-1 pl-4 bg-gray-100;
+    }
+}
