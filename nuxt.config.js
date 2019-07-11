@@ -10,7 +10,8 @@ export default {
         SITE_TITLE: process.env.SITE_TITLE,
         SANITY_ID: process.env.SANITY_ID,
         SANITY_DATASET: process.env.SANITY_DATASET,
-        EMAIL_ENDPOINT: process.env.EMAIL_ENDPOINT
+        EMAIL_ENDPOINT: process.env.EMAIL_ENDPOINT,
+        RECAPTCHA_SITE: process.env.RECAPTCHA_SITE
     },
     /*
      ** Headers of the page

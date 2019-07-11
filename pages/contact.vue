@@ -59,7 +59,7 @@
                             />
                         </div>
                     </div>
-                    <div class="flex flex-wrap">
+                    <div class="flex flex-wrap mb-6">
                         <div class="w-full px-4">
                             <label for="form-message">Message</label>
                             <no-ssr>
@@ -79,7 +79,20 @@
                             </p>
                         </div>
                     </div>
-                    <div class="flex items-center mt-8">
+                    <div class="flex flex-wrap">
+                        <div class="w-full px-4">
+                            <label for="form-recaptcha">Verification</label>
+                            <vue-recaptcha
+                                id="form-recaptcha"
+                                :sitekey="recaptchaSite"
+                                :loadRecaptchaScript="true"
+                                size="normal"
+                                @verify="recaptchaVerified = true"
+                                @expired="recaptchaVerified = false"
+                            ></vue-recaptcha>
+                        </div>
+                    </div>
+                    <div class="flex items-center mt-12">
                         <div class="mx-auto">
                             <button
                                 class="shadow bg-blue-secondary focus:shadow-outline focus:outline-none uppercase text-light text-lg font-bold py-2 px-4"
@@ -139,6 +152,8 @@ import {
     History
 } from 'tiptap-extensions'
 
+import VueRecaptcha from 'vue-recaptcha'
+
 import TheTitle from '~/components/TheTitle'
 
 export default {
@@ -150,6 +165,7 @@ export default {
     components: {
         EditorMenuBar,
         EditorContent,
+        VueRecaptcha,
         TheTitle
     },
     data() {
@@ -164,7 +180,9 @@ export default {
                 },
                 errors: [],
                 response: null
-            }
+            },
+            recaptchaSite: process.env.RECAPTCHA_SITE,
+            recaptchaVerified: false
         }
     },
     methods: {
@@ -214,6 +232,9 @@ export default {
                 errors.push('Please enter a valid email address')
 
             if (!this.form.fields.message) errors.push('Please enter a message')
+
+            if (!this.recaptchaVerified)
+                errors.push('Please complete the reCAPTCHA')
 
             this.form.errors = errors
             return errors.length > 0 ? false : true
@@ -270,6 +291,10 @@ export default {
         span {
             font-size: 16px;
         }
+    }
+
+    #form-recaptcha > div {
+        @apply border border-blue-secondary;
     }
 }
 </style>
