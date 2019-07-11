@@ -2,10 +2,13 @@
     <main id="contact-form">
         <the-title :title="'Contact'" :subtitle="'Get in touch!'"></the-title>
 
-        <div class="my-12 mx-8">
+        <div class="py-12 px-8">
             <div class="flex flex-col items-center mb-12" v-if="form.errors.length > 0">
                 <div>
-                    <h1 class="text-center text-highlight text-2xl">ERRORS</h1>
+                    <div class="text-center text-highlight text-2xl">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>ERRORS</h3>
+                    </div>
                     <ul class="my-1 ml-4 list-inside list-disc">
                         <li v-for="error in form.errors" :key="error">{{ error }}</li>
                     </ul>
