@@ -2,7 +2,7 @@
     <main id="contact-form">
         <the-title :title="'Contact'" :subtitle="'Get in touch!'"></the-title>
 
-        <div class="py-12 px-8">
+        <div v-if="form.response == null" class="py-12 px-8">
             <div class="flex flex-col items-center mb-12" v-if="form.errors.length > 0">
                 <div>
                     <div class="text-center text-highlight text-2xl">
@@ -90,6 +90,31 @@
                 </div>
             </form>
         </div>
+
+        <div v-else class="py-12 px-8">
+            <div class="container w-full mx-auto text-center">
+                <div v-if="form.response == true">
+                    <div class="text-green-400 text-4xl">
+                        <span>Submission</span>
+                        <span class="font-bold uppercase">
+                            succeeded
+                            <i class="fas fa-smile ml-2"></i>
+                        </span>
+                    </div>
+                    <div class="mt-2 text-lg">Thanks for the message!</div>
+                </div>
+                <div v-else>
+                    <div class="text-red-400 text-4xl">
+                        <span>Submission</span>
+                        <span class="font-bold uppercase">
+                            failed
+                            <i class="fas fa-frown ml-2"></i>
+                        </span>
+                    </div>
+                    <div class="mt-2 text-lg">It's the thought that counts.</div>
+                </div>
+            </div>
+        </div>
     </main>
 </template>
 
@@ -137,16 +162,39 @@ export default {
                     email: '',
                     message: null
                 },
-                errors: []
+                errors: [],
+                response: null
             }
         }
     },
     methods: {
         submit() {
             if (this.checkFields()) {
-                console.log('SUCCESS')
-            } else {
-                console.log('ERROR')
+                // Send the email
+                const emailEndpoint = process.env.EMAIL_ENDPOINT
+                let emailData = this.form.fields
+                let vm = this
+                this.$axios
+                    .$post(
+                        emailEndpoint,
+                        {
+                            name: `${emailData.firstName} ${emailData.lastName}`,
+                            subject: emailData.subject,
+                            email: emailData.email,
+                            message: emailData.message.getHTML()
+                        },
+                        { headers: { Accept: 'application/json' } }
+                    )
+                    .then(function(response) {
+                        if (response.success) {
+                            vm.form.response = true
+                        } else {
+                            vm.form.response = false
+                        }
+                    })
+                    .catch(function(error) {
+                        vm.form.response = false
+                    })
             }
         },
         checkFields() {
