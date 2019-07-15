@@ -62,6 +62,9 @@ export default {
         '~/plugins/highlightjs',
         { src: '~/plugins/lazyload', ssr: false }
     ],
+    router: {
+        base: '/'
+    },
     /*
      ** Nuxt.js modules
      */
