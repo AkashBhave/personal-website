@@ -55,45 +55,14 @@ module.exports = function generate() {
         // Empty array to fill with promises
         let scraper = []
 
-        // One of these for every top level page, a loop for dynamic nested pages
-        Object.entries(generateData).forEach(async function([key, pathArray]) {
-            pathArray.forEach(async function(path) {
-                let pathData = await path.getData()
-
-                // Generate the root path
-                scraper.push(
-                    writeData(
-                        `static/_data/${path.relativePath}/_.json`,
-                        pathData
-                    )
+        generateData.forEach(async (pathObject, index) => {
+            let pathData = await pathObject.data()
+            scraper.push(
+                writeData(
+                    `static/_data/${pathObject.type}/${pathObject.name}.json`,
+                    pathData
                 )
-
-                // Generate nested/dynamic paths if set
-                if (path.nested) {
-                    pathData.forEach(async function(subPathData) {
-                        let nestedKey = getNested(subPathData, path.nestedKey)
-
-                        if (
-                            key == 'blog' &&
-                            subPathData.postType.type == 'project'
-                        ) {
-                            let projectData = await sanityClient.fetch(
-                                `*[_id == "${subPathData.postType.project._ref}"][0]{slug, title}`
-                            )
-
-                            // Add project slug URL to sub-path data
-                            subPathData.projectData = projectData
-                        }
-
-                        scraper.push(
-                            writeData(
-                                `static/_data/${path.relativePath}/${nestedKey}.json`,
-                                subPathData
-                            )
-                        )
-                    })
-                }
-            })
+            )
         })
 
         // Finish when all of them are done
