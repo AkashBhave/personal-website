@@ -14,7 +14,7 @@
                         <no-ssr>
                             <vue-typer
                                 class="inline break-normal whitespace-normal"
-                                :text="mePhrases"
+                                :text="hero.phrases"
                                 :repeat="Infinity"
                                 :shuffle="true"
                                 initial-action="typing"
@@ -32,6 +32,7 @@
                 <div
                     id="hero-picture"
                     class="flex flex-col justify-end md:w-1/2 w-full bg-blue-primary bg-local bg-contain bg-no-repeat bg-center"
+                    :style="{ 'background-image': 'url(' + hero.picture + ')' }"
                 ></div>
             </div>
             <div
@@ -45,6 +46,10 @@
 </template>
 
 <script>
+import imageUrlBuilder from '@sanity/image-url'
+import sanityClient from '~/plugins/sanity-client'
+let builder = imageUrlBuilder(sanityClient)
+
 if (process.browser) {
     var VueTyper = require('vue-typer').VueTyper
 }
@@ -59,28 +64,16 @@ export default {
     components: {
         VueTyper
     },
-    data() {
-        return {
-            mePhrasesNoPeriod: [
-                'high-school student',
-                'UI/UX designer',
-                'web developer',
-                'machine learning enthusiast',
-                'amateur cyclist'
-            ]
-        }
-    },
-    computed: {
-        mePhrases() {
-            let mePhrases = this.mePhrasesNoPeriod
-            // Iterate over each value in array to mutate
-            mePhrases.forEach(function(part, index) {
-                // Add a period to each phrase
-                this[index] = this[index] + '.'
-            }, mePhrases)
+    asyncData() {
+        let data = require('~/static/_data/page/home.json')
+        data.hero.phrases.forEach(function(part, index) {
+            // Add a period to each phrase
+            this[index] = this[index] + '.'
+        }, data.hero.phrases)
 
-            return mePhrases
-        }
+        data.hero.picture = builder.image(data.hero.picture)
+
+        return data
     }
 }
 </script>
@@ -91,7 +84,6 @@ main {
     height: calc(100vh - 5rem);
 }
 #hero-picture {
-    background-image: url('~assets/pages/home/me.png');
     background-blend-mode: overlay;
 }
 #hero-scroll {

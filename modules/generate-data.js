@@ -21,5 +21,12 @@ module.exports = [
         data: async () => {
             return await sanityClient.fetch('*[_type == "project"]')
         }
+    },
+    {
+        name: 'home',
+        type: dataTypes.PAGE,
+        data: async () => {
+            return await sanityClient.fetch('*[_id == "page_home"][0]')
+        }
     }
 ]

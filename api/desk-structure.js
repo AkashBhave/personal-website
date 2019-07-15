@@ -28,6 +28,7 @@ export default () =>
                                 .title('Home')
                                 .child(
                                     S.editor()
+                                        .title('Page (Home)')
                                         .id('page_home')
                                         .schemaType('page_home')
                                         .documentId('page_home')
