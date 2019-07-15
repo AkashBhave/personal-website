@@ -62,24 +62,39 @@ export default {
         '~/plugins/highlightjs',
         { src: '~/plugins/lazyload', ssr: false }
     ],
-    router: {
-        base: '/'
-    },
     /*
      ** Nuxt.js modules
      */
     modules: ['~/modules/generate', '@nuxtjs/axios'],
     generate: {
         async routes() {
+            let routes = []
+
             // Blog posts
             let posts = await sanityClient.fetch('*[_type == "post"]')
-            return posts.map(post => {
-                return {
-                    route: '/blog/' + post.slug.current,
-                    payload: post
-                }
-            })
-        }
+            routes.push(
+                ...posts.map(post => {
+                    return {
+                        route: '/blog/' + post.slug.current,
+                        payload: post
+                    }
+                })
+            )
+
+            // Project pages
+            let projects = await sanityClient.fetch('*[_type == "project"]')
+            routes.push(
+                ...projects.map(project => {
+                    return {
+                        route: '/projects/' + project.slug.current,
+                        payload: project
+                    }
+                })
+            )
+
+            return routes
+        },
+        fallback: '404.html'
     },
     /*
      ** Build configuration
