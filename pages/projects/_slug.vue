@@ -88,7 +88,11 @@ import CardBlog from '~/components/CardBlog'
 export default {
     validate(context) {
         try {
-            let data = require(`~/static/_data/projects/${context.params.slug}`)
+            let data = require(`~/static/_data/collection/projects.json`).find(
+                project => {
+                    return project.slug.current == context.params.slug
+                }
+            )
             return data != null && data._id != null
         } catch (e) {
             return false
@@ -100,20 +104,21 @@ export default {
         CardBlog
     },
     asyncData(context) {
-        let projectData = require(`~/static/_data/projects/${context.params.slug}`)
-        if (!projectData.mainImage) {
-            projectData.mainImage = false
-        }
+        let data = require(`~/static/_data/collection/projects.json`).find(
+            project => {
+                return project.slug.current == context.params.slug
+            }
+        )
 
         // Get up to 3 posts that refer to this project
-        let postsArray = require('~/static/_data/blog/_.json')
+        let postsArray = require('~/static/_data/collection/posts.json')
         let relatedPostsArray = []
         for (var p = 0; p < postsArray.length; p++) {
             if (relatedPostsArray.length < 3) {
                 let post = postsArray[p]
                 if (
                     post.postType.type == 'project' &&
-                    post.postType.project._ref == projectData._id
+                    post.postType.project._ref == data._id
                 ) {
                     relatedPostsArray.push(post)
                 }
@@ -122,8 +127,8 @@ export default {
             }
         }
 
-        projectData['relatedPosts'] = relatedPostsArray
-        return projectData
+        data['relatedPosts'] = relatedPostsArray
+        return data
     },
     data() {
         return {

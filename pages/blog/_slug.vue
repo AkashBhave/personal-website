@@ -92,7 +92,11 @@ import getPostType from '~/plugins/post-type'
 export default {
     validate(context) {
         try {
-            let data = require(`~/static/_data/blog/${context.params.slug}`)
+            let data = require(`~/static/_data/collection/posts.json`).find(
+                post => {
+                    return post.slug.current == context.params.slug
+                }
+            )
             return data != null && data._id != null
         } catch (e) {
             return false
@@ -103,7 +107,12 @@ export default {
         BlockContentCode
     },
     asyncData(context) {
-        let data = require(`~/static/_data/blog/${context.params.slug}`)
+        let data = require(`~/static/_data/collection/posts.json`).find(
+            post => {
+                return post.slug.current == context.params.slug
+            }
+        )
+
         if (!data.mainImage) {
             data.mainImage = false
         }

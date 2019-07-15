@@ -30,7 +30,7 @@ export default {
         }
     },
     async asyncData(context) {
-        return { posts: require('~/static/_data/blog/_.json') }
+        return { posts: require('~/static/_data/collection/posts.json') }
     },
     components: {
         TheTitle,

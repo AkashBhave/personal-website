@@ -59,7 +59,7 @@ export default {
         }
     },
     async asyncData(context) {
-        return { projects: require('~/static/_data/projects/_.json') }
+        return { projects: require('~/static/_data/collection/projects.json') }
     },
     components: {
         TheTitle
