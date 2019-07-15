@@ -1,15 +1,15 @@
-// First, we must import the schema creator
+// Base
 import createSchema from 'part:@sanity/base/schema-creator'
-
-// Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
-// We import object and document schemas
-import blockContent from './blockContent'
-import post from './content/post'
-import project from './content/project'
+import blockContent from './block-content'
+// Collection schemas
+import post from './collections/post'
+import project from './collections/project'
+// Page schemas
+import pageHome from './pages/home'
 
-// Installed plugins
+// Plugins
 import latex from 'part:@sanity/form-builder/input/latex/schema'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -19,14 +19,14 @@ export default createSchema({
     // Then proceed to concatenate our document type
     // to the ones provided by any plugins that are installed
     types: schemaTypes.concat([
-        // The following are document types which will appear
-        // in the studio.
+        // Collection schemas
         post,
         project,
-        // When added to this list, object types can be used as
-        // { type: 'typename' } in other document schemas
+        // Poge schemas
+        pageHome,
+        // Block schemas
         blockContent,
-        // Installed plugins
+        // Plugins
         latex
     ])
 })
