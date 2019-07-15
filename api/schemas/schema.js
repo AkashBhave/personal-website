@@ -8,6 +8,7 @@ import post from './collections/post'
 import project from './collections/project'
 // Page schemas
 import pageHome from './pages/home'
+import pageAbout from './pages/about'
 
 // Plugins
 import latex from 'part:@sanity/form-builder/input/latex/schema'
@@ -24,6 +25,7 @@ export default createSchema({
         project,
         // Poge schemas
         pageHome,
+        pageAbout,
         // Block schemas
         blockContent,
         // Plugins

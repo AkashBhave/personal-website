@@ -32,6 +32,15 @@ export default () =>
                                         .id('page_home')
                                         .schemaType('page_home')
                                         .documentId('page_home')
+                                ),
+                            S.listItem()
+                                .title('About')
+                                .child(
+                                    S.editor()
+                                        .title('Page (About)')
+                                        .id('page_about')
+                                        .schemaType('page_about')
+                                        .documentId('page_about')
                                 )
                         ])
                 )
