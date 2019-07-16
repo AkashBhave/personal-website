@@ -32,7 +32,7 @@
                 <div
                     id="hero-picture"
                     class="flex flex-col justify-end md:w-1/2 w-full bg-blue-primary bg-local bg-contain bg-no-repeat bg-center"
-                    :style="{ 'background-image': 'url(' + $sanityImage(hero.picture) + ')' }"
+                    :style="{ 'background-image': 'url(' + $sanityImage(hero.image) + ')' }"
                 ></div>
             </div>
             <div
