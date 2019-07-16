@@ -16,10 +16,6 @@
 </template>
 
 <script>
-import imageUrlBuilder from '@sanity/image-url'
-import sanityClient from '~/plugins/sanity-client'
-let builder = imageUrlBuilder(sanityClient)
-
 import TheTitle from '~/components/TheTitle'
 import CardBlog from '~/components/CardBlog'
 

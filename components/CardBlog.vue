@@ -4,12 +4,7 @@
             <no-ssr>
                 <div class="post-image" :class="{ hidden: hideImage }">
                     <div v-if="post.mainImage">
-                        <img
-                            class="w-full bg-gray-300"
-                            :src="imageBlocktoURL(post.mainImage)"
-                            alt
-                            srcset
-                        />
+                        <img class="w-full bg-gray-300" :src="image(post.mainImage)" alt srcset />
                     </div>
                     <div class="text-center bg-gray-200 text-blue-secondary p-8" v-else>
                         <i class="text-200px far fa-file"></i>
@@ -45,11 +40,10 @@ export default {
         hideImage: Boolean
     },
     methods: {
-        imageBlocktoURL(source) {
+        image(source) {
             if (process.client) {
                 let windowScale = Math.round(window.innerWidth / 3)
-                return builder
-                    .image(source)
+                return this.$sanityImage(source)
                     .width(windowScale)
                     .height(Math.round((windowScale * 9) / 16))
             }

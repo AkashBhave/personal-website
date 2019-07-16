@@ -15,9 +15,12 @@ export default {
                     of: [{ type: 'string' }]
                 },
                 {
-                    title: 'Picture',
-                    name: 'picture',
-                    type: 'image'
+                    title: 'Image',
+                    name: 'Image',
+                    type: 'image',
+                    options: {
+                        hotspot: true
+                    }
                 }
             ]
         }

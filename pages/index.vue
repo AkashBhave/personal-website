@@ -32,7 +32,7 @@
                 <div
                     id="hero-picture"
                     class="flex flex-col justify-end md:w-1/2 w-full bg-blue-primary bg-local bg-contain bg-no-repeat bg-center"
-                    :style="{ 'background-image': 'url(' + hero.picture + ')' }"
+                    :style="{ 'background-image': 'url(' + $sanityImage(hero.picture) + ')' }"
                 ></div>
             </div>
             <div
@@ -46,14 +46,11 @@
 </template>
 
 <script>
-import imageUrlBuilder from '@sanity/image-url'
-import sanityClient from '~/plugins/sanity-client'
-let builder = imageUrlBuilder(sanityClient)
+require('@fortawesome/fontawesome-free/css/all.css')
 
 if (process.browser) {
     var VueTyper = require('vue-typer').VueTyper
 }
-require('@fortawesome/fontawesome-free/css/all.css')
 
 export default {
     head() {
@@ -64,14 +61,12 @@ export default {
     components: {
         VueTyper
     },
-    asyncData() {
+    asyncData(context) {
         let data = require('~/static/_data/page/home.json')
         data.hero.phrases.forEach(function(part, index) {
             // Add a period to each phrase
             this[index] = this[index] + '.'
         }, data.hero.phrases)
-
-        data.hero.picture = builder.image(data.hero.picture)
 
         return data
     }

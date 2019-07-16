@@ -24,6 +24,14 @@ export default {
                     type: 'text'
                 }
             ]
+        },
+        {
+            title: 'Main Image',
+            name: 'mainImage',
+            type: 'image',
+            options: {
+                hotspot: true
+            }
         }
     ]
 }

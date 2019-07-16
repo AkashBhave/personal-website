@@ -17,7 +17,7 @@
                                 <div v-if="project.mainImage">
                                     <img
                                         class="w-full bg-gray-300"
-                                        :src="imageBlocktoURL(project.mainImage)"
+                                        :src="image(project.mainImage)"
                                         alt
                                         srcset
                                     />
@@ -46,10 +46,6 @@
 </template>
 
 <script>
-import imageUrlBuilder from '@sanity/image-url'
-import sanityClient from '~/plugins/sanity-client'
-let builder = imageUrlBuilder(sanityClient)
-
 import TheTitle from '~/components/TheTitle'
 
 export default {
@@ -65,11 +61,10 @@ export default {
         TheTitle
     },
     methods: {
-        imageBlocktoURL(source) {
+        image(source) {
             if (process.client) {
                 let windowScale = Math.round(window.innerWidth / 2)
-                return builder
-                    .image(source)
+                return this.$sanityImage(source)
                     .width(windowScale)
                     .height(Math.round((windowScale * 9) / 16))
             }

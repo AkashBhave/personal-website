@@ -10,11 +10,6 @@
 </template>
 
 <script>
-import imageUrlBuilder from '@sanity/image-url'
-import sanityClient from '~/plugins/sanity-client'
-
-let builder = imageUrlBuilder(sanityClient)
-
 export default {
     props: {
         asset: {
@@ -26,7 +21,7 @@ export default {
     },
     methods: {
         imageBlocktoURL(source) {
-            return builder.image(source)
+            return this.$sanityImage(source)
         }
     }
 }

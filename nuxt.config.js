@@ -60,6 +60,7 @@ export default {
      */
     plugins: [
         '~/plugins/highlightjs',
+        '~/plugins/sanity-image',
         { src: '~/plugins/lazyload', ssr: false }
     ],
     /*
