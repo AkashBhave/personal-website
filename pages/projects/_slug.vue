@@ -65,14 +65,19 @@
                 />
             </div>
 
-            <div class="container mx-auto p-8 w-full" v-if="relatedPosts.length > 0">
+            <div
+                class="container mx-auto p-8 w-full"
+                v-if="relatedPosts && relatedPosts.length > 0"
+            >
                 <h1 class="text-5xl text-center border-t py-8">Related Posts</h1>
-                <div
-                    class="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8"
-                    v-for="post in relatedPosts"
-                    :key="post._id"
-                >
-                    <card-blog :post="post" :hide-image="true"></card-blog>
+                <div class="flex flex-row flex-wrap justify-left -mx-4">
+                    <div
+                        v-for="post in relatedPosts"
+                        :key="post._id"
+                        class="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8"
+                    >
+                        <card-blog :post="post" :hide-image="true"></card-blog>
+                    </div>
                 </div>
             </div>
         </div>
@@ -104,31 +109,11 @@ export default {
         CardBlog
     },
     asyncData(context) {
-        let data = require(`~/static/_data/collection/projects.json`).find(
+        return require(`~/static/_data/collection/projects.json`).find(
             project => {
                 return project.slug.current == context.params.slug
             }
         )
-
-        // Get up to 3 posts that refer to this project
-        let postsArray = require('~/static/_data/collection/posts.json')
-        let relatedPostsArray = []
-        for (var p = 0; p < postsArray.length; p++) {
-            if (relatedPostsArray.length < 3) {
-                let post = postsArray[p]
-                if (
-                    post.postType.type == 'project' &&
-                    post.postType.project._ref == data._id
-                ) {
-                    relatedPostsArray.push(post)
-                }
-            } else {
-                break
-            }
-        }
-
-        data['relatedPosts'] = relatedPostsArray
-        return data
     },
     data() {
         return {

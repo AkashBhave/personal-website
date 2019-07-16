@@ -12,7 +12,7 @@ module.exports = [
         type: dataTypes.COLLECTION,
         data: async () => {
             return await sanityClient.fetch(
-                '*[_type == "post"] | order(_createdAt asc)'
+                '*[_type == "post"]{"relatedProject": postType.project -> {title, "slug": slug.current}, ...} | order(_createdAt asc)'
             )
         }
     },
@@ -20,7 +20,9 @@ module.exports = [
         name: 'projects',
         type: dataTypes.COLLECTION,
         data: async () => {
-            return await sanityClient.fetch('*[_type == "project"]')
+            return await sanityClient.fetch(
+                '*[_type == "project"]{"relatedPosts": *[_type == "post" && references(^._id)][0...3], ...}'
+            )
         }
     },
     // Pages

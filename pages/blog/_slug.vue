@@ -16,17 +16,14 @@
                             class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
                             :class="type.color"
                         >
-                            <div v-if="projectData">
-                                <nuxt-link
-                                    :to="`/projects/${projectData.slug.current}`"
-                                    :title="projectData.title"
-                                >
+                            <div v-if="relatedProject">
+                                <nuxt-link :to="`/projects/${relatedProject.slug}`" :title="relatedProject.title">
                                     <i class="mr-2" :class="type.icon"></i>
                                     <span>
                                         {{ type.name }}:
                                         <div
                                             class="text-sm opacity-75 inline-block"
-                                        >{{ projectData.title }}</div>
+                                        >{{ relatedProject.title }}</div>
                                     </span>
                                 </nuxt-link>
                             </div>
