@@ -31,5 +31,5 @@
 
 input,
 textarea {
-    font-family: var(--font-family-sans-serif);
+    font-family: var(--font-family-sans-serif) !important;
 }

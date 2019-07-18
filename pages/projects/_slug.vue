@@ -119,7 +119,7 @@ export default {
         return {
             serializers: {
                 types: {
-                    code: BlockContentCode,
+                    codeBlock: BlockContentCode,
                     image: BlockContentImage
                 }
             }

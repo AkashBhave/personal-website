@@ -2,7 +2,7 @@
     <main>
         <the-title title="About" subtitle="Who am I?"></the-title>
         <div class="mx-8 my-12">
-            <div class="flex flex-wrap container mx-auto md:w-3/4 w-full">
+            <div class="flex flex-wrap container mx-auto md:w-2/3 w-full">
                 <div class="md:w-1/3 w-full flex md:justify-end justify-center md:mb-0 mb-8">
                     <div class="md:w-full w-2/3">
                         <img
@@ -46,7 +46,7 @@ export default {
         return {
             serializers: {
                 types: {
-                    code: BlockContentCode,
+                    codeBlock: BlockContentCode,
                     image: BlockContentImage
                 }
             },

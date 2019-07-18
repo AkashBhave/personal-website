@@ -1,6 +1,6 @@
 <template>
-    <pre v-highlightjs="code">
-        <code :class="language"></code>
+    <pre v-highlightjs="code.code">
+        <code :class="codeLanguage"></code>
     </pre>
 </template>
 
@@ -8,9 +8,9 @@
 export default {
     props: {
         code: {
-            type: String
+            type: Object
         },
-        language: {
+        codeLanguage: {
             type: String
         }
     }

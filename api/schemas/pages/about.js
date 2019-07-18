@@ -38,5 +38,14 @@ export default {
                 }
             ]
         }
-    ]
+    ],
+    preview: {
+        select: {},
+        prepare() {
+            return {
+                title: 'Page (About)',
+                subtitle: 'Page'
+            }
+        }
+    }
 }

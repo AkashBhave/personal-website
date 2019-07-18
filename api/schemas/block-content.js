@@ -8,6 +8,7 @@
  *    type: 'blockContent'
  *  }
  */
+
 export default {
     title: 'Block Content',
     name: 'blockContent',
@@ -47,11 +48,22 @@ export default {
             ]
         },
         {
-            type: 'code',
-            options: { theme: 'tomorrow' }
-        },
-        {
-            type: 'latex'
+            name: 'codeBlock',
+            title: 'Code Block',
+            type: 'object',
+            fields: [
+                {
+                    name: 'code',
+                    title: 'Code',
+                    type: 'code',
+                    options: { theme: 'tomorrow' }
+                },
+                {
+                    name: 'langauge',
+                    type: 'string',
+                    title: 'Language'
+                }
+            ]
         }
     ]
 }

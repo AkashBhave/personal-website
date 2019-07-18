@@ -17,7 +17,10 @@
                             :class="type.color"
                         >
                             <div v-if="relatedProject">
-                                <nuxt-link :to="`/projects/${relatedProject.slug}`" :title="relatedProject.title">
+                                <nuxt-link
+                                    :to="`/projects/${relatedProject.slug}`"
+                                    :title="relatedProject.title"
+                                >
                                     <i class="mr-2" :class="type.icon"></i>
                                     <span>
                                         {{ type.name }}:
@@ -120,7 +123,7 @@ export default {
         return {
             serializers: {
                 types: {
-                    code: BlockContentCode,
+                    codeBlock: BlockContentCode,
                     image: BlockContentImage
                 }
             }

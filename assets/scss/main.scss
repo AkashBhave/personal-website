@@ -36,22 +36,25 @@ body {
     ol,
     table {
         @apply text-lg;
+        @apply mb-2;
+        line-height: 1.6em;
     }
     h1 {
-        @apply text-4xl mb-1;
+        @apply text-4xl;
+        @apply mb-2;
     }
     h2 {
-        @apply text-3xl mb-1;
+        @apply text-3xl;
     }
     h3 {
-        @apply text-2xl mb-1;
+        @apply text-2xl;
     }
     h4 {
-        @apply text-xl mb-1;
+        @apply text-xl;
     }
     ul,
     ol {
-        @apply my-1 ml-4 list-inside;
+        @apply ml-4 list-inside;
     }
     ul {
         @apply list-disc;
@@ -59,10 +62,8 @@ body {
     ol {
         @apply list-decimal;
     }
-    li p {
-        @apply inline;
-    }
-    blockquote {
-        @apply py-1 my-1 pl-4 bg-gray-100;
+    img,
+    code.hljs {
+        @apply shadow border border-2 border-blue-secondary;
     }
 }

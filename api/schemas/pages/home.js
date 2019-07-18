@@ -24,5 +24,14 @@ export default {
                 }
             ]
         }
-    ]
+    ],
+    preview: {
+        select: {},
+        prepare() {
+            return {
+                title: 'Page (Home)',
+                subtitle: 'Page'
+            }
+        }
+    }
 }
