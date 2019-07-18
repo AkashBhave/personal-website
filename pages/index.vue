@@ -37,7 +37,7 @@
             </div>
             <div
                 id="hero-scroll"
-                class="relative h-16 w-16 bg-blue-primary opacity-100 shadow cursor-pointer flex justify-center items-center"
+                class="relative h-16 w-16 bg-blue-primary opacity-100 shadow cursor-pointer flex justify-center items-center link-bg"
             >
                 <i class="fas fa-chevron-down text-3xl text-light"></i>
             </div>
@@ -63,12 +63,14 @@ export default {
     },
     asyncData(context) {
         let data = require('~/static/_data/page/home.json')
-        data.hero.phrases.forEach(function(part, index) {
-            // Add a period to each phrase
-            this[index] = this[index] + '.'
-        }, data.hero.phrases)
 
         return data
+    },
+    mounted() {
+        this.hero.phrases.forEach(function(part, index) {
+            // Add a period to each phrase
+            this[index] = this[index] + '.'
+        }, this.hero.phrases)
     }
 }
 </script>
