@@ -16,7 +16,7 @@
                             <span
                                 v-for="link in links"
                                 :key="link.url"
-                                class="inline-block mb-2 mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded bg-highlight"
+                                class="inline-block mb-2 mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded shadow bg-blue-tertiary link-bg"
                             >
                                 <a :href="link.url">
                                     <i class="mr-2" :class="link.iconName"></i>

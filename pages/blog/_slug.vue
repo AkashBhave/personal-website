@@ -13,8 +13,8 @@
                     </nuxt-link>
                     <div class="flex flex-1 flex-col py-12 px-8 justify-center h-full">
                         <h3
-                            class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded link-bg"
-                            :class="type.color"
+                            class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
+                            :class="[relatedProject ? 'shadow link-bg' : '', type.color]"
                         >
                             <div v-if="relatedProject">
                                 <nuxt-link

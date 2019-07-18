@@ -95,7 +95,7 @@
                     <div class="flex items-center mt-12">
                         <div class="mx-auto">
                             <button
-                                class="shadow bg-blue-primary focus:shadow-outline focus:outline-none text-light text-lg font-bold py-2 px-4 link-bg uppercase"
+                                class="shadow bg-blue-primary focus:shadow-outline focus:outline-none text-light text-lg font-bold py-2 px-4 rounded link-bg"
                                 type="submit"
                             >Submit</button>
                         </div>
