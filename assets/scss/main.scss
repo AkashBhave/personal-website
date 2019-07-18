@@ -27,6 +27,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.style-normal a,
+.link-normal {
+    transition: 0.3s all ease-out;
+    padding: 0.1em 0.1em;
+
+    @apply border-b-2 border-highlight;
+
+    &:hover {
+        @apply bg-highlight text-light;
+        @apply border-0;
+        padding: 0.2em 0.1em;
+    }
+}
+
 .style-normal {
     p,
     span,
