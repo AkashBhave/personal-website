@@ -54,13 +54,16 @@ body {
     }
     ul,
     ol {
-        @apply ml-4 list-inside;
+        @apply ml-4 list-inside inline-block;
     }
     ul {
         @apply list-disc;
     }
     ol {
         @apply list-decimal;
+    }
+    li > * {
+        @apply inline;
     }
     img,
     code.hljs {

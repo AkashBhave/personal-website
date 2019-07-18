@@ -59,7 +59,7 @@ export default {
                     options: { theme: 'tomorrow' }
                 },
                 {
-                    name: 'langauge',
+                    name: 'language',
                     type: 'string',
                     title: 'Language'
                 }
