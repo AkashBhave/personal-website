@@ -28,3 +28,8 @@
 
     --state-danger-color: rgba(230, 57, 70, 1);
 }
+
+input,
+textarea {
+    font-family: var(--font-family-sans-serif);
+}
