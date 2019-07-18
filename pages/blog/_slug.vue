@@ -5,7 +5,7 @@
                 <div class="flex flex-col lg:w-2/5 w-full text-center">
                     <nuxt-link :to="'/blog'">
                         <div
-                            class="flex-1 w-full bg-blue-primary text-light font-bold text-uppercase py-4 text-xl shadow"
+                            class="flex-1 w-full bg-blue-primary text-light font-bold text-uppercase py-4 text-xl shadow link-bg"
                         >
                             <i class="fas fa-arrow-left mr-2"></i>
                             <span>Blog</span>
@@ -13,7 +13,7 @@
                     </nuxt-link>
                     <div class="flex flex-1 flex-col py-12 px-8 justify-center h-full">
                         <h3
-                            class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded"
+                            class="mx-auto w-auto text-xl font-light text-light py-2 px-4 mb-2 rounded link-bg"
                             :class="type.color"
                         >
                             <div v-if="relatedProject">

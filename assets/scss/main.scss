@@ -27,17 +27,39 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.transition-standard {
+    transition: 0.2s all ease-out;
+}
+
 .style-normal a,
 .link-normal {
-    transition: 0.3s all ease-out;
+    @extend .transition-standard;
     padding: 0.1em 0.1em;
 
-    @apply border-b-2 border-highlight;
+    @apply border-b-2 border-highlight cursor-pointer;
 
     &:hover {
         @apply bg-highlight text-light;
         @apply border-0;
         padding: 0.2em 0.1em;
+    }
+}
+
+.link-border {
+    @extend .transition-standard;
+
+    @apply cursor-pointer;
+
+    &:hover {
+        @apply border-highlight;
+    }
+}
+.link-bg {
+    @extend .transition-standard;
+    @apply cursor-pointer;
+
+    &:hover {
+        @apply bg-highlight;
     }
 }
 

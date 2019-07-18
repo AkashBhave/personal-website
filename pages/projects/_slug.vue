@@ -5,7 +5,7 @@
                 <div class="flex flex-col lg:w-2/5 w-full text-center">
                     <nuxt-link :to="'/projects'">
                         <div
-                            class="flex-1 w-full bg-blue-primary text-light font-bold text-uppercase py-4 text-xl shadow"
+                            class="flex-1 w-full bg-blue-primary text-light font-bold text-uppercase py-4 text-xl shadow link-bg"
                         >
                             <i class="fas fa-arrow-left mr-2"></i>
                             <span>Projects</span>

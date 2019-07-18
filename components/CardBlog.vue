@@ -1,5 +1,7 @@
 <template>
-    <div class="flex flex-col justify-between cursor-pointer shadow border-standard h-full">
+    <div
+        class="flex flex-col justify-between cursor-pointer shadow border-standard link-border h-full"
+    >
         <nuxt-link :to="'/blog/' + post.slug.current">
             <no-ssr>
                 <div class="post-image" :class="{ hidden: hideImage }">

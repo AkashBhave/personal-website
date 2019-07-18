@@ -95,7 +95,7 @@
                     <div class="flex items-center mt-12">
                         <div class="mx-auto">
                             <button
-                                class="shadow bg-blue-primary focus:shadow-outline focus:outline-none uppercase text-light text-lg font-bold py-2 px-4"
+                                class="shadow bg-blue-primary focus:shadow-outline focus:outline-none text-light text-lg font-bold py-2 px-4 link-bg uppercase"
                                 type="submit"
                             >Submit</button>
                         </div>
@@ -277,7 +277,8 @@ export default {
 
     input,
     #form-message .ProseMirror {
-        @apply border border-blue-primary appearance-none block w-full bg-gray-200 text-gray-700 py-3 px-4 mb-6 outline-none;
+        @apply appearance-none block w-full bg-gray-200 text-gray-700 py-3 px-4 mb-6 outline-none;
+        @apply border-2 border-blue-secondary;
 
         &:focus {
             @apply bg-light border-blue-primary;
