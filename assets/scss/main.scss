@@ -34,7 +34,7 @@ body {
 .style-normal a,
 .link-normal {
     @extend .transition-standard;
-    padding: 0.1em 0.1em;
+    padding: 0em 0.1em;
 
     @apply border-b-2 border-highlight cursor-pointer;
 
