@@ -21,6 +21,12 @@
     font-size: 300px;
 }
 
+// Standard border
+.border-standard {
+    @apply border-2 border-blue-secondary;
+    @apply shadow;
+}
+
 /**
  *  Background color
 **/

@@ -6,7 +6,7 @@
                 <div class="md:w-1/3 w-full flex md:justify-end justify-center md:mb-0 mb-8">
                     <div class="md:w-full w-2/3">
                         <img
-                            class="shadow border-2 border-blue-secondary"
+                            class="shadow border-standard"
                             :src="$sanityImage(mainImage).width(700).height(700)"
                             alt
                         />

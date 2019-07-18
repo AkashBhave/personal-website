@@ -12,7 +12,7 @@
                     class="flex-grow-0 md:w-1/2 w-full whitespace-normal px-4 mb-8"
                 >
                     <div
-                        class="flex flex-col justify-between cursor-pointer shadow border-2 border-blue-secondary h-full"
+                        class="flex flex-col justify-between cursor-pointer shadow border-standard h-full"
                     >
                         <nuxt-link :to="'/projects/' + project.slug.current">
                             <no-ssr>

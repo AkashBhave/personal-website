@@ -3,7 +3,7 @@
         <pre v-highlightjs="code.code">
             <p
     v-if="language"
-    class="text-dark relative hljs-language bg-light font-light px-2 py-1 uppercase border-2 border-blue-secondary font-sans"
+    class="text-dark relative hljs-language bg-light font-light px-2 py-1 uppercase border-standard font-sans"
 >{{ language }}</p>
             <code :class="language"></code>
         </pre>
