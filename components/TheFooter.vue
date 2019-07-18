@@ -1,5 +1,5 @@
 <template>
-    <footer id="footer" class="w-full bg-blue-secondary text-light shadow">
+    <footer id="footer" class="w-full bg-blue-primary text-light shadow">
         <div class="container p-8 md:w-2/3 w-full mx-auto">
             <div class="flex flex-col text-center mb-4">
                 <img

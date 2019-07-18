@@ -95,7 +95,7 @@
                     <div class="flex items-center mt-12">
                         <div class="mx-auto">
                             <button
-                                class="shadow bg-blue-secondary focus:shadow-outline focus:outline-none uppercase text-light text-lg font-bold py-2 px-4"
+                                class="shadow bg-blue-primary focus:shadow-outline focus:outline-none uppercase text-light text-lg font-bold py-2 px-4"
                                 type="submit"
                             >Submit</button>
                         </div>
@@ -277,10 +277,10 @@ export default {
 
     input,
     #form-message .ProseMirror {
-        @apply border border-blue-secondary appearance-none block w-full bg-gray-200 text-gray-700 py-3 px-4 mb-6 outline-none;
+        @apply border border-blue-primary appearance-none block w-full bg-gray-200 text-gray-700 py-3 px-4 mb-6 outline-none;
 
         &:focus {
-            @apply bg-light border-blue-secondary;
+            @apply bg-light border-blue-primary;
         }
     }
 
@@ -294,7 +294,7 @@ export default {
     }
 
     #form-recaptcha > div {
-        @apply border border-blue-secondary;
+        @apply border border-blue-primary;
     }
 }
 </style>

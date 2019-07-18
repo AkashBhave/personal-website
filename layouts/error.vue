@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="my-4">
-            <nuxt-link class="text-xl text-blue-secondary" to="/">
+            <nuxt-link class="text-xl text-blue-primary" to="/">
                 <i class="fas fa-arrow-left mr-2"></i>
                 <span>Home</span>
             </nuxt-link>

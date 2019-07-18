@@ -11,7 +11,9 @@
                     :key="project._id"
                     class="flex-grow-0 md:w-1/2 w-full whitespace-normal px-4 mb-8"
                 >
-                    <div class="flex flex-col justify-between cursor-pointer shadow border h-full">
+                    <div
+                        class="flex flex-col justify-between cursor-pointer shadow border-2 border-blue-secondary h-full"
+                    >
                         <nuxt-link :to="'/projects/' + project.slug.current">
                             <no-ssr>
                                 <div v-if="project.mainImage">
@@ -22,7 +24,7 @@
                                         srcset
                                     />
                                 </div>
-                                <div class="text-center bg-gray-200 text-blue-secondary p-8" v-else>
+                                <div class="text-center bg-gray-200 text-blue-primary p-8" v-else>
                                     <i class="text-200px far fa-file"></i>
                                 </div>
                             </no-ssr>

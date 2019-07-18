@@ -5,7 +5,7 @@
                 <div class="flex flex-col lg:w-2/5 w-full text-center">
                     <nuxt-link :to="'/projects'">
                         <div
-                            class="flex-1 w-full bg-blue-secondary text-light font-bold text-uppercase py-4 text-xl shadow"
+                            class="flex-1 w-full bg-blue-primary text-light font-bold text-uppercase py-4 text-xl shadow"
                         >
                             <i class="fas fa-arrow-left mr-2"></i>
                             <span>Projects</span>
@@ -34,7 +34,7 @@
                             <span
                                 v-for="keyword in keywords"
                                 :key="keyword"
-                                class="mb-2 inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded"
+                                class="mb-2 inline-block mx-2 font-light p-2 text-light bg-blue-primary rounded"
                             >{{ keyword }}</span>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                                 :dataset="sanity.dataset"
                             />
                         </div>
-                        <div class="h-full flex items-center text-blue-secondary p-8" v-else>
+                        <div class="h-full flex items-center text-blue-primary p-8" v-else>
                             <i class="text-250px far fa-file"></i>
                         </div>
                     </div>

@@ -1,12 +1,14 @@
 <template>
-    <div class="flex flex-col justify-between cursor-pointer shadow border h-full">
+    <div
+        class="flex flex-col justify-between cursor-pointer shadow border-2 border-blue-secondary h-full"
+    >
         <nuxt-link :to="'/blog/' + post.slug.current">
             <no-ssr>
                 <div class="post-image" :class="{ hidden: hideImage }">
                     <div v-if="post.mainImage">
                         <img class="w-full bg-gray-300" :src="image(post.mainImage)" alt srcset />
                     </div>
-                    <div class="text-center bg-gray-200 text-blue-secondary p-8" v-else>
+                    <div class="text-center bg-gray-200 text-blue-primary p-8" v-else>
                         <i class="text-200px far fa-file"></i>
                     </div>
                 </div>
