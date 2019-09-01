@@ -1,4 +1,4 @@
-# akashbhave.com (API)
+# akashbhave.com (CMS)
 
 Contains the back-end schemas for [akashbhave.com](https://akashbhave.com).
 
