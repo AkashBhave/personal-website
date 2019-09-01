@@ -19,7 +19,7 @@
 .hamburger-inner::before {
     width: 35px;
     height: 3px;
-    @apply bg-gray-700;
+    background-color: var(--color-blue-tertiary);
 }
 
 .nav {
