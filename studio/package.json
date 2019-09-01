@@ -1,0 +1,34 @@
+{
+  "name": "personalwebsite",
+  "private": true,
+  "version": "1.0.0",
+  "description": "My personal website",
+  "main": "package.json",
+  "author": "Akash Bhave <akashbbhave@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^0.141.6",
+    "@sanity/code-input": "^0.141.5",
+    "@sanity/components": "^0.141.6",
+    "@sanity/core": "^0.141.6",
+    "@sanity/default-layout": "^0.141.6",
+    "@sanity/default-login": "^0.141.5",
+    "@sanity/desk-tool": "^0.141.6",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2",
+    "sanity-plugin-latex-input": "^0.0.5"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AkashBhave/personal-website"
+  }
+}
