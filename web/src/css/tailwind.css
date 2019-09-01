@@ -18,3 +18,21 @@
 .text-300px {
     font-size: 300px;
 }
+
+.only-desktop {
+    @apply hidden;
+}
+@screen md {
+    .only-desktop {
+        @apply block;
+    }
+}
+
+.only-mobile {
+    @apply block;
+}
+@screen md {
+    .only-mobile {
+        @apply hidden;
+    }
+}
