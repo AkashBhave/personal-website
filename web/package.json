@@ -1,5 +1,5 @@
 {
-    "name": "personal-website",
+    "name": "personal-website-web",
     "description": "Personal website of Akash Bhave",
     "version": "2.0.0",
     "author": "Akash Bhave",
@@ -52,10 +52,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/oddstronaut/gatsby-starter-tailwind"
+        "url": "https://github.com/AkashBhave/personal-website"
     },
     "bugs": {
-        "url": "https://github.com/oddstronaut/gatsby-starter-tailwind/issues"
+        "url": "https://github.com/AkashBhave/personal-website/issues"
     },
     "publishConfig": {
         "access": "public"
