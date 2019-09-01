@@ -1,5 +1,5 @@
 export default {
-    name: 'page_about',
+    name: 'page-about',
     title: 'Page (About)',
     type: 'document',
     fields: [
@@ -17,26 +17,9 @@ export default {
             type: 'blockContent'
         },
         {
-            title: 'GPG Key',
+            title: 'GPG Info',
             name: 'gpg',
-            type: 'object',
-            fields: [
-                {
-                    name: 'id',
-                    title: 'ID',
-                    type: 'string'
-                },
-                {
-                    name: 'fingerprint',
-                    title: 'Fingerprint',
-                    type: 'string'
-                },
-                {
-                    name: 'publicKey',
-                    title: 'Public Key',
-                    type: 'text'
-                }
-            ]
+            type: 'page-about-gpg'
         }
     ],
     preview: {

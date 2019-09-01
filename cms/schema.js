@@ -2,13 +2,19 @@
 import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
-import blockContent from './block-content'
+// Block schemas
+import blockContent from './schemas/blockContent'
+import captionedImage from './schemas/captionedImage'
+import codeBlock from './schemas/codeBlock'
 // Collection schemas
-import post from './collections/post'
-import project from './collections/project'
+import post from './schemas/collections/post'
+import postType from './schemas/collections/post-type'
+import project from './schemas/collections/project'
+import projectLink from './schemas/collections/project-link'
 // Page schemas
-import pageHome from './pages/home'
-import pageAbout from './pages/about'
+import pageHome from './schemas/pages/home'
+import pageAbout from './schemas/pages/about'
+import pageAboutGPG from './schemas/pages/about-gpg'
 
 // Plugins
 import latex from 'part:@sanity/form-builder/input/latex/schema'
@@ -22,12 +28,17 @@ export default createSchema({
     types: schemaTypes.concat([
         // Collection schemas
         post,
+        postType,
         project,
+        projectLink,
         // Poge schemas
         pageHome,
         pageAbout,
+        pageAboutGPG,
         // Block schemas
         blockContent,
+        captionedImage,
+        codeBlock,
         // Plugins
         latex
     ])

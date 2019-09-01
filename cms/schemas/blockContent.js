@@ -33,37 +33,7 @@ export default {
         // You can add additional types here. Note that you can't use
         // primitive types such as 'string' and 'number' in the same array
         // as a block type.
-        {
-            type: 'image',
-            options: { hotspot: true },
-            fields: [
-                {
-                    name: 'caption',
-                    type: 'string',
-                    title: 'Caption',
-                    options: {
-                        isHighlighted: true // <-- make this field easily accessible
-                    }
-                }
-            ]
-        },
-        {
-            name: 'codeBlock',
-            title: 'Code Block',
-            type: 'object',
-            fields: [
-                {
-                    name: 'code',
-                    title: 'Code',
-                    type: 'code',
-                    options: { theme: 'tomorrow' }
-                },
-                {
-                    name: 'language',
-                    type: 'string',
-                    title: 'Language'
-                }
-            ]
-        }
+        { type: 'captionedImage' },
+        { type: 'codeBlock' }
     ]
 }

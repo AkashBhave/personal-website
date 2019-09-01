@@ -1,28 +1,21 @@
 export default {
-    name: 'page_home',
+    name: 'page-home',
     title: 'Page (Home)',
     type: 'document',
     fields: [
         {
-            title: 'Hero',
-            name: 'hero',
-            type: 'object',
-            fields: [
-                {
-                    name: 'phrases',
-                    title: 'Phrases',
-                    type: 'array',
-                    of: [{ type: 'string' }]
-                },
-                {
-                    name: 'image',
-                    title: 'Image',
-                    type: 'image',
-                    options: {
-                        hotspot: true
-                    }
-                }
-            ]
+            name: 'phrases',
+            title: 'Phrases',
+            type: 'array',
+            of: [{ type: 'string' }]
+        },
+        {
+            name: 'portrait',
+            title: 'portrait',
+            type: 'image',
+            options: {
+                hotspot: true
+            }
         }
     ],
     preview: {
