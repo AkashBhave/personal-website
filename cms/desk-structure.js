@@ -5,24 +5,24 @@ export default () =>
         .title('Content')
         .items([
             S.listItem()
-                .title('Posts')
+                .title('Post')
                 .child(
                     S.documentTypeList('post').defaultOrdering([
                         { field: '_createdAt', direction: 'desc' }
                     ])
                 ),
             S.listItem()
-                .title('Projects')
+                .title('Project')
                 .child(
                     S.documentTypeList('project').defaultOrdering([
                         { field: '_createdAt', direction: 'desc' }
                     ])
                 ),
             S.listItem()
-                .title('Pages')
+                .title('Page')
                 .child(
                     S.list()
-                        .title('Pages')
+                        .title('Page')
                         .items([
                             S.listItem()
                                 .title('Home')
