@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from '../layouts/default'
-import SEO from '../components/seo'
+import SEO from '../utils/seo'
 
 function IndexPage() {
     return (
