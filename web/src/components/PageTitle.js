@@ -2,7 +2,7 @@ import React from 'react'
 
 const PageTitle = props => (
     <div
-        className="w-full bg-blue-primary text-light px-8 py-12 text-center shadow"
+        className="w-full bg-blue-secondary text-light px-8 py-12 text-center shadow"
         id="title"
     >
         <h1 className="text-uppercase text-5xl font-bold" title="Title">

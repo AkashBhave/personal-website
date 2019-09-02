@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => (
     <Layout>
         <SEO
             title="Home"
-            keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+            keywords={[`home`, `index`, `akash bhave`, `gatsby`]}
         />
 
         <section>
