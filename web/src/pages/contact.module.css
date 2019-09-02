@@ -1,0 +1,15 @@
+.form {
+    @apply mx-auto;
+}
+
+.form label {
+    @apply block uppercase tracking-wide text-blue-tertiary font-bold mb-2;
+}
+
+.form input {
+    @apply appearance-none block w-full bg-gray-200 text-gray-700 py-3 px-4 mb-6 outline-none;
+    @apply border-2 border-blue-primary;
+}
+.form input:focus {
+    @apply bg-light border-blue-secondary;
+}
