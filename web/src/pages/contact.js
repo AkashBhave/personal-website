@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import ReactQuill from 'react-quill'
+import ReCAPTCHA from 'react-google-recaptcha'
 import Layout from '../layouts/default'
 import SEO from '../utils/seo'
 import PageTitle from '../components/PageTitle'
@@ -16,6 +17,8 @@ const ContactPage = () => {
         email: ''
     })
     const [formEditor, setFormEditor] = useState('')
+    const [isFormValidated, setFormValidated] = useState(false)
+
     const updateFormField = (e, field) => {
         let newFormFields = { ...formFields }
         newFormFields[field] = e.target.value
@@ -41,10 +44,8 @@ const ContactPage = () => {
         if (!emailRe.test(formFields['email']))
             errors.push('Please enter a valid email address')
         if (!formEditor) errors.push('Please enter a message')
-        /*
-        if (!this.recaptchaVerified)
-            errors.push('Please complete the reCAPTCHA')
-            */
+        if (!isFormValidated) errors.push('Please complete the reCAPTCHA')
+
         setFormErrors(errors)
 
         return errors.length > 0 ? false : true
@@ -162,6 +163,12 @@ const ContactPage = () => {
                                     <label htmlFor="form-recaptcha">
                                         Verification
                                     </label>
+                                    <ReCAPTCHA
+                                        sitekey={
+                                            process.env.GATSBY_RECAPTCHA_SITE
+                                        }
+                                        onChange={() => setFormValidated(true)}
+                                    />
                                 </div>
                             </div>
                             <div className="flex items-center mt-12">
