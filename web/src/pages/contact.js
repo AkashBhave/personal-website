@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
+import ReactQuill from 'react-quill'
 import Layout from '../layouts/default'
 import SEO from '../utils/seo'
 import PageTitle from '../components/PageTitle'
 
+import 'react-quill/dist/quill.snow.css'
 import styles from './contact.module.css'
 
 const ContactPage = () => {
@@ -13,6 +15,7 @@ const ContactPage = () => {
         subject: '',
         email: ''
     })
+    const [formEditor, setFormEditor] = useState('')
     const updateFormField = (e, field) => {
         let newFormFields = { ...formFields }
         newFormFields[field] = e.target.value
@@ -37,8 +40,8 @@ const ContactPage = () => {
         var emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if (!emailRe.test(formFields['email']))
             errors.push('Please enter a valid email address')
+        if (!formEditor) errors.push('Please enter a message')
         /*
-        if (!this.form.fields.message) errors.push('Please enter a message')
         if (!this.recaptchaVerified)
             errors.push('Please complete the reCAPTCHA')
             */
@@ -146,16 +149,12 @@ const ContactPage = () => {
                                     <label htmlFor="form-message">
                                         Message
                                     </label>
-                                    <p className="text-gray-600 text-sm italic">
-                                        <span>Supports basic </span>
-                                        <a
-                                            href="https://www.markdownguide.org/cheat-sheet/#basic-syntax"
-                                            className="text-purple-500"
-                                        >
-                                            Markdown
-                                        </a>
-                                        <span>.</span>
-                                    </p>
+                                    <div className={styles.formEditor}>
+                                        <ReactQuill
+                                            value={formEditor}
+                                            onChange={setFormEditor}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex flex-wrap">

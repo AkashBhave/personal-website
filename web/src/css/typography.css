@@ -264,9 +264,9 @@
 }
 
 :root {
-    --var-font-sans-serif: 'HK Grotesk', 'Helvetica', 'Arial', sans-serif;
-    --var-font-serif: 'Libre Baskerville', serif;
-    --var-font-monospace: 'Iosevka', monospace;
+    --font-sans-serif: 'HK Grotesk', 'Helvetica', 'Arial', sans-serif;
+    --font-serif: 'Libre Baskerville', serif;
+    --font-monospace: 'Iosevka', monospace;
 }
 
 body {
