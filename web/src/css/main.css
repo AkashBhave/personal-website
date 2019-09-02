@@ -2,6 +2,7 @@
 @import './colors.css';
 @import './typography.css';
 @import './content.css';
+@import './code.css';
 
 :root {
     --transition-standard: 0.2s all ease-out;
