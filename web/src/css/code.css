@@ -1,5 +1,5 @@
-// Highlight.js - material dark theme
-// Adapted from: https://github.com/Kelbster/highlightjs-material-dark-theme
+/* Highlight.js - material dark theme */
+/* Adapted from: https://github.com/Kelbster/highlightjs-material-dark-theme */
 .hljs {
     display: block;
     overflow-x: auto;
@@ -7,9 +7,10 @@
     background: #2b2b2d;
     color: #cdd3d8;
     font-size: 1em;
-    > *::selection {
-        background-color: #3e4451;
-    }
+}
+
+.hljs > *::selection {
+    background-color: #3e4451;
 }
 
 .hljs-comment {
@@ -110,4 +111,18 @@
 
 .hljs-link {
     text-decoration: underline;
+}
+
+.hljs-language {
+    float: right;
+    top: -16px;
+    right: -16px;
+    font-size: 0.9em !important;
+}
+.hljs-language:hover {
+    opacity: 0.25;
+    transition: 0.3s all ease-out;
+}
+.hljs-language:not(:hover) {
+    opacity: 0.75;
 }
