@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import BlockContent from '@sanity/block-content-to-react'
-import Layout from '../layouts/default'
-import SEO from '../utils/seo'
-import PageTitle from '../components/PageTitle'
+import Layout from '../../layouts/default'
+import SEO from '../../utils/seo'
+import PageTitle from '../../components/PageTitle'
 
 const AboutPage = ({ data }) => (
     <Layout>
