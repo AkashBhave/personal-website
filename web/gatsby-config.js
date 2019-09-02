@@ -1,3 +1,6 @@
+// Environment variables
+require('dotenv').config()
+
 module.exports = {
     siteMetadata: {
         title: `Akash Bhave`,
@@ -25,6 +28,15 @@ module.exports = {
                 tailwind: true
             }
         },
+        {
+            resolve: 'gatsby-source-sanity',
+            options: {
+                projectId: process.env.GATSBY_SANITY_ID,
+                dataset: process.env.GATSBY_SANITY_DATASET,
+                token: process.env.SANITY_TOKEN
+            }
+        },
+
         `gatsby-plugin-offline`
     ]
 }

@@ -1,0 +1,28 @@
+.hero {
+    @apply flex flex-wrap-reverse h-full;
+    height: calc(100vh - 90px);
+}
+
+.hero > div {
+    @apply w-full;
+}
+@screen md {
+    .hero > div {
+        @apply w-1/2;
+    }
+}
+
+.hero-text {
+    @apply flex flex-col p-8;
+    @apply justify-start;
+}
+@screen md {
+    .hero-text {
+        @apply justify-center;
+    }
+}
+
+.hero-portrait {
+    @apply flex flex-col justify-end bg-blue-primary bg-local bg-contain bg-no-repeat bg-center;
+    background-blend-mode: overlay;
+}
