@@ -1,0 +1,53 @@
+.style-normal p,
+.style-normal span,
+.style-normal h5,
+.style-normal h6,
+.style-normal ul,
+.style-normal ol,
+.style-normal table {
+    @apply text-lg mb-2 leading-relaxed;
+}
+.style-normal h1 {
+    @apply text-4xl;
+    @apply mb-2;
+}
+.style-normal h2 {
+    @apply text-3xl;
+}
+.style-normal h3 {
+    @apply text-2xl;
+}
+.style-normal h4 {
+    @apply text-xl;
+}
+.style-normal ul,
+.style-normal ol {
+    @apply ml-4 list-inside inline-block;
+}
+.style-normal ul {
+    @apply list-disc;
+}
+.style-normal ol {
+    @apply list-decimal;
+}
+.style-normal li > * {
+    @apply inline;
+}
+.style-normal img,
+.style-normal code.hljs {
+    @apply shadow;
+}
+
+.style-normal a,
+.link-normal {
+    padding: 0em 0.1em;
+
+    @apply border-b-2 border-highlight cursor-pointer;
+}
+
+.style-normal a:hover,
+.link-normal:hover {
+    @apply bg-highlight text-light;
+    @apply border-0;
+    padding: 0.2em 0.1em;
+}
