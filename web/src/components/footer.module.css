@@ -1,9 +1,19 @@
 .footer {
     @apply w-full bg-blue-secondary text-light shadow;
+    @apply leading-relaxed;
 }
 
 .footer li i {
     @apply mr-1;
+}
+
+.footer-container {
+    @apply p-8 w-full mx-auto;
+}
+@screen md {
+    .footer-container {
+        @apply w-2/3;
+    }
 }
 
 .logo {

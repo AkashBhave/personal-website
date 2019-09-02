@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
+import '@fortawesome/fontawesome-free/css/all.css'
 import Logo from '../images/logo.svg'
 import styles from './footer.module.css'
 
@@ -16,7 +17,7 @@ const Footer = () => {
 
     return (
         <footer id="footer" className={styles.footer}>
-            <div className="container p-8 md:w-2/3 w-full mx-auto">
+            <div className={styles.footerContainer}>
                 <div className="flex flex-col text-center mb-4">
                     <img
                         id="footer-logo"
@@ -25,7 +26,7 @@ const Footer = () => {
                         alt="Logo"
                     />
                     <div className="py-2 text-lg">
-                        <span>Copyright 2019</span>
+                        <span>Copyright 2019 </span>
                         <i className="far fa-copyright"></i>
                         <span className="font-bold"> Akash Bhave. </span>
                         <span>All rights reserved.</span>
@@ -116,27 +117,32 @@ const Footer = () => {
                 </div>
                 <div className="text-center mb-2">
                     <p className="text-lg">
-                        Made with
-                        <i className="fab fa-vuejs text-green-300"></i>,
+                        Made with<span>&nbsp;</span>
+                        <i className="fab fa-react text-purple-300"></i>,
+                        <span>&nbsp;</span>
                         <i className="fas fa-coffee text-orange-300"></i>, and
                         most importantly,
+                        <span>&nbsp;</span>
                         <i className="fas fa-heart text-red-400"></i>
                     </p>
                 </div>
                 <div className="text-center text-sm opacity-75">
                     <a href="https://github.com/AkashBhave/personal-website">
                         <i className="fas fa-code text-purple-200"></i>
+                        &nbsp;
                         <span>Source</span>
                     </a>
                     <span className="mx-1">|</span>
                     <a href={data.commit.url}>
                         <i className="fas fa-pen text-purple-200"></i>
+                        &nbsp;
                         <span>Revision: </span>
                         <span className="font-mono">{data.commit.sha}</span>
                     </a>
                     <span className="mx-1">|</span>
                     <a href="https://github.com/AkashBhave/personal-website/commits/master">
                         <i className="fas fa-file-alt text-purple-200"></i>
+                        &nbsp;
                         <span>Changelog</span>
                     </a>
                 </div>
