@@ -1,2 +1,12 @@
 .footer {
+    @apply w-full bg-blue-secondary text-light shadow;
+}
+
+.footer li i {
+    @apply mr-1;
+}
+
+.logo {
+    @apply h-24 px-6 pt-2 pb-4;
+    filter: brightness(0.05) invert(1);
 }
