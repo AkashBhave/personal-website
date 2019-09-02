@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
+import Typewriter from 'typewriter-effect'
 import Layout from '../layouts/default'
 import SEO from '../utils/seo'
 
@@ -24,7 +25,19 @@ const IndexPage = ({ data }) => (
                         My name is
                         <span className="font-bold"> Akash</span>, and I'm a
                     </p>
-                    <div className="md:text-3xl text-2xt italic"></div>
+                    <div className="md:text-3xl text-2xl italic">
+                        <Typewriter
+                            options={{
+                                // Append period to each phrase
+                                strings: data.page.phrases.map(
+                                    phrase => phrase + '.'
+                                ),
+                                autoStart: true,
+                                loop: true,
+                                delay: 'natural'
+                            }}
+                        />
+                    </div>
                 </div>
                 <BackgroundImage
                     fluid={data.page.portrait.asset.fluid}
@@ -45,7 +58,6 @@ export const query = graphql`
                     }
                 }
             }
-            _id
             phrases
         }
     }
