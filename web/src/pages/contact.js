@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import axios from 'axios'
+
 import ReactQuill from 'react-quill'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Layout from '../layouts/default'
@@ -26,11 +28,38 @@ const ContactPage = () => {
     }
 
     const [formErrors, setFormErrors] = useState([])
-    const [formResponse, setFormResponse] = useState(false)
+    const [formResponse, setFormResponse] = useState(null)
 
     const submitForm = e => {
         e.preventDefault()
-        checkFields()
+        if (checkFields()) {
+            // Send the email
+            const emailEndpoint = process.env.GATSBY_EMAIL_ENDPOINT
+            axios
+                .post(
+                    emailEndpoint,
+                    {
+                        name:
+                            formFields['first-name'] +
+                            ' ' +
+                            formFields['last-name'],
+                        subject: formFields['subject'],
+                        email: formFields['email'],
+                        message: formEditor
+                    },
+                    { headers: { Accept: 'application/json' } }
+                )
+                .then(response => {
+                    if (response.data.success) {
+                        setFormResponse(true)
+                    } else {
+                        setFormResponse(false)
+                    }
+                })
+                .catch(error => {
+                    setFormResponse(false)
+                })
+        }
     }
     const checkFields = () => {
         // Reset errors
@@ -60,7 +89,7 @@ const ContactPage = () => {
 
             <PageTitle title="Contact" subtitle="Get in touch!" />
 
-            {!formResponse ? (
+            {formResponse === null ? (
                 <section className="mx-8 my-12">
                     {formErrors.length > 0 ? (
                         <div className="flex flex-col items-center mb-12">
@@ -185,7 +214,37 @@ const ContactPage = () => {
                     </form>
                 </section>
             ) : (
-                <section className="mx-8 my-12"></section>
+                <section className="mx-8 my-12">
+                    <div className="container w-full mx-auto text-center">
+                        {formResponse === true ? (
+                            <div>
+                                <div className="text-green-400 text-4xl">
+                                    <span>Submission </span>
+                                    <span className="font-bold uppercase">
+                                        succeeded
+                                        <i className="fas fa-smile ml-2"></i>
+                                    </span>
+                                </div>
+                                <div className="mt-2 text-lg">
+                                    Thanks for the message!
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <div className="text-red-400 text-4xl">
+                                    <span>Submission </span>
+                                    <span className="font-bold uppercase">
+                                        failed
+                                        <i className="fas fa-frown ml-2"></i>
+                                    </span>
+                                </div>
+                                <div className="mt-2 text-lg">
+                                    It's the thought that counts.
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </section>
             )}
         </Layout>
     )
