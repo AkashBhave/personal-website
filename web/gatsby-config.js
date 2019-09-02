@@ -36,7 +36,8 @@ module.exports = {
                 token: process.env.SANITY_TOKEN
             }
         },
-
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
         `gatsby-plugin-offline`
     ]
 }
