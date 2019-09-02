@@ -22,7 +22,19 @@ exports.sourceNodes = async ({
             contentDigest: createContentDigest(commitNodeData)
         }
     }
-    const commitNode = Object.assign({}, commitNodeData, commitNodeMeta)
+    const commitNode = { ...commitNodeData, ...commitNodeMeta }
 
     createNode(commitNode)
+}
+
+exports.onCreatePage = ({ page, actions }) => {
+    const { createPage, deletePage } = actions
+
+    // Rename /gpg/ to /about/gpg/
+    if (page.path === '/about-gpg/') {
+        const updatedPage = { ...page }
+        updatedPage.path = '/about/gpg/'
+        deletePage(page)
+        createPage(updatedPage)
+    }
 }
