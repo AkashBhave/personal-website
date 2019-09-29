@@ -1,0 +1,3 @@
+.post-card {
+    @apply flex flex-col justify-between cursor-pointer shadow h-full;
+}
