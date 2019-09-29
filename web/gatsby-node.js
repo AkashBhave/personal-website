@@ -1,4 +1,5 @@
 const axios = require('axios')
+const path = require(`path`)
 
 exports.sourceNodes = async ({
     actions,
@@ -25,4 +26,39 @@ exports.sourceNodes = async ({
     const commitNode = { ...commitNodeData, ...commitNodeMeta }
 
     createNode(commitNode)
+}
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+    const { createPage } = actions
+
+    const query = await graphql(`
+        {
+            posts: allSanityPost {
+                edges {
+                    node {
+                        slug {
+                            current
+                        }
+                        id: _id
+                    }
+                }
+            }
+        }
+    `)
+    if (query.errors) {
+        reporter.panicOnBuild(`Error while running GraphQL query.`)
+        return
+    }
+
+    const Posts = query.data.posts.edges
+    const PostTemplate = path.resolve('./src/templates/Post.js')
+    Posts.forEach(post => {
+        createPage({
+            path: `/blog/${post.node.slug.current}`,
+            component: PostTemplate,
+            context: {
+                id: post.node.id
+            }
+        })
+    })
 }

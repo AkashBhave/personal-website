@@ -42,7 +42,10 @@ const PostCard = props => {
                             )}
                         </span>
                     </h3>
-                    <PostTypeBadge showProject={true} {...post.postType} />
+                    <PostTypeBadge
+                        showProject={props.showProject}
+                        {...post.postType}
+                    />
                 </div>
             </Link>
         </div>

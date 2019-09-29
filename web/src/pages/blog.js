@@ -15,13 +15,13 @@ const BlogPage = ({ data }) => (
         <PageTitle title="Blog" subtitle="Fresh off the CMS" />
 
         <section className="mx-8 my-12">
-            <PostCardGrid posts={data.posts.edges} />
+            <PostCardGrid showProject={false} posts={data.posts.edges} />
         </section>
     </Layout>
 )
 
 export const queryFragment = graphql`
-    fragment BlogPosts on SanityPostConnection {
+    fragment Posts on SanityPostConnection {
         edges {
             node {
                 title
@@ -54,7 +54,7 @@ export const queryFragment = graphql`
 export const query = graphql`
     query BlogPageQuery {
         posts: allSanityPost {
-            ...BlogPosts
+            ...Posts
         }
     }
 `
