@@ -15,6 +15,17 @@ const Footer = () => {
         }
     `)
 
+    const getCopyrightDate = () => {
+        const currentYear = new Date().getFullYear()
+        const startYear = 2019
+
+        if (currentYear === startYear) {
+            return currentYear
+        } else {
+            return startYear + '-' + currentYear
+        }
+    }
+
     return (
         <footer id="footer" className={styles.footer}>
             <div className={styles.footerContainer}>
@@ -26,9 +37,10 @@ const Footer = () => {
                         alt="Logo"
                     />
                     <div className="py-2 text-lg">
-                        <span>Copyright 2019 </span>
+                        <span>Copyright </span>
                         <i className="far fa-copyright"></i>
-                        <span className="font-bold"> Akash Bhave. </span>
+                        <span> {getCopyrightDate()} </span>
+                        <span className="font-bold">Akash Bhave. </span>
                         <span>All rights reserved.</span>
                     </div>
                 </div>
@@ -117,32 +129,27 @@ const Footer = () => {
                 </div>
                 <div className="text-center mb-2">
                     <p className="text-lg">
-                        Made with<span>&nbsp;</span>
-                        <i className="fab fa-react text-purple-300"></i>,
-                        <span>&nbsp;</span>
-                        <i className="fas fa-coffee text-orange-300"></i>, and
-                        most importantly,
-                        <span>&nbsp;</span>
-                        <i className="fas fa-heart text-red-400"></i>
+                        Made with
+                        <i className="fab fa-react text-green-200 ml-1"></i>,
+                        <i className="fas fa-coffee text-orange-300 ml-1"></i>,
+                        and most importantly,
+                        <i className="fas fa-heart text-red-400 ml-1"></i>
                     </p>
                 </div>
                 <div className="text-center text-sm opacity-75">
                     <a href="https://github.com/AkashBhave/personal-website">
-                        <i className="fas fa-code text-purple-200"></i>
-                        &nbsp;
+                        <i className="fas fa-code text-purple-200 mr-2"></i>
                         <span>Source</span>
                     </a>
-                    <span className="mx-1">|</span>
+                    <span className="mx-2">|</span>
                     <a href={data.commit.url}>
-                        <i className="fas fa-pen text-purple-200"></i>
-                        &nbsp;
+                        <i className="fas fa-pen text-purple-200 mr-2"></i>
                         <span>Revision: </span>
                         <span className="font-mono">{data.commit.sha}</span>
                     </a>
-                    <span className="mx-1">|</span>
+                    <span className="mx-2">|</span>
                     <a href="https://github.com/AkashBhave/personal-website/commits/master">
-                        <i className="fas fa-file-alt text-purple-200"></i>
-                        &nbsp;
+                        <i className="fas fa-file-alt text-purple-200 mr-2"></i>
                         <span>Changelog</span>
                     </a>
                 </div>
