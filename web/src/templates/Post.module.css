@@ -1,0 +1,17 @@
+.header {
+    @apply flex flex-wrap mb-4;
+}
+
+.header-info {
+    @apply flex flex-1 flex-col py-12 px-8 justify-center h-full;
+}
+
+.header-title {
+    @apply font-serif font-bold -mb-2;
+}
+.header-keyword {
+    @apply inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded;
+}
+.header-image {
+    @apply flex flex-grow bg-gray-200 border;
+}
