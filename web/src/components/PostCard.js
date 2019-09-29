@@ -3,6 +3,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
+import PostTypeBadge from './PostTypeBadge'
+
 import styles from './PostCard.module.css'
 
 const PostCard = props => {
@@ -40,6 +42,7 @@ const PostCard = props => {
                             )}
                         </span>
                     </h3>
+                    <PostTypeBadge showProject={true} {...post.postType} />
                 </div>
             </Link>
         </div>

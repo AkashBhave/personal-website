@@ -32,6 +32,7 @@ export const queryFragment = graphql`
                 postType {
                     type
                     project {
+                        title
                         slug {
                             current
                         }
