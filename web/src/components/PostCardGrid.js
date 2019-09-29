@@ -2,10 +2,12 @@ import React from 'react'
 
 import PostCard from './PostCard'
 
+import styles from './PostCard.module.css'
+
 const PostCardGrid = props => (
-    <div class="flex flex-row flex-wrap justify-left -mx-4">
+    <div className={styles.cardGrid}>
         {props.posts.map(post => (
-            <div classNanme="flex-grow-0 md:w-1/3 w-full whitespace-normal px-4 mb-8">
+            <div className={`lg:w-1/3 md:w-1/2 w-full ${styles.cardGridCard}`}>
                 <PostCard post={post.node} />
             </div>
         ))}

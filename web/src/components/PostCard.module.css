@@ -1,3 +1,23 @@
-.post-card {
+.card {
     @apply flex flex-col justify-between cursor-pointer shadow h-full;
+}
+
+.card-body {
+    @apply p-8 flex flex-col content-start;
+}
+
+.card-title {
+    @apply font-serif font-bold text-3xl -mb-2 break-words;
+}
+
+.card-date {
+    @apply font-mono text-blue-tertiary ml-1;
+}
+
+.card-grid {
+    @apply flex flex-row flex-wrap justify-start -mx-4;
+}
+
+.card-grid-card {
+    @apply flex-grow-0 whitespace-normal px-4 mb-8;
 }

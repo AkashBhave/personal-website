@@ -9,32 +9,27 @@ const PostCard = props => {
     const post = props.post
 
     return (
-        <div class={styles.postCard}>
+        <div className={styles.card}>
             <Link to={`/blog/${post.slug.current}`}>
-                <div class="post-image">
+                <div className="post-image">
                     {post.mainImage ? (
                         <div>
                             <Image
-                                class="w-full bg-gray-300"
+                                className="w-full bg-gray-300"
                                 fluid={post.mainImage.asset.fluid}
                             />
                         </div>
                     ) : (
-                        <div
-                            class="text-center bg-gray-200 text-blue-primary p-8"
-                            v-else
-                        >
-                            <i class="text-200px far fa-file"></i>
+                        <div className="text-center bg-gray-200 text-blue-primary p-8">
+                            <i className="text-200px far fa-file"></i>
                         </div>
                     )}
                 </div>
-                <div class="p-8 flex flex-col content-start">
-                    <h3 class="font-serif font-bold text-3xl -mb-2 break-words">
-                        {post.title}
-                    </h3>
-                    <h3 class="text-md font-light mt-4">
+                <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{post.title}</h3>
+                    <h3 className="text-md font-light mt-4">
                         Published on
-                        <span class="font-mono text-blue-tertiary ml-1">
+                        <span className={styles.cardDate}>
                             {new Date(post.publishedAt).toLocaleDateString(
                                 {},
                                 {
