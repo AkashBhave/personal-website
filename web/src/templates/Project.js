@@ -1,44 +1,42 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
 import BlockContent from '@sanity/block-content-to-react'
 import Layout from '../layouts/default'
-import PostTypeBadge from '../components/PostTypeBadge'
 import BackButton from '../components/BackButton'
 
 import styles from './Post.module.css'
 
-const Post = ({ data: { post } }) => {
+const Project = ({ data: { project } }) => {
     return (
         <Layout>
             <div className={`md:shadow-none shadow ${styles.header}`}>
                 <div className="lg:w-2/5 w-full flex flex-col text-center">
-                    <BackButton to="/blog" title="Blog" />
+                    <BackButton to="/projects" title="Projects" />
                     <div className={styles.headerInfo}>
-                        <Link className="w-auto mx-auto text-xl">
-                            <PostTypeBadge
-                                showProject={true}
-                                {...post.postType}
-                            />
-                        </Link>
+                        <div>
+                            {project.links.map(link => (
+                                <a
+                                    href={link.url}
+                                    className="inline-block mb-2 mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded shadow bg-blue-tertiary"
+                                >
+                                    <i className={`mr-2 ${link.iconName}`}></i>
+                                    <span>{link.title}</span>
+                                </a>
+                            ))}
+                        </div>
                         <h1
                             className={`md:text-5xl text-4xl ${styles.headerTitle}`}
                         >
-                            {post.title}
+                            {project.title}
                         </h1>
-                        <h3 className="text-xl mt-4">
-                            By
-                            <span className="italic text-blue-tertiary ml-1">
-                                Akash Bhave
-                            </span>
-                        </h3>
-                        <h3 className="text-base mt-2">
-                            Published on
+                        <h3 className="text-base mt-4">
+                            Updated on
                             <span className="font-mono text-blue-tertiary ml-1">
-                                {new Date(post.publishedAt).toLocaleDateString(
+                                {new Date(project.updatedAt).toLocaleDateString(
                                     {},
                                     {
-                                        weekday: 'long',
                                         year: 'numeric',
                                         month: 'long',
                                         day: 'numeric'
@@ -47,7 +45,7 @@ const Post = ({ data: { post } }) => {
                             </span>
                         </h3>
                         <div className="mt-6">
-                            {post.keywords.map(keyword => (
+                            {project.keywords.map(keyword => (
                                 <span className={styles.headerKeyword}>
                                     {keyword}
                                 </span>
@@ -57,15 +55,15 @@ const Post = ({ data: { post } }) => {
                 </div>
                 <div
                     className={`lg:w-3/5 w-full ${styles.headerImage} ${
-                        post.mainImage ? null : 'flex'
+                        project.mainImage ? null : 'flex'
                     }`}
                 >
                     <div className="mx-auto">
-                        {post.mainImage ? (
+                        {project.mainImage ? (
                             <div>
                                 <Image
                                     className="w-full bg-gray-300 block"
-                                    fluid={post.mainImage.asset.fluid}
+                                    fluid={project.mainImage.asset.fluid}
                                 />
                             </div>
                         ) : (
@@ -78,7 +76,7 @@ const Post = ({ data: { post } }) => {
             </div>
             <div className={`style-normal md:w-2/3 w-full ${styles.content}`}>
                 <BlockContent
-                    blocks={post._rawBody || []}
+                    blocks={project.description || []}
                     serializers={
                         {
                             // types: { captionedImage: BlockContentImage }
@@ -93,24 +91,20 @@ const Post = ({ data: { post } }) => {
 }
 
 export const query = graphql`
-    query PostQuery($id: String) {
-        post: sanityPost(_id: { eq: $id }) {
+    query ProjectQuery($id: String) {
+        project: sanityProject(_id: { eq: $id }) {
             title
-            publishedAt
+            updatedAt: _updatedAt
             slug {
                 current
             }
-            postType {
-                type
-                project {
-                    title
-                    slug {
-                        current
-                    }
-                }
-            }
-            _rawBody
+            description: _rawDescription
             keywords
+            links {
+                iconName
+                title
+                url
+            }
             mainImage {
                 asset {
                     fluid(maxWidth: 1920) {
@@ -122,4 +116,4 @@ export const query = graphql`
     }
 `
 
-export default Post
+export default Project

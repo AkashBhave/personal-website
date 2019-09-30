@@ -13,8 +13,7 @@ const BlogPage = ({ data }) => (
         <SEO title="Blog" keywords={[`blog`, `articles`]} />
 
         <PageTitle title="Blog" subtitle="Fresh off the CMS" />
-
-        <section className="mx-8 my-12">
+        <section className="container mx-auto px-8 py-12">
             <PostCardGrid showProject={false} posts={data.posts.edges} />
         </section>
     </Layout>
@@ -41,7 +40,7 @@ export const queryFragment = graphql`
                 keywords
                 mainImage {
                     asset {
-                        fluid(maxWidth: 700) {
+                        fluid(maxWidth: 800) {
                             ...GatsbySanityImageFluid
                         }
                     }

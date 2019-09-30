@@ -43,6 +43,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
+            projects: allSanityProject {
+                edges {
+                    node {
+                        slug {
+                            current
+                        }
+                        id: _id
+                    }
+                }
+            }
         }
     `)
     if (query.errors) {
@@ -58,6 +68,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: PostTemplate,
             context: {
                 id: post.node.id
+            }
+        })
+    })
+
+    const Projects = query.data.projects.edges
+    const ProjectTemplate = path.resolve('./src/templates/Project.js')
+    Projects.forEach(project => {
+        createPage({
+            path: `/projects/${project.node.slug.current}`,
+            component: ProjectTemplate,
+            context: {
+                id: project.node.id
             }
         })
     })
