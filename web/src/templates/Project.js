@@ -3,32 +3,35 @@ import { Link, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import BlockContent from '@sanity/block-content-to-react'
-import Layout from '../layouts/default'
+import SEO from '../utils/seo'
+import Layout from '../layouts/informational'
 import BackButton from '../components/BackButton'
-
-import styles from './Post.module.css'
 
 const Project = ({ data: { project } }) => {
     return (
-        <Layout>
-            <div className={`md:shadow-none shadow ${styles.header}`}>
-                <div className="lg:w-2/5 w-full flex flex-col text-center">
+        <Layout
+            seo={
+                <SEO
+                    title={`${project.title} | Projects`}
+                    keywords={[`projects`, `portfolio`]}
+                />
+            }
+            info={
+                <>
                     <BackButton to="/projects" title="Projects" />
-                    <div className={styles.headerInfo}>
+                    <div className="flex flex-1 flex-col py-12 px-8 justify-center h-full">
                         <div>
                             {project.links.map(link => (
                                 <a
                                     href={link.url}
-                                    className="inline-block mb-2 mx-2 w-auto text-xl font-light text-light py-2 px-4 rounded shadow bg-blue-tertiary"
+                                    className="inline-block mb-2 mx-2 w-auto text-xl font-light py-2 px-4 rounded link-bg bg-blue-tertiary"
                                 >
                                     <i className={`mr-2 ${link.iconName}`}></i>
                                     <span>{link.title}</span>
                                 </a>
                             ))}
                         </div>
-                        <h1
-                            className={`md:text-5xl text-4xl ${styles.headerTitle}`}
-                        >
+                        <h1 className="md:text-5xl text-4xl font-serif font-bold -mb-2 mt-6">
                             {project.title}
                         </h1>
                         <h3 className="text-base mt-4">
@@ -46,46 +49,26 @@ const Project = ({ data: { project } }) => {
                         </h3>
                         <div className="mt-6">
                             {project.keywords.map(keyword => (
-                                <span className={styles.headerKeyword}>
-                                    {keyword}
+                                <span className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded">
+                                    >{keyword}
                                 </span>
                             ))}
                         </div>
                     </div>
-                </div>
-                <div
-                    className={`lg:w-3/5 w-full ${styles.headerImage} ${
-                        project.mainImage ? null : 'flex'
-                    }`}
-                >
-                    <div className="mx-auto">
-                        {project.mainImage ? (
-                            <div>
-                                <Image
-                                    className="w-full bg-gray-300 block"
-                                    fluid={project.mainImage.asset.fluid}
-                                />
-                            </div>
-                        ) : (
-                            <div className="h-full flex items-center text-blue-secondary p-8">
-                                <i className="text-250px far fa-file"></i>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-            <div className={`style-normal md:w-2/3 w-full ${styles.content}`}>
-                <BlockContent
-                    blocks={project.description || []}
-                    serializers={
-                        {
-                            // types: { captionedImage: BlockContentImage }
-                        }
+                </>
+            }
+            mainImage={project.mainImage}
+        >
+            <BlockContent
+                blocks={project.description || []}
+                serializers={
+                    {
+                        // types: { captionedImage: BlockContentImage }
                     }
-                    projectId={process.env.GATSBY_SANITY_ID}
-                    dataset={process.env.GATSBY_SANITY_DATASET}
-                />
-            </div>
+                }
+                projectId={process.env.GATSBY_SANITY_ID}
+                dataset={process.env.GATSBY_SANITY_DATASET}
+            />
         </Layout>
     )
 }

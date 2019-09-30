@@ -11,7 +11,7 @@ const PostCard = props => {
     const post = props.post
 
     return (
-        <div className={styles.card}>
+        <div className={`link-edge rounded ${styles.card}`}>
             <Link to={`/blog/${post.slug.current}`}>
                 <div className="post-image">
                     {post.mainImage ? (

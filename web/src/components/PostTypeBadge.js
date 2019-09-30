@@ -29,7 +29,7 @@ const PostTypeBadge = props => {
     return props.showProject && props.project ? (
         <Link
             to={`/projects/${props.project.slug.current}`}
-            className={`w-auto mr-auto text-md font-base text-light py-2 px-4 mt-4 rounded shadow ${
+            className={`w-auto mr-auto text-md py-2 px-4 mt-4 rounded link-bg ${
                 type().color
             }`}
         >
@@ -41,7 +41,7 @@ const PostTypeBadge = props => {
         </Link>
     ) : (
         <div
-            className={`w-auto mr-auto text-md font-base text-light py-2 px-4 mt-4 rounded ${
+            className={`w-auto mr-auto text-md py-2 px-4 mt-4 rounded link-bg ${
                 type().color
             }`}
         >

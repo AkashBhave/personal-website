@@ -2,28 +2,31 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import BlockContent from '@sanity/block-content-to-react'
-import Layout from '../layouts/default'
+import SEO from '../utils/seo'
+import Layout from '../layouts/informational'
 import PostTypeBadge from '../components/PostTypeBadge'
 import BackButton from '../components/BackButton'
 
-import styles from './Post.module.css'
-
 const Post = ({ data: { post } }) => {
     return (
-        <Layout>
-            <div className={`md:shadow-none shadow ${styles.header}`}>
-                <div className="lg:w-2/5 w-full flex flex-col text-center">
+        <Layout
+            seo={
+                <SEO
+                    title={`${post.title} | Blog`}
+                    keywords={[`blog`, `post`]}
+                />
+            }
+            info={
+                <>
                     <BackButton to="/blog" title="Blog" />
-                    <div className={styles.headerInfo}>
+                    <div className="flex flex-1 flex-col py-12 px-8 justify-center h-full">
                         <Link className="w-auto mx-auto text-xl">
                             <PostTypeBadge
                                 showProject={true}
                                 {...post.postType}
                             />
                         </Link>
-                        <h1
-                            className={`md:text-5xl text-4xl ${styles.headerTitle}`}
-                        >
+                        <h1 className="md:text-5xl text-4xl font-serif font-bold -mb-2 mt-6">
                             {post.title}
                         </h1>
                         <h3 className="text-xl mt-4">
@@ -48,46 +51,26 @@ const Post = ({ data: { post } }) => {
                         </h3>
                         <div className="mt-6">
                             {post.keywords.map(keyword => (
-                                <span className={styles.headerKeyword}>
+                                <span className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded">
                                     {keyword}
                                 </span>
                             ))}
                         </div>
                     </div>
-                </div>
-                <div
-                    className={`lg:w-3/5 w-full ${styles.headerImage} ${
-                        post.mainImage ? null : 'flex'
-                    }`}
-                >
-                    <div className="mx-auto">
-                        {post.mainImage ? (
-                            <div>
-                                <Image
-                                    className="w-full bg-gray-300 block"
-                                    fluid={post.mainImage.asset.fluid}
-                                />
-                            </div>
-                        ) : (
-                            <div className="h-full flex items-center text-blue-secondary p-8">
-                                <i className="text-250px far fa-file"></i>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-            <div className={`style-normal md:w-2/3 w-full ${styles.content}`}>
-                <BlockContent
-                    blocks={post._rawBody || []}
-                    serializers={
-                        {
-                            // types: { captionedImage: BlockContentImage }
-                        }
+                </>
+            }
+            mainImage={post.mainImage}
+        >
+            <BlockContent
+                blocks={post._rawBody || []}
+                serializers={
+                    {
+                        // types: { captionedImage: BlockContentImage }
                     }
-                    projectId={process.env.GATSBY_SANITY_ID}
-                    dataset={process.env.GATSBY_SANITY_DATASET}
-                />
-            </div>
+                }
+                projectId={process.env.GATSBY_SANITY_ID}
+                dataset={process.env.GATSBY_SANITY_DATASET}
+            />
         </Layout>
     )
 }
