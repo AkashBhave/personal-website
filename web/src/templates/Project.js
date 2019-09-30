@@ -50,7 +50,7 @@ const Project = ({ data: { project } }) => {
                         <div className="mt-6">
                             {project.keywords.map(keyword => (
                                 <span className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded">
-                                    >{keyword}
+                                    {keyword}
                                 </span>
                             ))}
                         </div>

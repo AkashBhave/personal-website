@@ -2,7 +2,7 @@ import React from 'react'
 
 import PostCard from './PostCard'
 
-import styles from './PostCard.module.css'
+import styles from './Card.module.css'
 
 const PostCardGrid = props => (
     <div className={styles.cardGrid}>

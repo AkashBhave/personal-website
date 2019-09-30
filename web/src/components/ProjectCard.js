@@ -3,20 +3,18 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
-import PostTypeBadge from './PostTypeBadge'
-
 import styles from './Card.module.css'
 
-const PostCard = ({ post, showProject }) => {
+const ProjectCard = ({ project }) => {
     return (
         <div className={`link-edge rounded ${styles.card}`}>
-            <Link to={`/blog/${post.slug.current}`}>
+            <Link to={`/projects/${project.slug.current}`}>
                 <div className="post-image">
-                    {post.mainImage ? (
+                    {project.mainImage ? (
                         <div>
                             <Image
                                 className="w-full bg-gray-300"
-                                fluid={post.mainImage.asset.fluid}
+                                fluid={project.mainImage.asset.fluid}
                             />
                         </div>
                     ) : (
@@ -26,11 +24,11 @@ const PostCard = ({ post, showProject }) => {
                     )}
                 </div>
                 <div className={styles.cardBody}>
-                    <h3 className={styles.cardTitle}>{post.title}</h3>
+                    <h3 className={styles.cardTitle}>{project.title}</h3>
                     <h3 className="text-md font-light mt-4">
-                        Published on
+                        Updated on
                         <span className={styles.cardDate}>
-                            {new Date(post.publishedAt).toLocaleDateString(
+                            {new Date(project.updatedAt).toLocaleDateString(
                                 {},
                                 {
                                     year: 'numeric',
@@ -40,14 +38,10 @@ const PostCard = ({ post, showProject }) => {
                             )}
                         </span>
                     </h3>
-                    <PostTypeBadge
-                        showProject={showProject}
-                        {...post.postType}
-                    />
                 </div>
             </Link>
         </div>
     )
 }
 
-export default PostCard
+export default ProjectCard
