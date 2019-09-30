@@ -7,11 +7,15 @@
 }
 
 .header-title {
-    @apply font-serif font-bold -mb-2;
+    @apply font-serif font-bold -mb-2 mt-6;
 }
 .header-keyword {
     @apply inline-block mx-2 font-light p-2 text-light bg-blue-secondary rounded;
 }
 .header-image {
     @apply flex flex-grow bg-gray-200 border;
+}
+
+.content {
+    @apply mx-auto p-8;
 }

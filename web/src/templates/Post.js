@@ -1,9 +1,9 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import BlockContent from '@sanity/block-content-to-react'
-
 import Layout from '../layouts/default'
+import PostTypeBadge from '../components/PostTypeBadge'
 
 import styles from './Post.module.css'
 
@@ -13,20 +13,26 @@ const Post = ({ data: { post } }) => {
             <div className={`md:shadow-none shadow ${styles.header}`}>
                 <div className="lg:w-2/5 w-full flex flex-col text-center">
                     <div className={styles.headerInfo}>
+                        <Link className="w-auto mx-auto text-xl">
+                            <PostTypeBadge
+                                showProject={true}
+                                {...post.postType}
+                            />
+                        </Link>
                         <h1
-                            class={`md:text-5xl text-4xl ${styles.headerTitle}`}
+                            className={`md:text-5xl text-4xl ${styles.headerTitle}`}
                         >
                             {post.title}
                         </h1>
-                        <h3 class="text-xl mt-4">
+                        <h3 className="text-xl mt-4">
                             By
-                            <span class="italic text-blue-tertiary ml-1">
+                            <span className="italic text-blue-tertiary ml-1">
                                 Akash Bhave
                             </span>
                         </h3>
-                        <h3 class="text-base mt-2">
+                        <h3 className="text-base mt-2">
                             Published on
-                            <span class="font-mono text-blue-tertiary ml-1">
+                            <span className="font-mono text-blue-tertiary ml-1">
                                 {new Date(post.publishedAt).toLocaleDateString(
                                     {},
                                     {
@@ -38,7 +44,7 @@ const Post = ({ data: { post } }) => {
                                 )}
                             </span>
                         </h3>
-                        <div class="mt-6">
+                        <div className="mt-6">
                             {post.keywords.map(keyword => (
                                 <span className={styles.headerKeyword}>
                                     {keyword}
@@ -63,6 +69,18 @@ const Post = ({ data: { post } }) => {
                         )}
                     </div>
                 </div>
+            </div>
+            <div className={`style-normal md:w-2/3 w-full ${styles.content}`}>
+                <BlockContent
+                    blocks={post._rawBody || []}
+                    serializers={
+                        {
+                            // types: { captionedImage: BlockContentImage }
+                        }
+                    }
+                    projectId={process.env.GATSBY_SANITY_ID}
+                    dataset={process.env.GATSBY_SANITY_DATASET}
+                />
             </div>
         </Layout>
     )

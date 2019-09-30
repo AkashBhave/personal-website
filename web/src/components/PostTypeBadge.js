@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const PostTypeBadge = props => {
     const type = () => {
@@ -25,19 +26,27 @@ const PostTypeBadge = props => {
         return { color: color, name: name, icon: icon }
     }
 
-    return (
+    return props.showProject && props.project ? (
+        <Link
+            to={`/projects/${props.project.slug.current}`}
+            className={`w-auto mr-auto text-md font-base text-light py-2 px-4 mt-4 rounded shadow ${
+                type().color
+            }`}
+        >
+            <i className={`mr-2 ${type().icon}`}></i>
+            <p className="inline">
+                {type().name}:
+                <span className="font-light ml-1">{props.project.title}</span>
+            </p>
+        </Link>
+    ) : (
         <div
             className={`w-auto mr-auto text-md font-base text-light py-2 px-4 mt-4 rounded ${
                 type().color
             }`}
         >
             <i className={`mr-2 ${type().icon}`}></i>
-            <p className="inline">
-                {type().name}
-                {props.showProject && props.project ? (
-                    <span className="font-light">: {props.project.title}</span>
-                ) : null}
-            </p>
+            <p className="inline">{type().name}</p>
         </div>
     )
 }
