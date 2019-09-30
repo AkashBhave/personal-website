@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
 import Layout from '../layouts/default'
 import PostTypeBadge from '../components/PostTypeBadge'
+import BackButton from '../components/BackButton'
 
 import styles from './Post.module.css'
 
@@ -12,6 +13,7 @@ const Post = ({ data: { post } }) => {
         <Layout>
             <div className={`md:shadow-none shadow ${styles.header}`}>
                 <div className="lg:w-2/5 w-full flex flex-col text-center">
+                    <BackButton to="/blog" title="Blog" />
                     <div className={styles.headerInfo}>
                         <Link className="w-auto mx-auto text-xl">
                             <PostTypeBadge
