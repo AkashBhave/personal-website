@@ -9,16 +9,16 @@
 }
 .style-normal h1 {
     @apply text-4xl;
-    @apply mb-2;
+    @apply mb-2 mt-4;
 }
 .style-normal h2 {
-    @apply text-3xl;
+    @apply text-3xl mt-4;
 }
 .style-normal h3 {
-    @apply text-2xl;
+    @apply text-2xl mt-2;
 }
 .style-normal h4 {
-    @apply text-xl;
+    @apply text-xl mt-2;
 }
 .style-normal ul,
 .style-normal ol {
@@ -33,11 +33,17 @@
 .style-normal li > * {
     @apply inline;
 }
+.style-normal img {
+    @apply my-8;
+}
+
 .style-normal img,
 .style-normal code.hljs {
     @apply shadow;
 }
-
+.style-normal blockquote {
+    @apply pl-8 p-4 my-4 bg-gray-200;
+}
 .style-normal a,
 .link-normal {
     padding: 0em 0.1em;

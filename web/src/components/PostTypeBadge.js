@@ -41,7 +41,7 @@ const PostTypeBadge = props => {
         </Link>
     ) : (
         <div
-            className={`w-auto mr-auto text-md py-2 px-4 mt-4 rounded link-bg ${
+            className={`w-auto mr-auto text-md py-2 px-4 mt-4 rounded text-light ${
                 type().color
             }`}
         >

@@ -21,12 +21,12 @@ const Post = ({ data: { post } }) => {
                 <>
                     <BackButton to="/blog" title="Blog" />
                     <div className="flex flex-1 flex-col py-12 px-8 justify-center h-full">
-                        <Link className="w-auto mx-auto text-xl">
+                        <div className="w-auto mx-auto text-xl">
                             <PostTypeBadge
                                 showProject={true}
                                 {...post.postType}
                             />
-                        </Link>
+                        </div>
                         <h1 className="md:text-5xl text-4xl font-serif font-bold -mb-2 mt-6">
                             {post.title}
                         </h1>
