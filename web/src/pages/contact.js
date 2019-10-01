@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 
 import axios from 'axios'
 
-import ReactQuill from 'react-quill'
+const ReactQuill =
+    typeof window !== 'undefined' ? require('react-quill') : undefined
 import ReCAPTCHA from 'react-google-recaptcha'
 import Layout from '../layouts/default'
 import SEO from '../utils/seo'
@@ -180,10 +181,12 @@ const ContactPage = () => {
                                         Message
                                     </label>
                                     <div className={styles.formEditor}>
-                                        <ReactQuill
-                                            value={formEditor}
-                                            onChange={setFormEditor}
-                                        />
+                                        {typeof window !== 'undefined' ? (
+                                            <ReactQuill
+                                                value={formEditor}
+                                                onChange={setFormEditor}
+                                            />
+                                        ) : null}
                                     </div>
                                 </div>
                             </div>

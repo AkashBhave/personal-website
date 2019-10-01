@@ -2,7 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
-import Typewriter from 'typewriter-effect'
+const Typewriter =
+    typeof window !== 'undefined' ? 'typewriter-effect' : undefined
 import Layout from '../layouts/default'
 import SEO from '../utils/seo'
 
@@ -26,17 +27,19 @@ const IndexPage = ({ data }) => (
                         <span className="font-bold"> Akash</span>, and I'm a
                     </p>
                     <div className="md:text-3xl text-2xl italic">
-                        <Typewriter
-                            options={{
-                                // Append period to each phrase
-                                strings: data.page.phrases.map(
-                                    phrase => phrase + '.'
-                                ),
-                                autoStart: true,
-                                loop: true,
-                                delay: 'natural'
-                            }}
-                        />
+                        {typeof window !== 'undefined' ? (
+                            <Typewriter
+                                options={{
+                                    // Append period to each phrase
+                                    strings: data.page.phrases.map(
+                                        phrase => phrase + '.'
+                                    ),
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 'natural'
+                                }}
+                            />
+                        ) : null}
                     </div>
                 </div>
                 <BackgroundImage
