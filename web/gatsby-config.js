@@ -23,12 +23,6 @@ module.exports = {
         },
         `gatsby-plugin-postcss`,
         {
-            resolve: `gatsby-plugin-purgecss`,
-            options: {
-                tailwind: true
-            }
-        },
-        {
             resolve: 'gatsby-source-sanity',
             options: {
                 projectId: process.env.GATSBY_SANITY_ID,
