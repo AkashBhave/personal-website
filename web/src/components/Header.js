@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import Logo from '~images/logo.svg'
 import 'hamburgers/dist/hamburgers.min.css'
-import styles from './header.module.css'
+import styles from './Header.module.css'
 
 const Header = () => {
     const [isActive, setActive] = useState(false)
