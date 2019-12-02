@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 
-import Logo from '../images/logo.svg'
+import Logo from '~images/logo.svg'
 import 'hamburgers/dist/hamburgers.min.css'
 import styles from './header.module.css'
 

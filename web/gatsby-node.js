@@ -1,6 +1,20 @@
 const axios = require('axios')
 const path = require(`path`)
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+        resolve: {
+            alias: {
+                '~components': path.resolve(__dirname, 'src/components'),
+                '~layouts': path.resolve(__dirname, 'src/layouts'),
+                '~utils': path.resolve(__dirname, 'src/utils'),
+                '~images': path.resolve(__dirname, 'src/images'),
+                '~templates': path.resolve(__dirname, 'src/templates')
+            }
+        }
+    })
+}
+
 exports.sourceNodes = async ({
     actions,
     createNodeId,

@@ -2,11 +2,11 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import BlockContent from '@sanity/block-content-to-react'
-import BlockContentCode from '../components/BlockContentCode'
-import SEO from '../utils/seo'
-import Layout from '../layouts/informational'
-import PostTypeBadge from '../components/PostTypeBadge'
-import BackButton from '../components/BackButton'
+import BlockContentCode from '~components/BlockContentCode'
+import SEO from '~utils/seo'
+import Layout from '~layouts/informational'
+import PostTypeBadge from '~components/PostTypeBadge'
+import BackButton from '~components/BackButton'
 
 const Post = ({ data: { post } }) => {
     return (

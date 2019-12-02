@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../../layouts/default'
-import SEO from '../../utils/seo'
-import PageTitle from '../../components/PageTitle'
-import BlockContentCode from '../../components/BlockContentCode'
+import Layout from '~layouts/default'
+import SEO from '~utils/seo'
+import PageTitle from '~components/PageTitle'
+import BlockContentCode from '~components/BlockContentCode'
 
 const AboutGPGPage = ({ data }) => (
     <Layout>

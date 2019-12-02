@@ -4,8 +4,8 @@ import BackgroundImage from 'gatsby-background-image'
 
 const Typewriter =
     typeof window !== 'undefined' ? 'typewriter-effect' : undefined
-import Layout from '../layouts/default'
-import SEO from '../utils/seo'
+import Layout from '~layouts/default'
+import SEO from '~utils/seo'
 
 import styles from './index.module.css'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import '@fortawesome/fontawesome-free/css/all.css'
-import Logo from '../images/logo.svg'
+import Logo from '~images/logo.svg'
 import styles from './footer.module.css'
 
 const Footer = () => {

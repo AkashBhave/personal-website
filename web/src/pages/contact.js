@@ -5,9 +5,9 @@ import axios from 'axios'
 const ReactQuill =
     typeof window !== 'undefined' ? require('react-quill') : undefined
 import ReCAPTCHA from 'react-google-recaptcha'
-import Layout from '../layouts/default'
-import SEO from '../utils/seo'
-import PageTitle from '../components/PageTitle'
+import Layout from '~layouts/default'
+import SEO from '~utils/seo'
+import PageTitle from '~components/PageTitle'
 
 import 'react-quill/dist/quill.snow.css'
 import styles from './contact.module.css'

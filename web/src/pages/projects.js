@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../layouts/default'
-import SEO from '../utils/seo'
-import PageTitle from '../components/PageTitle'
-import ProjectCard from '../components/ProjectCard'
+import Layout from '~layouts/default'
+import SEO from '~utils/seo'
+import PageTitle from '~components/PageTitle'
+import ProjectCard from '~components/ProjectCard'
 
 const ProjectPage = ({ data }) => (
     <Layout>

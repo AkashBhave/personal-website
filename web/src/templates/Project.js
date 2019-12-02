@@ -3,10 +3,10 @@ import { Link, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import BlockContent from '@sanity/block-content-to-react'
-import BlockContentCode from '../components/BlockContentCode'
-import SEO from '../utils/seo'
-import Layout from '../layouts/informational'
-import BackButton from '../components/BackButton'
+import BlockContentCode from '~components/BlockContentCode'
+import SEO from '~utils/seo'
+import Layout from '~layouts/informational'
+import BackButton from '~components/BackButton'
 
 const Project = ({ data: { project } }) => {
     return (

@@ -3,10 +3,10 @@ import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
 import BlockContent from '@sanity/block-content-to-react'
-import PostCardGrid from '../components/PostCardGrid'
-import Layout from '../layouts/default'
-import SEO from '../utils/seo'
-import PageTitle from '../components/PageTitle'
+import PostCardGrid from '~components/PostCardGrid'
+import Layout from '~layouts/default'
+import SEO from '~utils/seo'
+import PageTitle from '~components/PageTitle'
 
 const BlogPage = ({ data }) => (
     <Layout>
