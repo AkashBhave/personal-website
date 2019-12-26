@@ -49,9 +49,7 @@ const Footer = () => {
                     className="flex flex-wrap text-left mb-4"
                 >
                     <div className="md:w-1/3 w-full md:mb-0 mb-4">
-                        <h3 className="uppercase text-xl opacity-75 mb-1">
-                            Menu
-                        </h3>
+                        <h3 className="uppercase text-xl mb-1">Menu</h3>
                         <ul className="text-lg">
                             <li>
                                 <Link to="/">Home</Link>
@@ -71,9 +69,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="md:w-1/3 w-full md:mb-0 mb-4">
-                        <h3 className="uppercase text-xl opacity-75 mb-1">
-                            Online
-                        </h3>
+                        <h3 className="uppercase text-xl mb-1">Online</h3>
                         <ul className="text-lg">
                             <li>
                                 <a href="https://github.com/AkashBhave">
@@ -102,9 +98,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="md:w-1/3 w-full md:mb-0 mb-4">
-                        <h3 className="uppercase text-xl opacity-75 mb-1">
-                            Social
-                        </h3>
+                        <h3 className="uppercase text-xl mb-1">Social</h3>
                         <ul className="text-lg">
                             <li>
                                 <a href="https://www.linkedin.com/in/akashbbhave/">

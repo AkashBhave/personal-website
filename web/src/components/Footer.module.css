@@ -3,6 +3,14 @@
     @apply leading-relaxed;
 }
 
+.footer a {
+    @apply opacity-75;
+    transition: var(--transition-standard);
+}
+.footer a:hover {
+    @apply opacity-100;
+}
+
 .footer li i {
     @apply mr-1;
 }
