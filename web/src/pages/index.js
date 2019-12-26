@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
-const Typewriter =
-    typeof window !== 'undefined' ? 'typewriter-effect' : undefined
+import Typewriter from 'typewriter-effect'
 import Layout from '~layouts/default'
 import SEO from '~utils/seo'
 
@@ -15,7 +14,6 @@ const IndexPage = ({ data }) => (
             title="Home"
             keywords={[`home`, `index`, `akash bhave`, `gatsby`]}
         />
-
         <section>
             <div className={styles.hero}>
                 <div className={styles.heroText}>
@@ -27,19 +25,17 @@ const IndexPage = ({ data }) => (
                         <span className="font-bold"> Akash</span>, and I'm a
                     </p>
                     <div className="md:text-3xl text-2xl italic">
-                        {typeof window !== 'undefined' ? (
-                            <Typewriter
-                                options={{
-                                    // Append period to each phrase
-                                    strings: data.page.phrases.map(
-                                        phrase => phrase + '.'
-                                    ),
-                                    autoStart: true,
-                                    loop: true,
-                                    delay: 'natural'
-                                }}
-                            />
-                        ) : null}
+                        <Typewriter
+                            options={{
+                                // Append period to each phrase
+                                strings: data.page.phrases.map(
+                                    phrase => phrase + '.'
+                                ),
+                                autoStart: true,
+                                loop: true,
+                                delay: 'natural'
+                            }}
+                        />
                     </div>
                 </div>
                 <BackgroundImage
