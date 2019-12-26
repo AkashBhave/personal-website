@@ -13,6 +13,8 @@ import project from './schemas/collections/project'
 import projectLink from './schemas/collections/project-link'
 // Page schemas
 import pageHome from './schemas/pages/home'
+import pageHomeSkill from './schemas/pages/home-skill'
+import pageHomeSkillSet from './schemas/pages/home-skill-set'
 import pageAbout from './schemas/pages/about'
 import pageAboutGPG from './schemas/pages/about-gpg'
 
@@ -33,6 +35,8 @@ export default createSchema({
         projectLink,
         // Poge schemas
         pageHome,
+        pageHomeSkill,
+        pageHomeSkillSet,
         pageAbout,
         pageAboutGPG,
         // Block schemas

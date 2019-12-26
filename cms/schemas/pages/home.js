@@ -16,6 +16,12 @@ export default {
             options: {
                 hotspot: true
             }
+        },
+        {
+            name: 'skillSets',
+            title: 'Skill Sets',
+            type: 'array',
+            of: [{ type: 'page-home-skill-set' }]
         }
     ],
     preview: {
