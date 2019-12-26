@@ -13,12 +13,14 @@ const ProjectCard = ({ project }) => {
                     {project.mainImage ? (
                         <div>
                             <Image
-                                className="w-full bg-gray-300"
+                                className={`w-full bg-gray-300 ${styles.cardImage}`}
                                 fluid={project.mainImage.asset.fluid}
                             />
                         </div>
                     ) : (
-                        <div className="text-center bg-gray-200 text-blue-primary p-8">
+                        <div
+                            className={`flex justify-center items-center bg-gray-200 text-blue-primary p-8 ${styles.cardImage}`}
+                        >
                             <i className="text-200px far fa-file"></i>
                         </div>
                     )}

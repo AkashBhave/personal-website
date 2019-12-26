@@ -12,11 +12,13 @@ const ProjectPage = ({ data }) => (
 
         <PageTitle title="Projects" subtitle="What I've been up to recently" />
         <section className="container mx-auto px-8 py-12">
-            {data.projects.edges.map(project => (
-                <div className="md:w-1/2 w-full flex-grow-0 whitespace-normal px-4 mb-8">
-                    <ProjectCard project={project.node} />
-                </div>
-            ))}
+            <div className="flex flex-row flex-wrap justify-start -mx-4">
+                {data.projects.edges.map(project => (
+                    <div className="md:w-1/2 w-full flex-grow-0 whitespace-normal px-4 mb-8">
+                        <ProjectCard project={project.node} />
+                    </div>
+                ))}
+            </div>
         </section>
     </Layout>
 )
