@@ -14,29 +14,29 @@ const AboutGPGPage = ({ data }) => (
 
     <section class="container md:w-2/3 w-full mx-auto px-8 py-12">
       <div class="mb-8">
-        <h1 class="text-4xl">Key ID</h1>
+        <h2 class="text-4xl">Key ID</h2>
         <BlockContentCode
           node={{
             code: { code: data.page.gpg.id },
-            language: "plaintext",
+            language: "plaintext"
           }}
         />
       </div>
       <div class="mb-8">
-        <h1 class="text-4xl">Fingerprint</h1>
+        <h2 class="text-4xl">Fingerprint</h2>
         <BlockContentCode
           node={{
             code: { code: data.page.gpg.fingerprint },
-            language: "plaintext",
+            language: "plaintext"
           }}
         />
       </div>
       <div class="mb-8">
-        <h1 class="text-4xl">Public Key</h1>
+        <h2 class="text-4xl">Public Key</h2>
         <BlockContentCode
           node={{
             code: { code: data.page.gpg.publicKey },
-            language: "plaintext",
+            language: "plaintext"
           }}
         />
       </div>
