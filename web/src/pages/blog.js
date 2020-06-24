@@ -14,35 +14,33 @@ const BlogPage = ({ data }) => (
 
     <PageTitle title="Blog" subtitle="Fresh off the CMS" />
     <section className="container mx-auto px-8 py-12">
-      <PostCardGrid showProject={false} posts={data.posts.edges} />
+      <PostCardGrid showProject={false} posts={data.posts.nodes} />
     </section>
   </Layout>
 );
 
 export const queryFragment = graphql`
   fragment Posts on SanityPostConnection {
-    edges {
-      node {
-        title
-        publishedAt
-        slug {
-          current
-        }
-        postType {
-          type
-          project {
-            title
-            slug {
-              current
-            }
+    nodes {
+      title
+      publishedAt
+      slug {
+        current
+      }
+      postType {
+        type
+        project {
+          title
+          slug {
+            current
           }
         }
-        keywords
-        mainImage {
-          asset {
-            fluid(maxWidth: 800) {
-              ...GatsbySanityImageFluid
-            }
+      }
+      keywords
+      mainImage {
+        asset {
+          fluid(maxWidth: 800) {
+            ...GatsbySanityImageFluid
           }
         }
       }

@@ -22,7 +22,7 @@ const Project = ({ data: { project } }) => {
           <BackButton to="/projects" title="Projects" />
           <div className="flex flex-1 flex-col py-12 px-8 justify-center h-full">
             <div>
-              {project.links.map((link) => (
+              {project.links.map(link => (
                 <a
                   href={link.url}
                   className="inline-block mb-2 mx-2 w-auto text-xl font-light py-2 px-4 rounded link-bg bg-blue-tertiary"
@@ -37,19 +37,20 @@ const Project = ({ data: { project } }) => {
             </h1>
             <h3 className="text-base mt-4">
               Updated on
-              <span className="font-mono text-blue-tertiary ml-1">
-                {new Date(project.updatedAt).toLocaleDateString(
-                  {},
-                  {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  }
-                )}
+              <span className="font-mono text-blue-tertiary">
+                {" " +
+                  new Date(project.updatedAt).toLocaleDateString(
+                    {},
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric"
+                    }
+                  )}
               </span>
             </h3>
             <div className="mt-6">
-              {project.keywords.map((keyword) => (
+              {project.keywords.map(keyword => (
                 <span className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded">
                   {keyword}
                 </span>
@@ -63,7 +64,7 @@ const Project = ({ data: { project } }) => {
       <BlockContent
         blocks={project.description || []}
         serializers={{
-          types: { codeBlock: BlockContentCode },
+          types: { codeBlock: BlockContentCode }
         }}
         projectId={process.env.GATSBY_SANITY_ID}
         dataset={process.env.GATSBY_SANITY_DATASET}

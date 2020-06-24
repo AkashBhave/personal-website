@@ -75,7 +75,7 @@ const IndexPage = ({ data }) => (
     </section>
     <section className="px-8 py-12 container mx-auto">
       <h2 className="uppercase text-4xl mb-8">Recent Posts</h2>
-      <PostCardGrid showProject={false} posts={data.posts.edges} />
+      <PostCardGrid showProject={false} posts={data.posts.nodes} />
     </section>
   </Layout>
 );
