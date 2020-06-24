@@ -38,10 +38,16 @@ const IndexPage = ({ data }) => (
                         />
                     </div>
                 </div>
-                <BackgroundImage
-                    fluid={data.page.portrait.asset.fluid}
-                    className={styles.heroPortrait}
-                />
+                <div
+                    className="flex flex-col justify-end bg-blue-primary relative"
+                    style={{ backgroundBlendMode: 'overlay' }}
+                >
+                    <BackgroundImage
+                        fluid={data.page.portrait.asset.fluid}
+                        className={styles.heroPortrait}
+                    />
+                    <div className={styles.heroGrid}></div>
+                </div>
             </div>
         </section>
         <section className="px-8 py-12 bg-blue-secondary text-light">

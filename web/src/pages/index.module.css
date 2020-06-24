@@ -23,6 +23,34 @@
 }
 
 .hero-portrait {
-    @apply flex flex-col justify-end bg-blue-primary bg-local bg-contain bg-no-repeat bg-center;
-    background-blend-mode: overlay;
+    mix-blend-mode: overlay;
+    z-index: 3;
+    @apply bg-local bg-contain bg-no-repeat bg-center w-full h-full;
+}
+
+.hero-grid {
+    background: radial-gradient(
+            circle,
+            transparent 20%,
+            rgba(168, 218, 220, 1) 20%,
+            rgba(168, 218, 220, 1) 80%,
+            transparent 80%,
+            transparent
+        ),
+        radial-gradient(
+                circle,
+                transparent 20%,
+                rgba(168, 218, 220, 1) 20%,
+                rgba(168, 218, 220, 1) 80%,
+                transparent 80%,
+                transparent
+            )
+            40px 40px,
+        linear-gradient(rgba(252, 255, 250, 1) 6px, transparent 6px) 0 -3px,
+        linear-gradient(90deg, rgba(252, 255, 250, 1) 6px, transparent 6px) -3px
+            0;
+    background-color: rgba(168, 218, 220, 1);
+    background-size: 80px 80px, 80px 80px, 40px 40px, 40px 40px;
+    opacity: 0.3;
+    @apply w-full h-full absolute top-0 left-0;
 }
