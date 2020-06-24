@@ -1,39 +1,39 @@
 {
-    "root": true,
-    "project": {
-        "name": "akashbhave.com"
+  "root": true,
+  "project": {
+    "name": "akashbhave.com"
+  },
+  "api": {
+    "projectId": "62b3soi1",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/dashboard",
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/code-input",
+    "latex-input",
+    "dashboard-widget-document-list"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schema.js"
     },
-    "api": {
-        "projectId": "62b3soi1",
-        "dataset": "production"
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "css/custom.css"
     },
-    "plugins": [
-        "@sanity/dashboard",
-        "@sanity/base",
-        "@sanity/components",
-        "@sanity/default-layout",
-        "@sanity/default-login",
-        "@sanity/desk-tool",
-        "@sanity/code-input",
-        "latex-input",
-        "dashboard-widget-document-list"
-    ],
-    "parts": [
-        {
-            "name": "part:@sanity/base/schema",
-            "path": "./schema.js"
-        },
-        {
-            "implements": "part:@sanity/base/theme/variables/override-style",
-            "path": "css/custom.css"
-        },
-        {
-            "name": "part:@sanity/desk-tool/structure",
-            "path": "./desk.config.js"
-        },
-        {
-            "implements": "part:@sanity/dashboard/config",
-            "path": "./dashboard.config.js"
-        }
-    ]
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./desk.config.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboard.config.js"
+    }
+  ]
 }

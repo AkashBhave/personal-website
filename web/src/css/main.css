@@ -1,29 +1,29 @@
-@import './tailwind.css';
-@import './colors.css';
-@import './typography.css';
-@import './content.css';
-@import './code.css';
+@import "./tailwind.css";
+@import "./colors.css";
+@import "./typography.css";
+@import "./content.css";
+@import "./code.css";
 
 :root {
-    --transition-standard: 0.2s all ease-out;
+  --transition-standard: 0.2s all ease-out;
 }
 
 .transition-standard {
-    transition: var(--transition-standard);
+  transition: var(--transition-standard);
 }
 
 .link-edge {
-    transition: var(--transition-standard);
-    @apply shadow border-2 border-blue-secondary cursor-pointer;
+  transition: var(--transition-standard);
+  @apply shadow border-2 border-blue-secondary cursor-pointer;
 }
 .link-edge:hover {
-    @apply border-highlight;
+  @apply border-highlight;
 }
 
 .link-bg {
-    transition: var(--transition-standard);
-    @apply shadow text-light cursor-pointer;
+  transition: var(--transition-standard);
+  @apply shadow text-light cursor-pointer;
 }
 .link-bg:hover {
-    @apply shadow-md bg-highlight;
+  @apply shadow-md bg-highlight;
 }

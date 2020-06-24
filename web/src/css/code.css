@@ -1,61 +1,61 @@
 /* Highlight.js - material dark theme */
 /* Adapted from: https://github.com/Kelbster/highlightjs-material-dark-theme */
 .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 1em;
-    background: #2b2b2d;
-    color: #cdd3d8;
-    font-size: 1em;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: #2b2b2d;
+  color: #cdd3d8;
+  font-size: 1em;
 }
 
 .hljs > *::selection {
-    background-color: #3e4451;
+  background-color: #3e4451;
 }
 
 .hljs-comment {
-    color: #656565;
-    font-style: italic;
+  color: #656565;
+  font-style: italic;
 }
 
 .hljs-selector-tag {
-    color: #c792ea;
+  color: #c792ea;
 }
 
 .hljs-string,
 .hljs-subst {
-    color: #c3e88d;
+  color: #c3e88d;
 }
 
 .hljs-number,
 .hljs-regexp,
 .hljs-variable,
 .hljs-template-variable {
-    color: #f77669;
+  color: #f77669;
 }
 
 .hljs-keyword {
-    color: #c792ea;
+  color: #c792ea;
 }
 
 .hljs-function > .hljs-title {
-    color: #75a5ff;
+  color: #75a5ff;
 }
 
 .hljs-tag {
-    color: #abb2bf;
+  color: #abb2bf;
 }
 
 .hljs-name {
-    color: #e06c75;
+  color: #e06c75;
 }
 
 .hljs-type {
-    color: #da4939;
+  color: #da4939;
 }
 
 .hljs-attribute {
-    color: #80cbbf;
+  color: #80cbbf;
 }
 
 .hljs-symbol,
@@ -63,66 +63,66 @@
 .hljs-built_in,
 .hljs-builtin-name,
 .hljs-link {
-    color: #c792ea;
+  color: #c792ea;
 }
 
 .hljs-params {
-    color: #eefff7;
+  color: #eefff7;
 }
 
 .hljs-meta,
 .hljs-title {
-    color: #75a5ff;
+  color: #75a5ff;
 }
 
 .hljs-section {
-    color: #ffc66d;
+  color: #ffc66d;
 }
 
 .hljs-addition {
-    background-color: #144212;
-    color: #e6e1dc;
-    display: inline-block;
-    width: 100%;
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
 }
 
 .hljs-deletion {
-    background-color: #600;
-    color: #e6e1dc;
-    display: inline-block;
-    width: 100%;
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
 }
 
 .hljs-selector-class {
-    color: #ffcb68;
+  color: #ffcb68;
 }
 
 .hljs-selector-id {
-    color: #f77669;
+  color: #f77669;
 }
 
 .hljs-emphasis {
-    font-style: italic;
+  font-style: italic;
 }
 
 .hljs-strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .hljs-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .hljs-language {
-    float: right;
-    top: -16px;
-    right: -16px;
-    font-size: 0.9em !important;
+  float: right;
+  top: -16px;
+  right: -16px;
+  font-size: 0.9em !important;
 }
 .hljs-language:hover {
-    opacity: 0.25;
-    transition: 0.3s all ease-out;
+  opacity: 0.25;
+  transition: 0.3s all ease-out;
 }
 .hljs-language:not(:hover) {
-    opacity: 0.75;
+  opacity: 0.75;
 }

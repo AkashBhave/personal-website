@@ -4,42 +4,42 @@
 
 /* Typography */
 .text-100px {
-    font-size: 100px;
+  font-size: 100px;
 }
 .text-150px {
-    font-size: 150px;
+  font-size: 150px;
 }
 .text-200px {
-    font-size: 200px;
+  font-size: 200px;
 }
 .text-250px {
-    font-size: 250px;
+  font-size: 250px;
 }
 .text-300px {
-    font-size: 300px;
+  font-size: 300px;
 }
 
 .border-lrb {
-    @apply border-l border-r border-b;
+  @apply border-l border-r border-b;
 }
 .border-lrb-2 {
-    @apply border-l-2 border-r-2 border-b-2;
+  @apply border-l-2 border-r-2 border-b-2;
 }
 
 .only-desktop {
-    @apply hidden;
+  @apply hidden;
 }
 @screen md {
-    .only-desktop {
-        @apply block;
-    }
+  .only-desktop {
+    @apply block;
+  }
 }
 
 .only-mobile {
-    @apply block;
+  @apply block;
 }
 @screen md {
-    .only-mobile {
-        @apply hidden;
-    }
+  .only-mobile {
+    @apply hidden;
+  }
 }

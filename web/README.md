@@ -1,4 +1,4 @@
-# akashbhave.com (web) 
+# akashbhave.com (web)
 
 ## Development
 
@@ -23,13 +23,10 @@ npm run develop
 
 Use `npm run build` to build the site for production.
 
-
 ## Tools
 
 - `npm run analyze` - See what ESLint and Prettier can fix
 - `npm run fix` - Run Prettier and ESLint with the `--fix` option
-
-
 
 ## References
 
