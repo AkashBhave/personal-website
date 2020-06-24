@@ -6,23 +6,25 @@ import DefaultLayout from './default'
 
 const Layout = props => (
     <DefaultLayout>
-        {props.seo}
-
+        <div>{props.seo}</div>
         <div className="md:shadow-none shadow flex flex-wrap mb-4">
             <div className="lg:w-2/5 w-full flex flex-col text-center">
                 {props.info}
             </div>
             <div
-                className={`lg:w-3/5 w-full flex-grow bg-gray-200 border ${
-                    props.mainImage ? null : 'flex'
+                className={`lg:w-3/5 w-full bg-gray-200 border ${
+                    props.mainImage ? '' : 'flex'
                 }`}
+                style={{ maxHeight: '600px' }}
             >
-                <div className="mx-auto">
+                <div className="mx-auto flex items-center h-full">
                     {props.mainImage ? (
-                        <div>
+                        <div className="w-full h-full">
                             <Image
-                                className="w-full bg-gray-300 block"
+                                className="w-auto h-full bg-gray-300 block"
                                 fluid={props.mainImage.asset.fluid}
+                                objectFit="contain"
+                                imgStyle={{ objectFit: 'contain' }}
                             />
                         </div>
                     ) : (

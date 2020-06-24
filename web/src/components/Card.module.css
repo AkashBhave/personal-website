@@ -15,7 +15,10 @@
 }
 
 .card-date {
-    @apply font-mono text-blue-tertiary ml-1;
+    @apply font-mono text-blue-tertiary;
+}
+.card-date::before {
+    content: ' ';
 }
 
 .card-grid {

@@ -9,16 +9,16 @@
 }
 .style-normal h1 {
     @apply text-4xl;
-    @apply mb-2 mt-4;
+    @apply mb-2 my-4;
 }
 .style-normal h2 {
-    @apply text-3xl mt-4;
+    @apply text-3xl my-4;
 }
 .style-normal h3 {
-    @apply text-2xl mt-2;
+    @apply text-2xl my-2;
 }
 .style-normal h4 {
-    @apply text-xl mt-2;
+    @apply text-xl my-2;
 }
 .style-normal ul,
 .style-normal ol {
@@ -34,7 +34,12 @@
     @apply inline;
 }
 .style-normal img {
-    @apply my-8;
+    @apply mx-auto my-8 w-full;
+}
+@screen md {
+    .style-normal img {
+        @apply w-2/3;
+    }
 }
 
 .style-normal img,

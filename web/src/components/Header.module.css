@@ -1,7 +1,7 @@
 .header {
+    min-height: 80px;
     @apply bg-light flex flex-wrap items-center;
     @apply px-6 py-6 font-sans w-full border-b-2 border-blue-secondary shadow;
-    min-height: 80px;
 }
 
 .hamburger-container {

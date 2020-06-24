@@ -4,8 +4,8 @@
 }
 
 .footer a {
-    @apply opacity-75;
     transition: var(--transition-standard);
+    @apply opacity-75;
 }
 .footer a:hover {
     @apply opacity-100;
@@ -25,6 +25,6 @@
 }
 
 .logo {
-    @apply h-24 px-6 pt-2 pb-4;
     filter: brightness(0.05) invert(1);
+    @apply h-24 px-6 pt-2 pb-4;
 }

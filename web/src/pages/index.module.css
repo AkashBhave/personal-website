@@ -1,5 +1,5 @@
 .hero {
-    @apply flex flex-wrap-reverse h-full;
+    @apply flex flex-wrap-reverse;
     height: calc(100vh - 90px);
 }
 
