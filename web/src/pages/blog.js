@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Image from "gatsby-image";
 
 import BlockContent from "@sanity/block-content-to-react";
-import PostCardGrid from "~components/PostCardGrid";
+import CardGrid from "~components/CardGrid";
 import Layout from "~layouts/default";
 import SEO from "~utils/seo";
 import PageTitle from "~components/PageTitle";
@@ -14,7 +14,11 @@ const BlogPage = ({ data }) => (
 
     <PageTitle title="Blog" subtitle="Fresh off the CMS" />
     <section className="container mx-auto px-8 py-12">
-      <PostCardGrid showProject={false} posts={data.posts.nodes} />
+      <CardGrid
+        isProject={false}
+        showProject={false}
+        items={data.posts.nodes}
+      />
     </section>
   </Layout>
 );
@@ -50,7 +54,7 @@ export const queryFragment = graphql`
 
 export const query = graphql`
   query BlogPageQuery {
-    posts: allSanityPost {
+    posts: allSanityPost(sort: { fields: publishedAt, order: DESC }) {
       ...Posts
     }
   }

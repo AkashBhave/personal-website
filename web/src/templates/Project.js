@@ -37,7 +37,7 @@ const Project = ({ data: { project } }) => {
             </h1>
             <h3 className="text-base mt-4">
               Updated on
-              <span className="font-mono text-blue-tertiary">
+              <span className="text-blue-tertiary">
                 {" " +
                   new Date(project.updatedAt).toLocaleDateString(
                     {},

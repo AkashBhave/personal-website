@@ -10,12 +10,8 @@
   @apply font-serif font-bold text-3xl -mb-2 break-words;
 }
 
-.card-image {
-  height: 400px;
-}
-
 .card-date {
-  @apply font-mono text-blue-tertiary;
+  @apply text-blue-tertiary;
 }
 .card-date::before {
   content: " ";

@@ -5,7 +5,7 @@ import BackgroundImage from "gatsby-background-image";
 import Typewriter from "typewriter-effect";
 import Layout from "~layouts/default";
 import SEO from "~utils/seo";
-import PostCardGrid from "~components/PostCardGrid";
+import CardGrid from "~components/CardGrid";
 
 import styles from "./index.module.css";
 
@@ -75,7 +75,11 @@ const IndexPage = ({ data }) => (
     </section>
     <section className="px-8 py-12 container mx-auto">
       <h2 className="uppercase text-4xl mb-8">Recent Posts</h2>
-      <PostCardGrid showProject={false} posts={data.posts.nodes} />
+      <CardGrid
+        isProject={false}
+        showProject={false}
+        items={data.posts.nodes}
+      />
     </section>
   </Layout>
 );
@@ -99,7 +103,7 @@ export const query = graphql`
         }
       }
     }
-    posts: allSanityPost(limit: 3) {
+    posts: allSanityPost(limit: 3, sort: { fields: publishedAt, order: DESC }) {
       ...Posts
     }
   }

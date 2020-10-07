@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 
-import "@fortawesome/fontawesome-free/css/all.css";
 import Logo from "~images/logo.svg";
+import "@fortawesome/fontawesome-free/css/all.css";
 import styles from "./Footer.module.css";
 
 const Footer = () => {

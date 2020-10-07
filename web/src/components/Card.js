@@ -1,36 +1,35 @@
 import React from "react";
-
 import { Link } from "gatsby";
 import Image from "gatsby-image";
 
+import PostTypeBadge from "./PostTypeBadge";
 import styles from "./Card.module.css";
 
-const ProjectCard = ({ project }) => {
+const Card = ({ item, isProject, showProject }) => {
   return (
     <div className={`link-edge rounded ${styles.card}`}>
-      <Link to={`/projects/${project.slug.current}`}>
-        <div className="post-image">
-          {project.mainImage ? (
+      <Link to={`/${isProject ? "projects" : "blog"}/${item.slug.current}`}>
+        <div className="card-image">
+          {item.mainImage ? (
             <div>
               <Image
                 className={`w-full bg-gray-300 ${styles.cardImage}`}
-                fluid={project.mainImage.asset.fluid}
+                fluid={item.mainImage.asset.fluid}
+                style={{ height: isProject ? "400px" : "300px" }}
               />
             </div>
           ) : (
-            <div
-              className={`flex justify-center items-center bg-gray-200 text-blue-primary p-8 ${styles.cardImage}`}
-            >
+            <div className="text-center bg-gray-200 text-blue-primary p-8">
               <i className="text-200px far fa-file"></i>
             </div>
           )}
         </div>
         <div className={styles.cardBody}>
-          <h3 className={styles.cardTitle}>{project.title}</h3>
+          <h3 className={styles.cardTitle}>{item.title}</h3>
           <h3 className="text-md font-light mt-4">
-            Updated on
+            {isProject ? "Updated" : "Published"} on
             <span className={styles.cardDate}>
-              {new Date(project.updatedAt).toLocaleDateString(
+              {new Date(item.publishedAt || item.updatedAt).toLocaleDateString(
                 {},
                 {
                   year: "numeric",
@@ -40,10 +39,13 @@ const ProjectCard = ({ project }) => {
               )}
             </span>
           </h3>
+          {!isProject ? (
+            <PostTypeBadge showProject={showProject} {...item.postType} />
+          ) : null}
         </div>
       </Link>
     </div>
   );
 };
 
-export default ProjectCard;
+export default Card;

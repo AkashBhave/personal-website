@@ -30,7 +30,7 @@ const Post = ({ data: { post } }) => {
             </h3>
             <h3 className="text-base mt-2">
               Published on
-              <span className="font-mono text-blue-tertiary">
+              <span className="text-blue-tertiary">
                 {" " +
                   new Date(post.publishedAt).toLocaleDateString(
                     {},

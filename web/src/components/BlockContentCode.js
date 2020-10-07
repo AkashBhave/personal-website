@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import Highlight from "react-highlight";
 
 const BlockContentCode = ({ node }) => (
@@ -16,7 +15,7 @@ const BlockContentCode = ({ node }) => (
 
 BlockContentCode.propTypes = {
   code: PropTypes.object,
-  language: PropTypes.string,
+  language: PropTypes.string
 };
 
 export default BlockContentCode;
