@@ -15,12 +15,12 @@ const IndexPage = ({ data }) => (
     <section>
       <div className={styles.hero}>
         <div className={styles.heroText}>
-          <p className="font-bold font-serif md:text-5xl text-4xl">Hello.</p>
-          <p className="md:text-4xl text-3xl">
+          <p className={styles.heroTextHello}>Hello.</p>
+          <p className="md:text-5xl text-4xl mb-2">
             My name is
             <span className="font-bold"> Akash</span>, and I'm a
           </p>
-          <div className="md:text-3xl text-2xl italic">
+          <div className="md:text-4xl text-3xl italic">
             <Typewriter
               options={{
                 // Append period to each phrase
@@ -32,15 +32,11 @@ const IndexPage = ({ data }) => (
             />
           </div>
         </div>
-        <div
-          className="flex flex-col justify-end bg-blue-primary relative"
-          style={{ backgroundBlendMode: "overlay" }}
-        >
+        <div className="flex flex-col justify-end bg-light relative">
           <BackgroundImage
             fluid={data.page.portrait.asset.fluid}
             className={styles.heroPortrait}
           />
-          <div className={styles.heroGrid}></div>
         </div>
       </div>
     </section>

@@ -6,50 +6,33 @@
 .hero > div {
   @apply w-full;
 }
-@screen md {
+@screen lg {
   .hero > div {
     @apply w-1/2;
   }
 }
 
 .hero-text {
-  @apply flex flex-col p-8;
+  @apply flex flex-col p-10;
   @apply justify-start;
 }
-@screen md {
+@screen lg {
   .hero-text {
     @apply justify-center;
   }
 }
-
-.hero-portrait {
-  mix-blend-mode: overlay;
-  z-index: 3;
-  @apply bg-local bg-contain bg-no-repeat bg-center w-full h-full;
+.hero-text-hello {
+  @apply font-bold font-serif text-5xl;
+}
+@screen md {
+  .hero-text-hello {
+    font-size: 5em;
+  }
 }
 
-.hero-grid {
-  background: radial-gradient(
-      circle,
-      transparent 20%,
-      rgba(168, 218, 220, 1) 20%,
-      rgba(168, 218, 220, 1) 80%,
-      transparent 80%,
-      transparent
-    ),
-    radial-gradient(
-        circle,
-        transparent 20%,
-        rgba(168, 218, 220, 1) 20%,
-        rgba(168, 218, 220, 1) 80%,
-        transparent 80%,
-        transparent
-      )
-      40px 40px,
-    linear-gradient(rgba(252, 255, 250, 1) 6px, transparent 6px) 0 -3px,
-    linear-gradient(90deg, rgba(252, 255, 250, 1) 6px, transparent 6px) -3px 0;
-  background-color: rgba(168, 218, 220, 1);
-  background-size: 80px 80px, 80px 80px, 40px 40px, 40px 40px;
-  opacity: 0.3;
-  @apply w-full h-full absolute top-0 left-0;
+.hero-portrait {
+  mix-blend-mode: normal;
+  z-index: 3;
+  opacity: 0.8 !important;
+  @apply bg-cover bg-no-repeat bg-center w-full h-full;
 }
