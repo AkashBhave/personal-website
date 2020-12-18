@@ -1,6 +1,6 @@
 export default {
-  title: "Project Link",
-  name: "project-link",
+  name: "iconLink",
+  title: "Icon Link",
   type: "object",
   fields: [
     {

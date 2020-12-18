@@ -38,6 +38,14 @@
     {
       "implements": "part:@sanity/form-builder/input/image/asset-sources",
       "path": "./parts/media.js"
+    },
+    {
+      "name": "part:@sanity/base/new-document-structure",
+      "path": "./parts/new-document.js"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "./parts/action-resolver.js"
     }
   ]
 }

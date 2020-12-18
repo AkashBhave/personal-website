@@ -1,7 +1,10 @@
+import { FiTool } from "@react-icons/all-files/fi/FiTool";
+
 export default {
   name: "project",
   title: "Project",
   type: "document",
+  icon: FiTool,
   fields: [
     {
       name: "title",
@@ -34,7 +37,7 @@ export default {
       name: "links",
       title: "Links",
       type: "array",
-      of: [{ type: "project-link" }],
+      of: [{ type: "iconLink" }],
     },
     {
       name: "keywords",

@@ -21,4 +21,8 @@
     serif;
   --font-family-base: var(--font-family-sans-serif);
   --line-height-base: calc(24 / 16); /* 20px */
+
+  --brand-primary: #1d3557;
+  --brand-secondary: #a8dadc;
+  --white: #fdfffd;
 }

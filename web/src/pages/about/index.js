@@ -20,7 +20,7 @@ const AboutPage = ({ data }) => (
           <div className="md:w-full w-2/3">
             <Image
               className="shadow border-standard"
-              fluid={data.page.mainImage.asset.fluid}
+              fluid={data.page.portrait.asset.fluid}
               alt="Image of Me"
             />
           </div>
@@ -29,7 +29,7 @@ const AboutPage = ({ data }) => (
           <BlockContent
             blocks={data.page._rawDescription || []}
             serializers={{
-              types: { codeBlock: BlockContentCode },
+              types: { codeBlock: BlockContentCode }
             }}
             projectId={process.env.GATSBY_SANITY_ID}
             dataset={process.env.GATSBY_SANITY_DATASET}
@@ -42,8 +42,8 @@ const AboutPage = ({ data }) => (
 
 export const query = graphql`
   query AboutPageQuery {
-    page: sanityPageAbout {
-      mainImage {
+    page: sanityAbout {
+      portrait {
         asset {
           fluid(maxHeight: 500, maxWidth: 500) {
             ...GatsbySanityImageFluid

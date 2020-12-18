@@ -17,7 +17,11 @@ const Post = ({ data: { post } }) => {
           <BackButton to="/blog" title="Blog" />
           <div className="flex flex-1 flex-col py-12 px-8 justify-center h-full">
             <div className="w-auto mx-auto text-xl">
-              <PostTypeBadge showProject={true} {...post.postType} />
+              <PostTypeBadge
+                showProject={true}
+                type={post.type}
+                project={post.project}
+              />
             </div>
             <h1 className="md:text-5xl text-4xl font-serif font-bold -mb-2 mt-6">
               {post.title}
@@ -75,13 +79,11 @@ export const query = graphql`
       slug {
         current
       }
-      postType {
-        type
-        project {
-          title
-          slug {
-            current
-          }
+      type
+      project {
+        title
+        slug {
+          current
         }
       }
       _rawBody

@@ -40,7 +40,11 @@ const Card = ({ item, isProject, showProject }) => {
             </span>
           </h3>
           {!isProject ? (
-            <PostTypeBadge showProject={showProject} {...item.postType} />
+            <PostTypeBadge
+              showProject={showProject}
+              type={item.type}
+              project={item.project}
+            />
           ) : null}
         </div>
       </Link>

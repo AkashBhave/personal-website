@@ -2,21 +2,18 @@
 import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
-// Block schemas
-import blockContent from "./schemas/blockContent";
-import captionedImage from "./schemas/captionedImage";
-import codeBlock from "./schemas/codeBlock";
+// Modular schemas
+import blockContent from "./schemas/modular/block-content";
+import captionedImage from "./schemas/modular/captioned-image";
+import codeBlock from "./schemas/modular/code-block";
+import iconLink from "./schemas/modular/icon-link";
+import skill from "./schemas/modular/skill";
 // Collection schemas
 import post from "./schemas/collections/post";
-import postType from "./schemas/collections/post-type";
 import project from "./schemas/collections/project";
-import projectLink from "./schemas/collections/project-link";
 // Page schemas
-import pageHome from "./schemas/pages/home";
-import pageHomeSkill from "./schemas/pages/home-skill";
-import pageHomeSkillSet from "./schemas/pages/home-skill-set";
-import pageAbout from "./schemas/pages/about";
-import pageAboutGPG from "./schemas/pages/about-gpg";
+import home from "./schemas/singletons/home";
+import about from "./schemas/singletons/about";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,18 +24,15 @@ export default createSchema({
   types: schemaTypes.concat([
     // Collection schemas
     post,
-    postType,
     project,
-    projectLink,
     // Poge schemas
-    pageHome,
-    pageHomeSkill,
-    pageHomeSkillSet,
-    pageAbout,
-    pageAboutGPG,
-    // Block schemas
+    home,
+    about,
+    // Modular schemas
     blockContent,
     captionedImage,
     codeBlock,
+    iconLink,
+    skill,
   ]),
 });

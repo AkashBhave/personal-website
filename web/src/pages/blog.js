@@ -31,13 +31,11 @@ export const queryFragment = graphql`
       slug {
         current
       }
-      postType {
-        type
-        project {
-          title
-          slug {
-            current
-          }
+      type
+      project {
+        title
+        slug {
+          current
         }
       }
       keywords

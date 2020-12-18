@@ -13,6 +13,7 @@
     "sanity"
   ],
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "@sanity/base": "^2.1.3",
     "@sanity/code-input": "^2.1.0",
     "@sanity/components": "^2.1.0",
@@ -27,7 +28,6 @@
     "sanity-plugin-dashboard-widget-document-list": "^0.0.8",
     "sanity-plugin-media": "^0.4.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git@github.com:AkashBhave/personal-website"

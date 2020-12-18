@@ -1,7 +1,10 @@
+import { HiOutlineDocument } from "@react-icons/all-files/hi/HiOutlineDocument";
+
 export default {
   name: "post",
   title: "Post",
   type: "document",
+  icon: HiOutlineDocument,
   fields: [
     {
       name: "title",
@@ -33,10 +36,23 @@ export default {
       of: [{ type: "string" }],
     },
     {
-      title: "Post Type",
-      name: "postType",
-      type: "post-type",
-      validation: (Rule) => Rule.required(),
+      title: "Type",
+      name: "type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Project", value: "project" },
+          { title: "Thought", value: "thought" },
+          { title: "Tutorial", value: "tutorial" },
+        ],
+        layout: "radio",
+      },
+    },
+    {
+      title: "Project",
+      name: "project",
+      type: "reference",
+      to: [{ type: "project" }],
     },
     {
       name: "publishedAt",

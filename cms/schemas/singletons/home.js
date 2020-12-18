@@ -1,7 +1,10 @@
+import { FiHome } from "@react-icons/all-files/fi/FiHome";
+
 export default {
-  name: "page-home",
-  title: "Page (Home)",
+  name: "home",
+  title: "Home",
   type: "document",
+  icon: FiHome,
   fields: [
     {
       name: "phrases",
@@ -18,19 +21,10 @@ export default {
       },
     },
     {
-      name: "skillSets",
-      title: "Skill Sets",
+      name: "skills",
+      title: "Skills",
       type: "array",
-      of: [{ type: "page-home-skill-set" }],
+      of: [{ type: "skill" }],
     },
   ],
-  preview: {
-    select: {},
-    prepare() {
-      return {
-        title: "Page (Home)",
-        subtitle: "Page",
-      };
-    },
-  },
 };

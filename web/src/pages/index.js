@@ -44,25 +44,27 @@ const IndexPage = ({ data }) => (
       <div className="container mx-auto">
         <h2 className="uppercase text-4xl mb-8">Skills</h2>
         <div className="flex flex-wrap">
-          {data.page.skillSets.map(skillSet => (
+          {["Languages", "Platforms"].map(skillType => (
             <div className="w-full md:w-1/2 mb-4">
-              <h3 className="text-xl font-serif mb-4">{skillSet.title}</h3>
+              <h3 className="text-xl font-serif mb-4">{skillType}</h3>
               <div>
-                {skillSet.skills.map(skill => (
-                  <div className="relative text-lg mb-4 md:mr-16 bg-light h-12 border-2 border-blue-tertiary rounded">
-                    <div
-                      className="flex items-center top-0 left-0 bg-blue-primary opacity-100 h-full border-r border-blue-tertiary"
-                      style={{
-                        width: `${skill.rating * 10}%`
-                      }}
-                    >
-                      <h4 className="ml-4 text-blue-tertiary absolute">
-                        <span className="font-bold">{skill.title}</span>
-                        <span className="opacity-50"> | {skill.rating}</span>
-                      </h4>
+                {data.page.skills
+                  .filter(s => s.type == skillType)
+                  .map(skill => (
+                    <div className="relative text-lg mb-4 md:mr-16 bg-light h-12 border-2 border-blue-tertiary rounded">
+                      <div
+                        className="flex items-center top-0 left-0 bg-blue-primary opacity-100 h-full border-r border-blue-tertiary"
+                        style={{
+                          width: `${skill.rating * 10}%`
+                        }}
+                      >
+                        <h4 className="ml-4 text-blue-tertiary absolute">
+                          <span className="font-bold">{skill.title}</span>
+                          <span className="opacity-50"> | {skill.rating}</span>
+                        </h4>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           ))}
@@ -82,7 +84,7 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
   query IndexPageQuery {
-    page: sanityPageHome {
+    page: sanityHome {
       portrait {
         asset {
           fluid {
@@ -91,12 +93,10 @@ export const query = graphql`
         }
       }
       phrases
-      skillSets {
+      skills {
         title
-        skills {
-          title
-          rating
-        }
+        rating
+        type
       }
     }
     posts: allSanityPost(limit: 3, sort: { fields: publishedAt, order: DESC }) {

@@ -1,11 +1,16 @@
 export default {
+  name: "skill",
   title: "Skill",
-  name: "page-home-skill",
   type: "object",
   fields: [
     {
       name: "title",
       title: "Title",
+      type: "string",
+    },
+    {
+      name: "type",
+      title: "Type",
       type: "string",
     },
     {

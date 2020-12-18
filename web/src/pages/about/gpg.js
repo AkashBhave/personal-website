@@ -17,7 +17,7 @@ const AboutGPGPage = ({ data }) => (
         <h2 class="text-4xl">Key ID</h2>
         <BlockContentCode
           node={{
-            code: { code: data.page.gpg.id },
+            code: { code: data.page.gpgId },
             language: "plaintext"
           }}
         />
@@ -26,7 +26,7 @@ const AboutGPGPage = ({ data }) => (
         <h2 class="text-4xl">Fingerprint</h2>
         <BlockContentCode
           node={{
-            code: { code: data.page.gpg.fingerprint },
+            code: { code: data.page.gpgFingerprint },
             language: "plaintext"
           }}
         />
@@ -35,7 +35,7 @@ const AboutGPGPage = ({ data }) => (
         <h2 class="text-4xl">Public Key</h2>
         <BlockContentCode
           node={{
-            code: { code: data.page.gpg.publicKey },
+            code: { code: data.page.gpgPublicKey },
             language: "plaintext"
           }}
         />
@@ -46,8 +46,10 @@ const AboutGPGPage = ({ data }) => (
 
 export const query = graphql`
   query AboutGPGPageQuery {
-    page: sanityPageAbout {
-      gpg: _rawGpg
+    page: sanityAbout {
+      gpgId
+      gpgFingerprint
+      gpgPublicKey
     }
   }
 `;
