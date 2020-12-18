@@ -3,11 +3,11 @@
 }
 
 .card-body {
-  @apply p-8 flex flex-col content-start;
+  @apply p-6 flex flex-col content-start;
 }
 
 .card-title {
-  @apply font-serif font-bold text-3xl -mb-2 break-words;
+  @apply font-serif font-bold text-2xl -mb-2 break-words;
 }
 
 .card-date {
@@ -18,7 +18,7 @@
 }
 
 .card-grid {
-  @apply flex flex-row flex-wrap justify-start -mx-4;
+  @apply flex flex-row flex-wrap justify-start;
 }
 
 .card-grid-card {

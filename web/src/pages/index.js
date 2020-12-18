@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => (
     </section>
     <section className="px-8 py-12 bg-blue-secondary text-light">
       <div className="container mx-auto">
-        <h2 className="uppercase text-4xl mb-8">Skills</h2>
+        <h2 className="uppercase font-bold text-4xl mb-8">Skills</h2>
         <div className="flex flex-wrap">
           {["Languages", "Platforms"].map(skillType => (
             <div className="w-full md:w-1/2 mb-4">
@@ -72,7 +72,7 @@ const IndexPage = ({ data }) => (
       </div>
     </section>
     <section className="px-8 py-12 container mx-auto">
-      <h2 className="uppercase text-4xl mb-8">Recent Posts</h2>
+      <h2 className="uppercase font-bold text-4xl mb-8">Recent Posts</h2>
       <CardGrid
         isProject={false}
         showProject={false}

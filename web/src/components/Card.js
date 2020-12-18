@@ -15,7 +15,7 @@ const Card = ({ item, isProject, showProject }) => {
               <Image
                 className={`w-full bg-gray-300 ${styles.cardImage}`}
                 fluid={item.mainImage.asset.fluid}
-                style={{ height: isProject ? "400px" : "300px" }}
+                style={{ height: isProject ? "300px" : "350px" }}
               />
             </div>
           ) : (
