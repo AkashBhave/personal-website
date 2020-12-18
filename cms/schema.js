@@ -18,9 +18,6 @@ import pageHomeSkillSet from "./schemas/pages/home-skill-set";
 import pageAbout from "./schemas/pages/about";
 import pageAboutGPG from "./schemas/pages/about-gpg";
 
-// Plugins
-import latex from "part:@sanity/form-builder/input/latex/schema";
-
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -43,7 +40,5 @@ export default createSchema({
     blockContent,
     captionedImage,
     codeBlock,
-    // Plugins
-    latex,
   ]),
 });

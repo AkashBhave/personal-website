@@ -6,11 +6,5 @@ export default {
     {
       name: "project-users",
     },
-    {
-      name: "document-list",
-      options: {
-        title: "Recent documents",
-      },
-    },
   ],
 };
