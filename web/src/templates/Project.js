@@ -14,7 +14,8 @@ const Project = ({ data: { project } }) => {
       seo={
         <SEO
           title={`${project.title} | Projects`}
-          keywords={[`projects`, `portfolio`]}
+          keywords={project.keywords || [`projects`, `portfolio`]}
+          image={project.mainImage.asset.url}
         />
       }
       info={
@@ -93,6 +94,7 @@ export const query = graphql`
           fluid(maxWidth: 1920) {
             ...GatsbySanityImageFluid
           }
+          url
         }
       }
     }

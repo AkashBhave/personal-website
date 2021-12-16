@@ -4,8 +4,8 @@ require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: `Akash Bhave`,
-    description: `Personal website of Akash Bhave`,
-    author: `Akash Bhave`,
+    description: `The personal website of Akash Bhave.`,
+    author: `Akash Bhave`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,8 +18,8 @@ module.exports = {
         background_color: `rgba(252, 255, 250, 1)`,
         theme_color: `rgba(168, 218, 220, 1)`,
         display: `minimal-ui`,
-        icon: `src/images/logo.svg`,
-      },
+        icon: `src/images/logo.svg`
+      }
     },
     `gatsby-plugin-postcss`,
     {
@@ -27,11 +27,11 @@ module.exports = {
       options: {
         projectId: process.env.GATSBY_SANITY_ID,
         dataset: process.env.GATSBY_SANITY_DATASET,
-        token: process.env.SANITY_TOKEN,
-      },
+        token: process.env.SANITY_TOKEN
+      }
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-offline`,
-  ],
+    `gatsby-plugin-offline`
+  ]
 };

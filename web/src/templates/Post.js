@@ -11,7 +11,13 @@ import BackButton from "~components/BackButton";
 const Post = ({ data: { post } }) => {
   return (
     <Layout
-      seo={<SEO title={`${post.title} | Blog`} keywords={[`blog`, `post`]} />}
+      seo={
+        <SEO
+          title={`${post.title} | Blog`}
+          keywords={post.keywords || [`blog`, `post`]}
+          image={post.mainImage.asset.url}
+        />
+      }
       info={
         <>
           <BackButton to="/blog" title="Blog" />
@@ -93,6 +99,7 @@ export const query = graphql`
           fluid(maxWidth: 1920) {
             ...GatsbySanityImageFluid
           }
+          url
         }
       }
     }
