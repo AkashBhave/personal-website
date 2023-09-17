@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 
-import BlockContent from "@sanity/block-content-to-react";
-import BlockContentCode from "~components/BlockContentCode";
+import BlockContent from "~components/BlockContent";
 import SEO from "~utils/seo";
 import Layout from "~layouts/informational";
 import PostTypeBadge from "~components/PostTypeBadge";
@@ -29,7 +28,7 @@ const Post = ({ data: { post } }) => {
                 project={post.project}
               />
             </div>
-            <h1 className="md:text-5xl text-4xl font-serif font-bold -mb-2 mt-6">
+            <h1 className="md:text-4xl text-3xl font-serif font-bold -mb-2 mt-6">
               {post.title}
             </h1>
             <h3 className="text-xl mt-4">
@@ -48,13 +47,13 @@ const Post = ({ data: { post } }) => {
                       weekday: "long",
                       year: "numeric",
                       month: "long",
-                      day: "numeric",
-                    },
+                      day: "numeric"
+                    }
                   )}
               </span>
             </h3>
             <div className="mt-6">
-              {post.keywords.map((keyword) => (
+              {post.keywords.map(keyword => (
                 <span
                   className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded"
                   key={keyword}
@@ -68,14 +67,7 @@ const Post = ({ data: { post } }) => {
       }
       mainImage={post.mainImage}
     >
-      <BlockContent
-        blocks={post._rawBody || []}
-        serializers={{
-          types: { codeBlock: BlockContentCode },
-        }}
-        projectId={process.env.GATSBY_SANITY_ID}
-        dataset={process.env.GATSBY_SANITY_DATASET}
-      />
+      <BlockContent body={post._rawBody} />
     </Layout>
   );
 };

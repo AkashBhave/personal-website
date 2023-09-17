@@ -1,6 +1,6 @@
 export default {
   name: "captionedImage",
-  title: "Captioned Image",
+  title: "Captioned image",
   type: "object",
   fields: [
     {

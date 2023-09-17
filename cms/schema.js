@@ -8,6 +8,7 @@ import captionedImage from "./schemas/modular/captioned-image";
 import codeBlock from "./schemas/modular/code-block";
 import iconLink from "./schemas/modular/icon-link";
 import skill from "./schemas/modular/skill";
+import embed from "./schemas/modular/embed";
 // Collection schemas
 import post from "./schemas/collections/post";
 import project from "./schemas/collections/project";
@@ -34,5 +35,6 @@ export default createSchema({
     codeBlock,
     iconLink,
     skill,
+    embed,
   ]),
 });

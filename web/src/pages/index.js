@@ -3,8 +3,7 @@ import { graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import Image from "gatsby-image";
 
-import BlockContent from "@sanity/block-content-to-react";
-import BlockContentCode from "~components/BlockContentCode";
+import BlockContent from "~components/BlockContent";
 
 import Typewriter from "typewriter-effect";
 import Layout from "~layouts/default";
@@ -28,10 +27,10 @@ const IndexPage = ({ data }) => (
             <Typewriter
               options={{
                 // Append period to each phrase
-                strings: data.page.phrases.map((phrase) => phrase + "."),
+                strings: data.page.phrases.map(phrase => phrase + "."),
                 autoStart: true,
                 loop: true,
-                delay: "natural",
+                delay: "natural"
               }}
             />
           </div>
@@ -56,14 +55,7 @@ const IndexPage = ({ data }) => (
           </div>
         </div>
         <div className="style-normal md:w-2/3 w-full flex md:justify-start md:ml-8 md:-mr-8">
-          <BlockContent
-            blocks={data.about._rawDescription || []}
-            serializers={{
-              types: { codeBlock: BlockContentCode },
-            }}
-            projectId={process.env.GATSBY_SANITY_ID}
-            dataset={process.env.GATSBY_SANITY_DATASET}
-          />
+          <BlockContent body={data.about._rawDescription} />
         </div>
       </div>
     </section>

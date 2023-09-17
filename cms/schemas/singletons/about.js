@@ -43,7 +43,7 @@ export default {
     },
     {
       name: "gpgPublicKey",
-      title: "Public Key",
+      title: "Public key",
       type: "text",
       fieldset: "gpg",
     },

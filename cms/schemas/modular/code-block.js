@@ -1,6 +1,6 @@
 export default {
   name: "codeBlock",
-  title: "Code Block",
+  title: "Code block",
   type: "object",
   fields: [
     {

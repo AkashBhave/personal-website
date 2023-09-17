@@ -23,7 +23,7 @@ export default {
     },
     {
       name: "mainImage",
-      title: "Main Image",
+      title: "Main image",
       type: "image",
       options: {
         hotspot: true,
@@ -56,7 +56,7 @@ export default {
     },
     {
       name: "publishedAt",
-      title: "Published At",
+      title: "Published at",
       type: "datetime",
     },
     {

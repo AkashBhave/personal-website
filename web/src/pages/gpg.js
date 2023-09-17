@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "~layouts/default";
 import SEO from "~utils/seo";
 import PageTitle from "~components/PageTitle";
-import BlockContentCode from "~components/BlockContentCode";
+import { BlockContentCode } from "~components/BlockContent";
 
 const GPGPage = ({ data }) => (
   <Layout>
@@ -18,7 +18,7 @@ const GPGPage = ({ data }) => (
         <BlockContentCode
           node={{
             code: { code: data.page.gpgId },
-            language: "plaintext",
+            language: "plaintext"
           }}
         />
       </div>
@@ -27,7 +27,7 @@ const GPGPage = ({ data }) => (
         <BlockContentCode
           node={{
             code: { code: data.page.gpgFingerprint },
-            language: "plaintext",
+            language: "plaintext"
           }}
         />
       </div>
@@ -36,7 +36,7 @@ const GPGPage = ({ data }) => (
         <BlockContentCode
           node={{
             code: { code: data.page.gpgPublicKey },
-            language: "plaintext",
+            language: "plaintext"
           }}
         />
       </div>

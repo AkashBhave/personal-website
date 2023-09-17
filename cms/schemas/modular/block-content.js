@@ -11,7 +11,7 @@
 
 export default {
   name: "blockContent",
-  title: "Block Content",
+  title: "Block content",
   type: "array",
   of: [
     {
@@ -40,5 +40,6 @@ export default {
     },
     { type: "captionedImage" },
     { type: "codeBlock" },
+    { type: "embed" },
   ],
 };
