@@ -5,7 +5,7 @@ import styles from "./Card.module.css";
 
 const CardGrid = ({ items, isProject, showProject }) => (
   <div className={styles.cardGrid}>
-    {items.map(item => (
+    {items.map((item) => (
       <div
         className={`${isProject ? "lg:w-1/2" : "lg:w-1/3"} md:w-1/2 w-full ${
           styles.cardGridCard

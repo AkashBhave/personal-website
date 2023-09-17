@@ -34,8 +34,8 @@ const Card = ({ item, isProject, showProject }) => {
                 {
                   year: "numeric",
                   month: "long",
-                  day: "numeric"
-                }
+                  day: "numeric",
+                },
               )}
             </span>
           </h3>

@@ -48,13 +48,13 @@ const Post = ({ data: { post } }) => {
                       weekday: "long",
                       year: "numeric",
                       month: "long",
-                      day: "numeric"
-                    }
+                      day: "numeric",
+                    },
                   )}
               </span>
             </h3>
             <div className="mt-6">
-              {post.keywords.map(keyword => (
+              {post.keywords.map((keyword) => (
                 <span className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded">
                   {keyword}
                 </span>
@@ -68,7 +68,7 @@ const Post = ({ data: { post } }) => {
       <BlockContent
         blocks={post._rawBody || []}
         serializers={{
-          types: { codeBlock: BlockContentCode }
+          types: { codeBlock: BlockContentCode },
         }}
         projectId={process.env.GATSBY_SANITY_ID}
         dataset={process.env.GATSBY_SANITY_DATASET}

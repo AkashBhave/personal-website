@@ -29,7 +29,7 @@ const AboutPage = ({ data }) => (
           <BlockContent
             blocks={data.page._rawDescription || []}
             serializers={{
-              types: { codeBlock: BlockContentCode }
+              types: { codeBlock: BlockContentCode },
             }}
             projectId={process.env.GATSBY_SANITY_ID}
             dataset={process.env.GATSBY_SANITY_DATASET}

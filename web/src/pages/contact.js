@@ -45,7 +45,7 @@ const ContactPage = () => {
             email: formFields["email"],
             message: formEditor,
           },
-          { headers: { Accept: "application/json" } }
+          { headers: { Accept: "application/json" } },
         )
         .then((response) => {
           if (response.data.success) {
@@ -67,7 +67,8 @@ const ContactPage = () => {
     if (!formFields["last-name"]) errors.push("Please enter a last name");
     if (!formFields["subject"]) errors.push("Please enter a subject");
     // regex adapted form https://vuejs.org/v2/cookbook/form-validation.html#Using-Custom-Validation
-    var emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var emailRe =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailRe.test(formFields["email"]))
       errors.push("Please enter a valid email address");
     if (!formEditor) errors.push("Please enter a message");

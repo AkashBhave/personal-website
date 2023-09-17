@@ -15,7 +15,7 @@ const BlockContentCode = ({ node }) => (
 
 BlockContentCode.propTypes = {
   code: PropTypes.object,
-  language: PropTypes.string
+  language: PropTypes.string,
 };
 
 export default BlockContentCode;

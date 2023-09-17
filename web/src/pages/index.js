@@ -24,10 +24,10 @@ const IndexPage = ({ data }) => (
             <Typewriter
               options={{
                 // Append period to each phrase
-                strings: data.page.phrases.map(phrase => phrase + "."),
+                strings: data.page.phrases.map((phrase) => phrase + "."),
                 autoStart: true,
                 loop: true,
-                delay: "natural"
+                delay: "natural",
               }}
             />
           </div>
@@ -44,18 +44,18 @@ const IndexPage = ({ data }) => (
       <div className="container mx-auto">
         <h2 className="uppercase font-bold text-4xl mb-8">Skills</h2>
         <div className="flex flex-wrap">
-          {["Languages", "Platforms"].map(skillType => (
+          {["Languages", "Platforms"].map((skillType) => (
             <div className="w-full md:w-1/2 mb-4">
               <h3 className="text-xl font-serif mb-4">{skillType}</h3>
               <div>
                 {data.page.skills
-                  .filter(s => s.type == skillType)
-                  .map(skill => (
+                  .filter((s) => s.type == skillType)
+                  .map((skill) => (
                     <div className="relative text-lg mb-4 md:mr-16 bg-light h-12 border-2 border-blue-tertiary rounded">
                       <div
                         className="flex items-center top-0 left-0 bg-blue-primary opacity-100 h-full border-r border-blue-tertiary"
                         style={{
-                          width: `${skill.rating * 10}%`
+                          width: `${skill.rating * 10}%`,
                         }}
                       >
                         <h4 className="ml-4 text-blue-tertiary absolute">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageTitle = props => (
+const PageTitle = (props) => (
   <div
     className="w-full bg-blue-secondary text-light px-8 py-12 text-center shadow"
     id="title"

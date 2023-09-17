@@ -18,7 +18,7 @@ const AboutGPGPage = ({ data }) => (
         <BlockContentCode
           node={{
             code: { code: data.page.gpgId },
-            language: "plaintext"
+            language: "plaintext",
           }}
         />
       </div>
@@ -27,7 +27,7 @@ const AboutGPGPage = ({ data }) => (
         <BlockContentCode
           node={{
             code: { code: data.page.gpgFingerprint },
-            language: "plaintext"
+            language: "plaintext",
           }}
         />
       </div>
@@ -36,7 +36,7 @@ const AboutGPGPage = ({ data }) => (
         <BlockContentCode
           node={{
             code: { code: data.page.gpgPublicKey },
-            language: "plaintext"
+            language: "plaintext",
           }}
         />
       </div>

@@ -16,7 +16,7 @@ export default () =>
       S.listItem()
         .title("About")
         .child(
-          S.editor().title("About").schemaType("about").documentId("about")
+          S.editor().title("About").schemaType("about").documentId("about"),
         )
         .icon(FiUser),
       S.divider(),
@@ -25,7 +25,7 @@ export default () =>
         .child(
           S.documentTypeList("post").defaultOrdering([
             { field: "_createdAt", direction: "desc" },
-          ])
+          ]),
         )
         .icon(HiOutlineDocument),
       S.listItem()
@@ -33,7 +33,7 @@ export default () =>
         .child(
           S.documentTypeList("project").defaultOrdering([
             { field: "_createdAt", direction: "desc" },
-          ])
+          ]),
         )
         .icon(FiTool),
     ]);
