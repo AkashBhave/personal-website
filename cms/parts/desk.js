@@ -28,12 +28,4 @@ export default () =>
           ]),
         )
         .icon(HiOutlineDocument),
-      S.listItem()
-        .title("Project")
-        .child(
-          S.documentTypeList("project").defaultOrdering([
-            { field: "_createdAt", direction: "desc" },
-          ]),
-        )
-        .icon(FiTool),
     ]);

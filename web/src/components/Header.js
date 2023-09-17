@@ -27,18 +27,12 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/projects">Projects</Link>
-          </li>
-          <li>
             <Link to="/blog">Blog</Link>
           </li>
           <li className="only-desktop">
             <Link to="/">
               <img className="h-10 mx-1" src={Logo} alt="Logo" />
             </Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
           </li>
           <li>
             <Link to="/contact">Contact</Link>

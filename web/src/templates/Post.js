@@ -55,7 +55,10 @@ const Post = ({ data: { post } }) => {
             </h3>
             <div className="mt-6">
               {post.keywords.map((keyword) => (
-                <span className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded">
+                <span
+                  className="inline-block mb-2 mx-2 p-2 font-light text-light bg-blue-secondary rounded"
+                  key={keyword}
+                >
                   {keyword}
                 </span>
               ))}
@@ -86,12 +89,6 @@ export const query = graphql`
         current
       }
       type
-      project {
-        title
-        slug {
-          current
-        }
-      }
       _rawBody
       keywords
       mainImage {

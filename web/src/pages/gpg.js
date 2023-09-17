@@ -6,7 +6,7 @@ import SEO from "~utils/seo";
 import PageTitle from "~components/PageTitle";
 import BlockContentCode from "~components/BlockContentCode";
 
-const AboutGPGPage = ({ data }) => (
+const GPGPage = ({ data }) => (
   <Layout>
     <SEO title="GPG" keywords={[`about`, `gpg`, `gpg info`, `public key`]} />
 
@@ -45,7 +45,7 @@ const AboutGPGPage = ({ data }) => (
 );
 
 export const query = graphql`
-  query AboutGPGPageQuery {
+  query GPGPageQuery {
     page: sanityAbout {
       gpgId
       gpgFingerprint
@@ -54,4 +54,4 @@ export const query = graphql`
   }
 `;
 
-export default AboutGPGPage;
+export default GPGPage;

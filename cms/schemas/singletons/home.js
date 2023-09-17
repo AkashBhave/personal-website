@@ -20,11 +20,5 @@ export default {
         hotspot: true,
       },
     },
-    {
-      name: "skills",
-      title: "Skills",
-      type: "array",
-      of: [{ type: "skill" }],
-    },
   ],
 };

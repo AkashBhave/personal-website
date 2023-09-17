@@ -1,6 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import Image from "gatsby-image";
+
+import BlockContent from "@sanity/block-content-to-react";
+import BlockContentCode from "~components/BlockContentCode";
 
 import Typewriter from "typewriter-effect";
 import Layout from "~layouts/default";
@@ -16,11 +20,11 @@ const IndexPage = ({ data }) => (
       <div className={styles.hero}>
         <div className={styles.heroText}>
           <p className={styles.heroTextHello}>Hello.</p>
-          <p className="md:text-5xl text-4xl mb-2">
+          <p className="md:text-4xl text-3xl mb-2">
             My name is
             <span className="font-bold"> Akash</span>, and I'm a
           </p>
-          <div className="md:text-4xl text-3xl italic">
+          <div className="md:text-3xl text-2xl italic">
             <Typewriter
               options={{
                 // Append period to each phrase
@@ -40,39 +44,31 @@ const IndexPage = ({ data }) => (
         </div>
       </div>
     </section>
-    <section className="px-8 py-12 bg-blue-secondary text-light">
-      <div className="container mx-auto">
-        <h2 className="uppercase font-bold text-4xl mb-8">Skills</h2>
-        <div className="flex flex-wrap">
-          {["Languages", "Platforms"].map((skillType) => (
-            <div className="w-full md:w-1/2 mb-4">
-              <h3 className="text-xl font-serif mb-4">{skillType}</h3>
-              <div>
-                {data.page.skills
-                  .filter((s) => s.type == skillType)
-                  .map((skill) => (
-                    <div className="relative text-lg mb-4 md:mr-16 bg-light h-12 border-2 border-blue-tertiary rounded">
-                      <div
-                        className="flex items-center top-0 left-0 bg-blue-primary opacity-100 h-full border-r border-blue-tertiary"
-                        style={{
-                          width: `${skill.rating * 10}%`,
-                        }}
-                      >
-                        <h4 className="ml-4 text-blue-tertiary absolute">
-                          <span className="font-bold">{skill.title}</span>
-                          <span className="opacity-50"> | {skill.rating}</span>
-                        </h4>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          ))}
+    <section className="px-8 py-12 bg-blue-tertiary text-light">
+      <div className="flex flex-wrap container mx-auto md:w-2/3 w-full">
+        <div className="md:w-1/3 w-full flex md:justify-end justify-center md:mb-0 mb-8">
+          <div className="md:w-full w-2/3">
+            <Image
+              className="shadow border-standard"
+              fluid={data.about.portrait.asset.fluid}
+              alt="Image of Me"
+            />
+          </div>
+        </div>
+        <div className="style-normal md:w-2/3 w-full flex md:justify-start md:ml-8 md:-mr-8">
+          <BlockContent
+            blocks={data.about._rawDescription || []}
+            serializers={{
+              types: { codeBlock: BlockContentCode },
+            }}
+            projectId={process.env.GATSBY_SANITY_ID}
+            dataset={process.env.GATSBY_SANITY_DATASET}
+          />
         </div>
       </div>
     </section>
     <section className="px-8 py-12 container mx-auto">
-      <h2 className="uppercase font-bold text-4xl mb-8">Recent Posts</h2>
+      <h2 className="font-bold text-4xl mb-8">Recent Posts</h2>
       <CardGrid
         isProject={false}
         showProject={false}
@@ -93,11 +89,16 @@ export const query = graphql`
         }
       }
       phrases
-      skills {
-        title
-        rating
-        type
+    }
+    about: sanityAbout {
+      portrait {
+        asset {
+          fluid(maxHeight: 500, maxWidth: 500) {
+            ...GatsbySanityImageFluid
+          }
+        }
       }
+      _rawDescription
     }
     posts: allSanityPost(limit: 3, sort: { fields: publishedAt, order: DESC }) {
       ...Posts

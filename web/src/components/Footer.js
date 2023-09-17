@@ -47,12 +47,6 @@ const Footer = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/projects">Projects</Link>
-              </li>
-              <li>
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
@@ -76,12 +70,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://keybase.io/akashbhave">
-                  <i className="fab fa-keybase fa-fw"></i>
-                  <span>Keybase</span>
-                </a>
-              </li>
-              <li>
                 <a href="https://stackoverflow.com/users/4552814/akashbhave">
                   <i className="fab fa-stack-overflow fa-fw"></i>
                   <span>Stack Overflow</span>
@@ -99,12 +87,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/AkashBhave">
-                  <i className="fab fa-twitter fa-fw"></i>
-                  <span>Twitter</span>
-                </a>
-              </li>
-              <li>
                 <a href="https://www.strava.com/athletes/akashbhave">
                   <i className="fab fa-strava fa-fw"></i>
                   <span>Strava</span>
@@ -113,7 +95,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="text-center mb-2">
+        <div className="text-center mb-2 mt-5">
           <p className="text-lg">
             Made with
             <i className="fab fa-react text-green-200 ml-1"></i>,

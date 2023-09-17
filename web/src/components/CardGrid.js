@@ -10,6 +10,7 @@ const CardGrid = ({ items, isProject, showProject }) => (
         className={`${isProject ? "lg:w-1/2" : "lg:w-1/3"} md:w-1/2 w-full ${
           styles.cardGridCard
         }`}
+        key={item.slug.current}
       >
         <Card isProject={isProject} showProject={showProject} item={item} />
       </div>
